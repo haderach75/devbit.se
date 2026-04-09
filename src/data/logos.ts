@@ -4,7 +4,7 @@ export const companyLogos: Record<string, string> = {
   "Stena Line": "/logos/stena_line.svg",
   "Worldstream Netherlands": "/logos/worldstream.svg",
   "Worldstream": "/logos/worldstream.svg",
-  "Collector Bank": "/logos/collector.svg",
+  "Collector Bank": "/logos/collector_bank.png",
   "Autocom Diagnostic Partner": "/logos/autocom.svg",
   "Autocom": "/logos/autocom.svg",
   "Evolve / Afry": "/logos/afry.svg",
