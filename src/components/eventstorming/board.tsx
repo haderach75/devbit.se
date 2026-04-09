@@ -187,8 +187,7 @@ export function EventStormingBoard() {
         animate={{ opacity: 1, y: 0 }}
         className="absolute top-2 left-1/2 -translate-x-1/2 text-center z-10"
       >
-        <h1 className="text-lg font-bold text-text-primary tracking-wide">From First Click to First Sprint</h1>
-        <p className="text-[10px] text-text-muted mt-0.5 font-mono">// event storming: the customer journey</p>
+        <p className="text-xs text-text-muted font-mono">// event storming: the customer journey</p>
       </motion.div>
 
       {/* Legend */}
