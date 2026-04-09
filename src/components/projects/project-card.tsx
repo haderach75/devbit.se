@@ -1,6 +1,8 @@
 "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/types";
+import { companyLogos } from "@/data/logos";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
@@ -10,7 +12,12 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       <div className="flex items-start justify-between mb-3">
         <div>
           <h3 className="font-semibold text-text-primary">{project.title}</h3>
-          <p className="text-sm text-crimson">{project.client}</p>
+          <div className="flex items-center gap-2 mt-0.5">
+            {companyLogos[project.client] && (
+              <Image src={companyLogos[project.client]} alt={project.client} width={80} height={20} className="h-4 w-auto opacity-60" />
+            )}
+            <p className="text-sm text-crimson">{project.client}</p>
+          </div>
         </div>
         <span className="rounded-md border border-border bg-bg px-2 py-0.5 text-xs text-text-dim">{project.domain}</span>
       </div>
