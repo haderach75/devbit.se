@@ -17,7 +17,7 @@ export function Header() {
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {siteLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={`text-sm transition-colors ${pathname === link.href ? "text-crimson font-medium" : "text-text-muted hover:text-text-body"}`}>
+            <Link key={link.href} href={link.href} className={`text-base transition-colors ${pathname === link.href ? "text-crimson font-medium" : "text-text-muted hover:text-text-body"}`}>
               {link.label}
             </Link>
           ))}

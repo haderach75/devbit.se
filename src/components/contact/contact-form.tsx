@@ -20,15 +20,15 @@ export function ContactForm() {
     window.location.href = `mailto:michael@devbit.se?subject=${subject}&body=${body}`;
   }
 
-  const inputClass = "w-full rounded-lg border border-border bg-bg px-4 py-3 text-sm text-text-body placeholder:text-text-dim focus:border-crimson focus:outline-none transition-colors";
+  const inputClass = "w-full rounded-lg border border-border bg-bg px-4 py-3 text-base text-text-body placeholder:text-text-dim focus:border-crimson focus:outline-none transition-colors";
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-      <div><input {...register("name")} placeholder="Your name" className={inputClass} />{errors.name && <p className="mt-1 text-xs text-crimson">{errors.name.message}</p>}</div>
-      <div><input {...register("email")} placeholder="Email address" className={inputClass} />{errors.email && <p className="mt-1 text-xs text-crimson">{errors.email.message}</p>}</div>
+      <div><input {...register("name")} placeholder="Your name" className={inputClass} />{errors.name && <p className="mt-1 text-sm text-crimson">{errors.name.message}</p>}</div>
+      <div><input {...register("email")} placeholder="Email address" className={inputClass} />{errors.email && <p className="mt-1 text-sm text-crimson">{errors.email.message}</p>}</div>
       <div><input {...register("subject")} placeholder="Subject (optional)" className={inputClass} /></div>
-      <div><textarea {...register("message")} placeholder="Tell me about your project..." rows={5} className={`${inputClass} resize-vertical`} />{errors.message && <p className="mt-1 text-xs text-crimson">{errors.message.message}</p>}</div>
-      <button type="submit" className="rounded-lg bg-crimson px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-crimson-hover">
+      <div><textarea {...register("message")} placeholder="Tell me about your project..." rows={5} className={`${inputClass} resize-vertical`} />{errors.message && <p className="mt-1 text-sm text-crimson">{errors.message.message}</p>}</div>
+      <button type="submit" className="rounded-lg bg-crimson px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-crimson-hover">
         Send Message
       </button>
     </form>
