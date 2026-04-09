@@ -112,12 +112,19 @@ function StickyNoteCard({ note, index }: { note: StickyNote; index: number }) {
   const textSize = note.size === "lg" ? "text-sm font-bold" : "text-[10px] font-semibold";
   const subtextSize = "text-[9px] font-normal opacity-70 mt-1";
 
+  // Stagger: each note drops in from above with a "slap" effect
+  const delay = 0.3 + index * 0.15;
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0, rotate: note.rotation - 10 }}
-      animate={{ opacity: 1, scale: 1, rotate: note.rotation }}
-      transition={{ duration: 0.4, delay: 0.1 + index * 0.06, ease: "backOut" }}
-      whileHover={isClickable ? { scale: 1.1, rotate: 0, zIndex: 50 } : { scale: 1.03 }}
+      initial={{ opacity: 0, y: -60, scale: 0.3, rotate: note.rotation + 15 }}
+      animate={{ opacity: 1, y: 0, scale: 1, rotate: note.rotation }}
+      transition={{
+        duration: 0.5,
+        delay,
+        ease: [0.34, 1.56, 0.64, 1], // overshoot spring
+      }}
+      whileHover={isClickable ? { scale: 1.1, rotate: 0, zIndex: 50, transition: { duration: 0.2 } } : { scale: 1.03 }}
       onClick={() => note.href && router.push(note.href)}
       className={`absolute ${colors.bg} ${colors.text} ${sizeClass} rounded-sm shadow-lg ${colors.shadow}
         flex flex-col justify-center items-center text-center leading-tight
@@ -186,7 +193,7 @@ export function EventStormingBoard() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
+        transition={{ delay: 0.3 + notes.length * 0.15 + 1.5, duration: 0.8 }}
         className="absolute bottom-4 right-4 flex flex-wrap gap-3 text-[10px] text-text-dim font-mono z-10"
       >
         <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-[#FF8C42]" /> Domain Event</span>
@@ -197,15 +204,19 @@ export function EventStormingBoard() {
         <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-[#C9A9E8]" /> External</span>
       </motion.div>
 
-      {/* Dashed flow arrows */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      {/* Dashed flow arrows — fade in after notes land */}
+      <motion.svg
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 + notes.length * 0.15 + 0.5, duration: 1 }}
+        className="absolute inset-0 w-full h-full pointer-events-none z-0">
         {arrows.map((a, i) => {
           const from = noteMap[a.from];
           const to = noteMap[a.to];
           if (!from || !to) return null;
           return <Arrow key={i} fromNote={from} toNote={to} />;
         })}
-      </svg>
+      </motion.svg>
 
       {/* Sticky notes */}
       {notes.map((note, i) => (
