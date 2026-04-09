@@ -24,9 +24,9 @@ export const projects: Project[] = [
   },
   {
     id: "stena-line", title: "Booking System Modernization", client: "Stena Line", domain: "Shipping / Logistics",
-    challenge: "A large monolithic booking system needed to be split up to make it easier to work on and scale.",
-    approach: "Broke the system into smaller services with clear boundaries using C# and ASP.NET Core.",
-    result: "The monolith was split into separate distributed services that teams could work on independently.",
+    challenge: "A large monolithic booking system needed to be broken up to make it easier to work on and scale.",
+    approach: "Defined distributed architecture patterns and service boundaries using C# and ASP.NET Core. Started the migration from monolith to separate services.",
+    result: "Established the architectural foundation and patterns for the ongoing transformation of the booking system.",
     tech: ["C#", "ASP.NET Core", "Distributed Systems"],
   },
   {

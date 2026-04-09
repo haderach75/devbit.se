@@ -34,7 +34,7 @@ export const careerEvents: CareerEvent[] = [
         timestamp: "2023-01",
         endTimestamp: "2023-12",
         source: "Stena Line",
-        payload: { scope: "Helped break up a large booking system into smaller, separate services using C# and ASP.NET Core" },
+        payload: { scope: "Helped establish distributed architecture patterns and started the migration of the booking system from monolith to separate services using C# and ASP.NET Core" },
       },
       {
         id: "worldstream-freelance",
