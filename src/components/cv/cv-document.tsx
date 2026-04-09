@@ -50,15 +50,17 @@ const s = StyleSheet.create({
     flex: 1,
   },
   name: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 700,
     color: c.primary,
-    marginBottom: 2,
+    marginBottom: 4,
+    lineHeight: 1.2,
   },
   title: {
     fontSize: 11,
     color: c.muted,
     marginBottom: 6,
+    lineHeight: 1.2,
   },
   contactRow: {
     flexDirection: "row",
