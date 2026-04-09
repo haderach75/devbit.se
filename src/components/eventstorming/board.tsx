@@ -109,7 +109,7 @@ function StickyNoteCard({ note, index }: { note: StickyNote; index: number }) {
   const isClickable = !!note.href;
   const isAggregate = note.color === "yellow";
   const sizeClass = note.size === "lg" ? "w-36 h-36 p-3" : note.size === "sm" ? "w-24 h-24 p-2" : "w-28 h-28 p-2.5";
-  const textSize = note.size === "lg" ? "text-sm font-bold" : "text-[10px] font-semibold";
+  const textSize = note.size === "lg" ? "text-[13px] font-bold" : "text-[10px] font-semibold";
   const subtextSize = "text-[9px] font-normal opacity-70 mt-1";
 
   // Stagger: each note drops in from above with a "slap" effect
@@ -187,7 +187,7 @@ export function EventStormingBoard() {
         animate={{ opacity: 1, y: 0 }}
         className="absolute top-2 left-1/2 -translate-x-1/2 text-center z-10"
       >
-        <p className="text-xs text-text-muted font-mono">// event storming: the customer journey</p>
+        <p className="text-sm text-text-muted font-mono mb-4">// event storming: the customer journey</p>
       </motion.div>
 
       {/* Legend */}
@@ -195,14 +195,14 @@ export function EventStormingBoard() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 + notes.length * 0.15 + 1.5, duration: 0.8 }}
-        className="absolute bottom-4 right-4 flex flex-wrap gap-3 text-[10px] text-text-dim font-mono z-10"
+        className="absolute bottom-4 right-4 flex flex-wrap gap-3 text-xs text-text-dim font-mono z-10"
       >
-        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-[#FF8C42]" /> Domain Event</span>
-        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-[#5B9BD5]" /> Command</span>
-        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-[#FFD966] border border-white/30" /> Aggregate (page)</span>
-        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-[#FF6B8A]" /> Hot Spot</span>
-        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-[#9B7ED8]" /> Policy</span>
-        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-[#C9A9E8]" /> External</span>
+        <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm bg-[#FF8C42]" /> Domain Event</span>
+        <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm bg-[#5B9BD5]" /> Command</span>
+        <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm bg-[#FFD966] border border-white/30" /> Aggregate (page)</span>
+        <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm bg-[#FF6B8A]" /> Hot Spot</span>
+        <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm bg-[#9B7ED8]" /> Policy</span>
+        <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm bg-[#C9A9E8]" /> External</span>
       </motion.div>
 
       {/* Dashed flow arrows — fade in after notes land */}
