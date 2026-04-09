@@ -1,7 +1,8 @@
 "use client";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { ReactFlow, type Node, type Edge, ConnectionLineType, useNodesState, useEdgesState } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
+import { useRouter } from "next/navigation";
 import { HubNode } from "./hub-node";
 import { SectionNode } from "./section-node";
 import { AnimatedEdge } from "./animated-edge";
@@ -28,14 +29,21 @@ function buildEdges(): Edge[] {
 }
 
 export function SystemDiagram() {
+  const router = useRouter();
   const initialNodes = useMemo(() => buildNodes(), []);
   const initialEdges = useMemo(() => buildEdges(), []);
   const [nodes] = useNodesState(initialNodes);
   const [edges] = useEdgesState(initialEdges);
 
+  const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
+    const href = node.data?.href as string | undefined;
+    if (href) router.push(href);
+  }, [router]);
+
   return (
     <div className="h-screen w-full">
       <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} edgeTypes={edgeTypes}
+        onNodeClick={onNodeClick}
         connectionLineType={ConnectionLineType.SmoothStep} fitView fitViewOptions={{ padding: 0.3 }}
         proOptions={{ hideAttribution: true }}
         panOnDrag={false} zoomOnScroll={false} zoomOnPinch={false} zoomOnDoubleClick={false}
