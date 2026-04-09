@@ -174,7 +174,8 @@ export function EventStormingBoard() {
   const noteMap = Object.fromEntries(notes.map(n => [n.id, n]));
 
   return (
-    <div className="relative w-full h-screen pt-14 overflow-hidden" style={{ background: "#e8e0d4" }}>
+    <div className="w-full h-screen pt-14 overflow-hidden" style={{ background: "#e8e0d4" }}>
+      <div className="relative w-full h-full overflow-hidden">
       {/* Whiteboard texture */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)'/%3E%3C/svg%3E")`,
@@ -184,7 +185,7 @@ export function EventStormingBoard() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="absolute top-4 left-1/2 -translate-x-1/2 text-center z-10"
+        className="absolute top-2 left-1/2 -translate-x-1/2 text-center z-10"
       >
         <p className="text-xs text-text-muted mt-1 font-mono">// event storming: the customer journey</p>
       </motion.div>
@@ -222,6 +223,7 @@ export function EventStormingBoard() {
       {notes.map((note, i) => (
         <StickyNoteCard key={note.id} note={note} index={i} />
       ))}
+      </div>
     </div>
   );
 }
