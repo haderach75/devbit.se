@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -13,10 +14,21 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageContainer>
-      <SectionHeading label="About" title="Michael Hultman" description="System Architect & Senior Developer" />
-      <p className="text-text-muted mb-6 max-w-2xl">
-        With over 20 years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. My expertise lies in the .NET platform, especially C#, with deep experience in DDD, CQRS, and Event Sourcing. I run Devbit Consulting AB from Vänersborg, Sweden.
-      </p>
+      <div className="flex flex-col sm:flex-row gap-6 mb-8">
+        <Image
+          src="/michael.jpg"
+          alt="Michael Hultman"
+          width={160}
+          height={160}
+          className="rounded-xl border border-border object-cover w-40 h-40 shrink-0"
+        />
+        <div>
+          <SectionHeading label="About" title="Michael Hultman" description="System Architect & Senior Developer" />
+          <p className="text-text-muted max-w-2xl">
+            With over 20 years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. My expertise lies in the .NET platform, especially C#, with deep experience in DDD, CQRS, and Event Sourcing. I run Devbit Consulting AB from Vänersborg, Sweden.
+          </p>
+        </div>
+      </div>
       <div className="mb-8">
         <p className="text-xs font-medium uppercase tracking-widest text-amber mb-3">Expertise</p>
         <SkillTags />
