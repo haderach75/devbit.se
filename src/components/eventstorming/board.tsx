@@ -173,15 +173,6 @@ export function EventStormingBoard() {
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)'/%3E%3C/svg%3E")`,
       }} />
 
-      {/* Logo top-left */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="absolute top-2 left-2 z-10"
-      >
-        <Image src="/logo.svg" alt="Devbit Consulting" width={240} height={100} className="h-16 w-auto" />
-      </motion.div>
-
       {/* Title */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

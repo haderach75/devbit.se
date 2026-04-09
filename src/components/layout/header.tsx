@@ -14,9 +14,8 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 group">
-          <Image src="/logo-icon.svg" alt="Devbit" width={28} height={28} className="h-7 w-7" />
-          <span className="text-sm font-semibold text-text-primary tracking-wide">DEVBIT</span>
+        <Link href="/" className="flex items-center group">
+          <Image src="/logo.svg" alt="Devbit Consulting" width={180} height={76} className="h-8 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {siteLinks.map((link) => (
