@@ -1,4 +1,4 @@
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, DM_Serif_Display } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -9,5 +9,12 @@ export const inter = Inter({
 export const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+export const dmSerifDisplay = DM_Serif_Display({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-logo",
   display: "swap",
 });

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, jetbrainsMono } from "@/lib/fonts";
+import { inter, jetbrainsMono, dmSerifDisplay } from "@/lib/fonts";
 import { Header } from "@/components/layout/header";
 import "@/styles/globals.css";
 
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${dmSerifDisplay.variable}`}>
       <head>
         <script
           type="application/ld+json"

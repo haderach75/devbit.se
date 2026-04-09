@@ -16,7 +16,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2.5 group">
           <Image src="/logo-icon.svg" alt="" width={36} height={36} className="h-9 w-9" />
           <div className="flex flex-col leading-none">
-            <span className="text-lg font-bold tracking-widest text-text-primary">DEVBIT</span>
+            <span className="text-xl tracking-[0.12em] text-text-primary" style={{ fontFamily: "var(--font-logo), serif" }}>DEVBIT</span>
             <span className="text-[11px] font-medium tracking-[0.15em] text-crimson">consulting</span>
           </div>
         </Link>
