@@ -7,6 +7,7 @@ import type { CareerEvent } from "@/lib/types";
 export const cvData = {
   name: "Michael Hultman",
   title: "Senior System Architect / Developer",
+  photo: "https://devbit.se/michael.jpg",
   contact: contactInfo,
   linkedin: "https://www.linkedin.com/in/michael-hultman-28545741/",
   skills,

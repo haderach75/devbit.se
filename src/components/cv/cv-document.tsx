@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, Link, StyleSheet, Font } from "@react-pdf/renderer";
+import { Document, Page, Text, View, Link, Image, StyleSheet, Font } from "@react-pdf/renderer";
 import type { CareerEvent } from "@/lib/types";
 
 Font.register({
@@ -10,143 +10,155 @@ Font.register({
   ],
 });
 
-const colors = {
+const c = {
   bg: "#f0eae2",
   surface: "#faf7f3",
   border: "#ddd5cb",
   crimson: "#a31f2e",
   amber: "#c4956a",
-  textPrimary: "#3d3530",
-  textBody: "#4a423b",
-  textMuted: "#8a7e72",
-  textDim: "#a89e92",
+  primary: "#3d3530",
+  body: "#4a423b",
+  muted: "#8a7e72",
+  dim: "#a89e92",
 };
 
-const styles = StyleSheet.create({
+const s = StyleSheet.create({
   page: {
     fontFamily: "Inter",
-    backgroundColor: colors.surface,
-    padding: 40,
-    fontSize: 10,
-    color: colors.textBody,
-    lineHeight: 1.4,
+    backgroundColor: c.surface,
+    paddingVertical: 32,
+    paddingHorizontal: 36,
+    fontSize: 9,
+    color: c.body,
+    lineHeight: 1.5,
   },
+  // Header
   header: {
-    marginBottom: 20,
-    paddingBottom: 16,
+    flexDirection: "row",
+    marginBottom: 14,
+    paddingBottom: 10,
     borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    borderBottomColor: c.border,
+    gap: 14,
+  },
+  photo: {
+    width: 70,
+    height: 70,
+    borderRadius: 6,
+  },
+  headerText: {
+    flex: 1,
   },
   name: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 700,
-    color: colors.textPrimary,
-    marginBottom: 4,
+    color: c.primary,
+    marginBottom: 2,
   },
-  jobTitle: {
-    fontSize: 12,
-    color: colors.textMuted,
-    marginBottom: 8,
+  title: {
+    fontSize: 11,
+    color: c.muted,
+    marginBottom: 6,
   },
   contactRow: {
     flexDirection: "row",
+    alignItems: "center",
     flexWrap: "wrap",
-    gap: 4,
-    fontSize: 9,
-    color: colors.textMuted,
+    fontSize: 8.5,
+    color: c.muted,
+    marginBottom: 2,
   },
-  contactLink: {
-    color: colors.crimson,
+  link: {
+    color: c.crimson,
     textDecoration: "none",
   },
-  contactSep: {
-    color: colors.textDim,
+  sep: {
+    color: c.dim,
+    marginHorizontal: 4,
   },
-  sectionHeading: {
-    fontSize: 9,
+  // Sections
+  section: {
+    marginBottom: 12,
+  },
+  sectionTitle: {
+    fontSize: 8.5,
     fontWeight: 600,
     textTransform: "uppercase",
     letterSpacing: 1.5,
-    color: colors.amber,
-    marginBottom: 8,
-    paddingBottom: 4,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    color: c.amber,
+    marginBottom: 6,
+    paddingBottom: 3,
+    borderBottomWidth: 0.75,
+    borderBottomColor: c.border,
   },
-  section: {
-    marginBottom: 16,
-  },
-  skillsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 4,
-  },
-  skillPill: {
-    backgroundColor: colors.bg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 4,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    fontSize: 8,
-    color: colors.textBody,
-  },
-  experienceEntry: {
-    marginBottom: 10,
-    breakInside: "avoid",
-  },
-  entryHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: 2,
-  },
-  entryTitleGroup: {
+  // Skills
+  pills: {
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 3,
+  },
+  pill: {
+    backgroundColor: c.bg,
+    borderWidth: 0.5,
+    borderColor: c.border,
+    borderRadius: 3,
+    paddingHorizontal: 5,
+    paddingVertical: 1.5,
+    fontSize: 7.5,
+    color: c.body,
+  },
+  // Experience
+  entry: {
+    marginBottom: 8,
+  },
+  entryHead: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 1,
+  },
+  entryTitles: {
+    flexDirection: "row",
+    flexWrap: "wrap",
     flex: 1,
-    marginRight: 8,
+    marginRight: 6,
+    alignItems: "baseline",
   },
-  entryRole: {
+  role: {
     fontWeight: 600,
-    color: colors.textPrimary,
-    fontSize: 10,
+    color: c.primary,
+    fontSize: 9.5,
   },
-  entryAt: {
-    color: colors.textMuted,
-    fontSize: 10,
+  at: {
+    color: c.muted,
+    fontSize: 9.5,
+    marginHorizontal: 3,
   },
-  entryCompany: {
-    color: colors.crimson,
+  company: {
+    color: c.crimson,
     fontWeight: 600,
-    fontSize: 10,
+    fontSize: 9.5,
   },
-  entryDates: {
-    color: colors.textDim,
-    fontSize: 8,
+  dates: {
+    color: c.dim,
+    fontSize: 7.5,
     flexShrink: 0,
+    marginTop: 1,
   },
-  projectList: {
-    marginTop: 4,
-    paddingLeft: 8,
+  bullets: {
+    marginTop: 2,
+    paddingLeft: 6,
   },
-  projectBullet: {
-    color: colors.textMuted,
+  bullet: {
+    color: c.muted,
+    fontSize: 8.5,
+    marginBottom: 1.5,
+    lineHeight: 1.4,
+  },
+  // Languages
+  langText: {
     fontSize: 9,
-    marginBottom: 2,
-  },
-  languagesText: {
-    fontSize: 10,
-    color: colors.textBody,
-  },
-  linkedinRow: {
-    marginTop: 4,
-  },
-  linkedinLink: {
-    color: colors.crimson,
-    fontSize: 9,
-    textDecoration: "none",
+    color: c.body,
   },
 });
 
@@ -154,11 +166,8 @@ interface CvDocumentProps {
   data: {
     name: string;
     title: string;
-    contact: {
-      email: string;
-      phone: string;
-      location: string;
-    };
+    photo: string;
+    contact: { email: string; phone: string; location: string };
     linkedin: string;
     skills: string[];
     languages: { name: string; level: string }[];
@@ -167,42 +176,45 @@ interface CvDocumentProps {
   };
 }
 
-function formatDateRange(timestamp: string, endTimestamp?: string): string {
-  const start = timestamp.replace("-", "/");
-  const end = endTimestamp === "present" ? "Present" : endTimestamp ? endTimestamp.replace("-", "/") : "";
-  return end ? `${start} — ${end}` : start;
+function fmtDates(start: string, end?: string): string {
+  const s = start.replace("-", "/");
+  const e = end === "present" ? "Present" : end ? end.replace("-", "/") : "";
+  return e ? `${s} — ${e}` : s;
 }
 
 export function CvDocument({ data }: CvDocumentProps) {
   return (
     <Document title={`${data.name} — CV`} author={data.name}>
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" style={s.page}>
+
         {/* Header */}
-        <View style={styles.header}>
-          <Text style={styles.name}>{data.name}</Text>
-          <Text style={styles.jobTitle}>{data.title}</Text>
-          <View style={styles.contactRow}>
-            <Link src={`mailto:${data.contact.email}`} style={styles.contactLink}>
-              <Text>{data.contact.email}</Text>
-            </Link>
-            <Text style={styles.contactSep}> · </Text>
-            <Text>{data.contact.phone}</Text>
-            <Text style={styles.contactSep}> · </Text>
-            <Text>{data.contact.location}</Text>
-          </View>
-          <View style={styles.linkedinRow}>
-            <Link src={data.linkedin} style={styles.linkedinLink}>
-              <Text>{data.linkedin}</Text>
-            </Link>
+        <View style={s.header}>
+          <Image style={s.photo} src={data.photo} />
+          <View style={s.headerText}>
+            <Text style={s.name}>{data.name}</Text>
+            <Text style={s.title}>{data.title}</Text>
+            <View style={s.contactRow}>
+              <Link src={`mailto:${data.contact.email}`} style={s.link}>
+                <Text>{data.contact.email}</Text>
+              </Link>
+              <Text style={s.sep}>·</Text>
+              <Text>{data.contact.phone}</Text>
+              <Text style={s.sep}>·</Text>
+              <Text>{data.contact.location}</Text>
+              <Text style={s.sep}>·</Text>
+              <Link src={data.linkedin} style={s.link}>
+                <Text>LinkedIn Profile</Text>
+              </Link>
+            </View>
           </View>
         </View>
 
-        {/* Skills */}
-        <View style={styles.section}>
-          <Text style={styles.sectionHeading}>Expertise</Text>
-          <View style={styles.skillsContainer}>
+        {/* Expertise */}
+        <View style={s.section}>
+          <Text style={s.sectionTitle}>Expertise</Text>
+          <View style={s.pills}>
             {data.skills.map((skill) => (
-              <View key={skill} style={styles.skillPill}>
+              <View key={skill} style={s.pill}>
                 <Text>{skill}</Text>
               </View>
             ))}
@@ -210,25 +222,23 @@ export function CvDocument({ data }: CvDocumentProps) {
         </View>
 
         {/* Experience */}
-        <View style={styles.section}>
-          <Text style={styles.sectionHeading}>Experience</Text>
-          {data.experience.map((event) => (
-            <View key={event.id} style={styles.experienceEntry}>
-              <View style={styles.entryHeader}>
-                <View style={styles.entryTitleGroup}>
-                  <Text style={styles.entryRole}>{event.payload.role}</Text>
-                  <Text style={styles.entryAt}> at </Text>
-                  <Text style={styles.entryCompany}>{event.source}</Text>
+        <View style={s.section}>
+          <Text style={s.sectionTitle}>Experience</Text>
+          {data.experience.map((evt) => (
+            <View key={evt.id} style={s.entry} wrap={false}>
+              <View style={s.entryHead}>
+                <View style={s.entryTitles}>
+                  <Text style={s.role}>{evt.payload.role}</Text>
+                  <Text style={s.at}>at</Text>
+                  <Text style={s.company}>{evt.source}</Text>
                 </View>
-                <Text style={styles.entryDates}>
-                  {formatDateRange(event.timestamp, event.endTimestamp)}
-                </Text>
+                <Text style={s.dates}>{fmtDates(evt.timestamp, evt.endTimestamp)}</Text>
               </View>
-              {event.children && event.children.length > 0 && (
-                <View style={styles.projectList}>
-                  {event.children.map((child) => (
-                    <Text key={child.id} style={styles.projectBullet}>
-                      {"• "}{child.payload.scope}
+              {evt.children && evt.children.length > 0 && (
+                <View style={s.bullets}>
+                  {evt.children.map((child) => (
+                    <Text key={child.id} style={s.bullet}>
+                      • {child.payload.scope}
                     </Text>
                   ))}
                 </View>
@@ -238,31 +248,30 @@ export function CvDocument({ data }: CvDocumentProps) {
         </View>
 
         {/* Education */}
-        <View style={styles.section}>
-          <Text style={styles.sectionHeading}>Education</Text>
-          {data.education.map((event) => (
-            <View key={event.id} style={styles.experienceEntry}>
-              <View style={styles.entryHeader}>
-                <View style={styles.entryTitleGroup}>
-                  <Text style={styles.entryRole}>{event.payload.degree}</Text>
-                  <Text style={styles.entryAt}> at </Text>
-                  <Text style={styles.entryCompany}>{event.source}</Text>
+        <View style={s.section}>
+          <Text style={s.sectionTitle}>Education</Text>
+          {data.education.map((evt) => (
+            <View key={evt.id} style={s.entry}>
+              <View style={s.entryHead}>
+                <View style={s.entryTitles}>
+                  <Text style={s.role}>{evt.payload.degree}</Text>
+                  <Text style={s.at}>at</Text>
+                  <Text style={s.company}>{evt.source}</Text>
                 </View>
-                <Text style={styles.entryDates}>
-                  {formatDateRange(event.timestamp, event.endTimestamp)}
-                </Text>
+                <Text style={s.dates}>{fmtDates(evt.timestamp, evt.endTimestamp)}</Text>
               </View>
             </View>
           ))}
         </View>
 
         {/* Languages */}
-        <View style={styles.section}>
-          <Text style={styles.sectionHeading}>Languages</Text>
-          <Text style={styles.languagesText}>
+        <View style={s.section}>
+          <Text style={s.sectionTitle}>Languages</Text>
+          <Text style={s.langText}>
             {data.languages.map((l, i) => `${l.name} (${l.level})${i < data.languages.length - 1 ? ", " : ""}`).join("")}
           </Text>
         </View>
+
       </Page>
     </Document>
   );
