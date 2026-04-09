@@ -3,7 +3,7 @@ import type { Project } from "@/lib/types";
 export const projects: Project[] = [
   {
     id: "worldstream-deployer", title: "Datacenter Deployer", client: "Worldstream Netherlands", domain: "Infrastructure",
-    challenge: "The datacenter needed a way to deploy switch configurations without doing it manually, which was slow and error-prone.",
+    challenge: "The datacenter was using a licensed third-party product for switch configuration deployment and wanted to replace it with their own software, better tailored to their needs and vendor agnostic.",
     approach: "Built a deployer app in Go running on Kubernetes, with gRPC for the backend and a React frontend for operators.",
     result: "Automated configuration deployment to datacenter switches.",
     tech: ["Go", "Kubernetes", "gRPC", "React"],
