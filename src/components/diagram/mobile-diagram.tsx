@@ -11,7 +11,7 @@ export function MobileDiagram() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-6 py-12">
       <motion.div initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-        className="mb-8 rounded-xl border-2 border-crimson bg-gradient-to-br from-[#1e120f] to-bg px-6 py-4 shadow-[0_0_40px_rgba(163,31,46,0.12)]">
+        className="mb-8 rounded-xl border-2 border-crimson bg-surface px-6 py-4 shadow-[0_0_40px_rgba(163,31,46,0.1)]">
         <Image src="/logo.svg" alt="Devbit Consulting" width={200} height={85} className="h-12 w-auto" priority />
       </motion.div>
       <div className="mb-4 h-8 w-px bg-gradient-to-b from-crimson to-crimson/20" />

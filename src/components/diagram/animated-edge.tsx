@@ -6,7 +6,7 @@ export function AnimatedEdge({ id, sourceX, sourceY, targetX, targetY, sourcePos
 
   return (
     <>
-      <BaseEdge id={id} path={edgePath} style={{ stroke: "#2a2520", strokeWidth: 1.5 }} />
+      <BaseEdge id={id} path={edgePath} style={{ stroke: "#ddd5cb", strokeWidth: 1.5 }} />
       <circle r="3" fill="#a31f2e">
         <animateMotion dur="3s" repeatCount="indefinite" path={edgePath} />
       </circle>
