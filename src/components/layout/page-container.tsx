@@ -14,8 +14,8 @@ export function PageContainer({ children }: PageContainerProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="mx-auto max-w-5xl px-4 pt-24 pb-16">
-      <Link href="/" className="mb-8 inline-flex items-center gap-1.5 text-base font-mono text-crimson hover:text-crimson-hover transition-colors">
+      className="mx-auto max-w-5xl px-4 pt-20 md:pt-24 pb-16 overflow-x-hidden">
+      <Link href="/" className="mb-6 md:mb-8 inline-flex items-center gap-1.5 text-sm md:text-base font-mono text-crimson hover:text-crimson-hover transition-colors">
         <ArrowLeft size={14} />
         back to diagram
       </Link>

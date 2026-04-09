@@ -13,9 +13,9 @@ export function ProjectEvent({ event }: ProjectEventProps) {
     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }}
       className={`relative border-l border-dashed ${borderColor} pl-5 mb-3`}>
       <div className={`absolute -left-[5px] top-1 h-2 w-2 rounded-full border-2 ${dotBg}`} />
-      <p className={`font-mono text-sm font-semibold tracking-wide ${color}`}>{event.type}</p>
-      <p className="font-mono text-sm text-text-dim">{event.source}</p>
-      <p className="font-mono text-sm text-text-muted mt-0.5">
+      <p className={`font-mono text-xs md:text-sm font-semibold tracking-wide ${color}`}>{event.type}</p>
+      <p className="font-mono text-xs md:text-sm text-text-dim">{event.source}</p>
+      <p className="font-mono text-xs md:text-sm text-text-muted mt-0.5 break-words">
         <span className="text-text-dim">scope: </span>
         <span className="text-text-body">&quot;{event.payload.scope}&quot;</span>
       </p>

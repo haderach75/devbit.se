@@ -9,7 +9,7 @@ export function SkillTags() {
       {skills.map((skill, i) => (
         <motion.span key={skill} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
           transition={{ duration: 0.3, delay: i * 0.03 }}
-          className="rounded-md border border-crimson/30 bg-crimson/10 px-2.5 py-1 font-mono text-sm text-amber">
+          className="rounded-md border border-crimson/30 bg-crimson/10 px-2 py-0.5 md:px-2.5 md:py-1 font-mono text-xs md:text-sm text-amber">
           {skill}
         </motion.span>
       ))}

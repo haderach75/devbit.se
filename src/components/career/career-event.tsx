@@ -25,17 +25,17 @@ export function CareerEvent({ event }: CareerEventProps) {
       <div className={`absolute -left-[5px] top-1 h-2 w-2 rounded-full border-2 ${style.dot}`} />
       <div className={hasChildren ? "cursor-pointer" : ""} onClick={() => hasChildren && setExpanded(!expanded)}>
         <div className="flex items-center gap-2">
-          <p className={`font-mono text-sm font-semibold tracking-wide ${style.color}`}>{event.type}</p>
+          <p className={`font-mono text-xs md:text-sm font-semibold tracking-wide ${style.color}`}>{event.type}</p>
           {hasChildren && (
             <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
               <ChevronDown size={12} className="text-text-dim" />
             </motion.div>
           )}
         </div>
-        <p className="font-mono text-sm text-text-dim mt-0.5">
+        <p className="font-mono text-xs md:text-sm text-text-dim mt-0.5 break-words">
           {event.timestamp}{event.endTimestamp && ` → ${event.endTimestamp}`}{" · "}{event.source}
         </p>
-        <div className="font-mono text-sm text-text-muted mt-1 space-y-0.5">
+        <div className="font-mono text-xs md:text-sm text-text-muted mt-1 space-y-0.5 break-words">
           {event.payload.role && <p><span className="text-text-dim">role: </span><span className="text-text-body">&quot;{event.payload.role}&quot;</span></p>}
           {event.payload.domain && <p><span className="text-text-dim">domain: </span><span className="text-text-body">&quot;{event.payload.domain}&quot;</span></p>}
           {event.payload.tech && <p><span className="text-text-dim">tech: </span><span className="text-amber">[{event.payload.tech.map((t) => `"${t}"`).join(", ")}]</span></p>}

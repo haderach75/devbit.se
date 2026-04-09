@@ -15,8 +15,8 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
       <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border border-crimson/25 bg-crimson/10">
         <Icon size={20} className="text-crimson" />
       </div>
-      <h3 className="text-base font-semibold text-text-body mb-1">{service.title}</h3>
-      <p className="text-base leading-relaxed text-text-dim">{service.description}</p>
+      <h3 className="text-sm md:text-base font-semibold text-text-body mb-1">{service.title}</h3>
+      <p className="text-sm md:text-base leading-relaxed text-text-dim">{service.description}</p>
     </motion.div>
   );
 }
