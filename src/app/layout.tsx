@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "@/lib/fonts";
+import { Header } from "@/components/layout/header";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -24,7 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="min-h-screen font-sans antialiased">{children}</body>
+      <body className="min-h-screen font-sans antialiased">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
