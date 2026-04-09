@@ -1,9 +1,17 @@
+import { DotGrid } from "@/components/diagram/dot-grid";
+import { MobileDiagram } from "@/components/diagram/mobile-diagram";
+import { SystemDiagramClient } from "@/components/diagram/diagram-loader";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold text-text-primary">
-        Devbit Consulting
-      </h1>
+    <main className="relative min-h-screen w-full overflow-hidden">
+      <DotGrid />
+      <div className="hidden md:block h-screen">
+        <SystemDiagramClient />
+      </div>
+      <div className="md:hidden">
+        <MobileDiagram />
+      </div>
     </main>
   );
 }
