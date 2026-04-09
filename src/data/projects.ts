@@ -30,10 +30,10 @@ export const projects: Project[] = [
     tech: ["C#", "ASP.NET Core", "Distributed Systems"],
   },
   {
-    id: "worldstream-vxlan", title: "VXLAN Automation", client: "Worldstream Netherlands", domain: "Infrastructure",
-    challenge: "Setting up VXLAN networks at the datacenter was done manually, which took time and led to mistakes.",
+    id: "worldstream-vxlan", title: "VXLAN/EVPN Automation", client: "Worldstream Netherlands", domain: "Infrastructure",
+    challenge: "Setting up VXLAN/EVPN networks at the datacenter was done manually, which took time and led to mistakes.",
     approach: "Built the system from scratch in Go using DDD, CQRS, and Event Sourcing.",
-    result: "Automated the VXLAN setup process, cutting down setup time and removing manual errors.",
+    result: "Automated the VXLAN/EVPN setup process, cutting down setup time and removing manual errors.",
     tech: ["Go", "DDD", "CQRS", "Event Sourcing"],
   },
 ];

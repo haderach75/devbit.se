@@ -42,7 +42,7 @@ export const careerEvents: CareerEvent[] = [
         timestamp: "2022-08",
         endTimestamp: "2023-01",
         source: "Worldstream Netherlands",
-        payload: { scope: "Continued working on the VXLAN automation systems as a freelancer" },
+        payload: { scope: "Continued working on the VXLAN/EVPN automation systems as a freelancer" },
       },
     ],
   },
@@ -71,7 +71,7 @@ export const careerEvents: CareerEvent[] = [
         timestamp: "2021-09",
         endTimestamp: "2022-08",
         source: "Worldstream Netherlands",
-        payload: { scope: "Built systems to automate VXLAN network setup using Go, DDD, CQRS, and Event Sourcing" },
+        payload: { scope: "Built systems to automate VXLAN/EVPN network setup using Go, DDD, CQRS, and Event Sourcing" },
       },
       {
         id: "cuviva-migration",
