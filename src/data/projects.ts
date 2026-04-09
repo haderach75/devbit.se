@@ -9,7 +9,7 @@ export const projects: Project[] = [
     tech: ["Go", "Kubernetes", "gRPC", "React"],
   },
   {
-    id: "volvo-energy", title: "Energy Service Cloud", client: "Volvo Energy", domain: "IoT / Energy",
+    id: "volvo-energy", title: "Energy Service Cloud", client: "Volvo Energy", domain: "EV Charging / Automotive",
     challenge: "Needed a cloud backend to communicate with wallboxes and other energy devices in real time using MQTT and OCPP.",
     approach: "Used Microsoft Orleans on AWS for an actor-based setup, with gRPC between services and GraphQL for the client API.",
     result: "A working cloud platform that manages IoT energy devices with real-time monitoring and control.",
