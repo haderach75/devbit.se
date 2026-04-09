@@ -10,13 +10,21 @@ export const careerEvents: CareerEvent[] = [
     payload: {
       role: "Freelance System Architect / Developer",
       domain: "Consulting",
-      tech: ["C#", "Orleans", "AWS", "Go", "ASP.NET Core", "gRPC", "GraphQL"],
+      tech: ["C#", "Go", "Orleans", "AWS", "Kubernetes", "gRPC", "GraphQL", "React"],
     },
     children: [
       {
-        id: "volvo-energy-cloud",
+        id: "worldstream-deployer",
         type: "ProjectInProgress",
+        timestamp: "2025-06",
+        source: "Worldstream Netherlands",
+        payload: { scope: "Datacenter switch configuration deployer app using Go, Kubernetes, gRPC, and React frontend" },
+      },
+      {
+        id: "volvo-energy-cloud",
+        type: "ProjectDelivered",
         timestamp: "2023-12",
+        endTimestamp: "2025-06",
         source: "Volvo Energy",
         payload: { scope: "Cloud backend for wallboxes & IoT energy devices using MQTT, OCPP, Orleans, AWS, gRPC, GraphQL" },
       },

@@ -2,6 +2,13 @@ import type { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
+    id: "worldstream-deployer", title: "Datacenter Deployer", client: "Worldstream Netherlands", domain: "Infrastructure",
+    challenge: "Build an application to handle deployment of configuration to datacenter switches, replacing manual and error-prone processes.",
+    approach: "Developed a deployer app in Go running on Kubernetes with gRPC for backend communication and a React frontend for operator management.",
+    result: "Automated switch configuration deployment across the datacenter infrastructure.",
+    tech: ["Go", "Kubernetes", "gRPC", "React"],
+  },
+  {
     id: "volvo-energy", title: "Energy Service Cloud", client: "Volvo Energy", domain: "IoT / Energy",
     challenge: "Build a scalable cloud backend for wallboxes and other IoT energy devices requiring real-time communication via MQTT and OCPP protocols.",
     approach: "Designed an actor-based architecture using Microsoft Orleans on AWS. Implemented gRPC for internal service communication and GraphQL for client APIs.",
