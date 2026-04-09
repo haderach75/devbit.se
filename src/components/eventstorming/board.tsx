@@ -179,7 +179,7 @@ export function EventStormingBoard() {
         animate={{ opacity: 1 }}
         className="absolute top-4 left-4 z-10"
       >
-        <Image src="/logo.svg" alt="Devbit Consulting" width={150} height={64} className="h-10 w-auto" />
+        <Image src="/logo.svg" alt="Devbit Consulting" width={240} height={100} className="h-16 w-auto" />
       </motion.div>
 
       {/* Title */}
