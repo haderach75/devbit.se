@@ -33,7 +33,7 @@ export default function AboutPage() {
       </div>
       <div className="mb-8">
         <p className="text-xs font-medium uppercase tracking-widest text-amber mb-3 border-b border-border pb-2">Education</p>
-        <ExperienceItem title="Computer Science / System Development" company="University West" dates="2001 — 2005" description="" />
+        <ExperienceItem title="Computer Science / Information Systems" company="University West" dates="2001 — 2005" description="" />
         <ExperienceItem title="Business Economics" company="Högskolan Trollhättan/Uddevalla" dates="1996 — 1998" description="" />
       </div>
       <div>

@@ -119,6 +119,6 @@ export const careerEvents: CareerEvent[] = [
       { id: "autocom-testing", type: "ProjectDelivered", timestamp: "2013-01", source: "Autocom", payload: { scope: "Built a system for testing and preparing devices before shipping" } },
     ],
   },
-  { id: "edu-west", type: "EducationCompleted", timestamp: "2001", endTimestamp: "2005", source: "University West", payload: { degree: "Computer Science / System Development" } },
+  { id: "edu-west", type: "EducationCompleted", timestamp: "2001", endTimestamp: "2005", source: "University West", payload: { degree: "Computer Science / Information Systems" } },
   { id: "edu-thu", type: "EducationCompleted", timestamp: "1996", endTimestamp: "1998", source: "Högskolan Trollhättan/Uddevalla", payload: { degree: "Business Economics" } },
 ];
