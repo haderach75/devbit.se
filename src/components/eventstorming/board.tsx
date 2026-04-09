@@ -39,49 +39,49 @@ const colorMap: Record<NoteColor, { bg: string; text: string; shadow: string }> 
 
 const notes: StickyNote[] = [
   // Top row - The story starts: someone discovers Devbit
-  { id: "evt-visit", text: "Website Visited", color: "orange", x: 5, y: 8, rotation: -1.5, size: "sm" },
-  { id: "cmd-explore", text: "Explore Services", color: "blue", x: 15, y: 7, rotation: 1, size: "sm" },
+  { id: "evt-visit", text: "Website Visited", color: "orange", x: 5, y: 18, rotation: -1.5, size: "sm" },
+  { id: "cmd-explore", text: "Explore Services", color: "blue", x: 15, y: 17, rotation: 1, size: "sm" },
 
   // The "Services" aggregate - CLICKABLE
-  { id: "agg-services", text: "Services", subtext: "Architecture · Dev · Cloud", color: "yellow", x: 27, y: 6, rotation: -0.5, href: "/services", size: "lg" },
+  { id: "agg-services", text: "Services", subtext: "Architecture · Dev · Cloud", color: "yellow", x: 27, y: 16, rotation: -0.5, href: "/services", size: "lg" },
 
-  { id: "evt-interested", text: "Interest Sparked", color: "orange", x: 40, y: 9, rotation: 2, size: "sm" },
-  { id: "cmd-check-bg", text: "Check Background", color: "blue", x: 52, y: 7, rotation: -1, size: "sm" },
+  { id: "evt-interested", text: "Interest Sparked", color: "orange", x: 40, y: 19, rotation: 2, size: "sm" },
+  { id: "cmd-check-bg", text: "Check Background", color: "blue", x: 52, y: 17, rotation: -1, size: "sm" },
 
   // The "Career" aggregate - CLICKABLE
-  { id: "agg-career", text: "Career Stream", subtext: "Event-sourced timeline", color: "yellow", x: 64, y: 5, rotation: 1.5, href: "/career", size: "lg" },
+  { id: "agg-career", text: "Career Stream", subtext: "Event-sourced timeline", color: "yellow", x: 64, y: 15, rotation: 1.5, href: "/career", size: "lg" },
 
-  { id: "policy-trust", text: "If experience matches → build trust", color: "purple", x: 78, y: 8, rotation: -2, size: "sm" },
+  { id: "policy-trust", text: "If experience matches → build trust", color: "purple", x: 78, y: 18, rotation: -2, size: "sm" },
 
   // Middle row - deeper evaluation
-  { id: "evt-evaluating", text: "Candidate Evaluated", color: "orange", x: 3, y: 32, rotation: 1, size: "sm" },
-  { id: "cmd-review", text: "Review Case Studies", color: "blue", x: 14, y: 34, rotation: -1.5, size: "sm" },
+  { id: "evt-evaluating", text: "Candidate Evaluated", color: "orange", x: 3, y: 42, rotation: 1, size: "sm" },
+  { id: "cmd-review", text: "Review Case Studies", color: "blue", x: 14, y: 44, rotation: -1.5, size: "sm" },
 
   // The "Projects" aggregate - CLICKABLE
-  { id: "agg-projects", text: "Projects", subtext: "Case studies & results", color: "yellow", x: 27, y: 31, rotation: 0.5, href: "/projects", size: "lg" },
+  { id: "agg-projects", text: "Projects", subtext: "Case studies & results", color: "yellow", x: 27, y: 41, rotation: 0.5, href: "/projects", size: "lg" },
 
-  { id: "hotspot-1", text: "Does this person deliver?", color: "pink", x: 41, y: 35, rotation: -1, size: "sm" },
-  { id: "ext-linkedin", text: "LinkedIn", color: "lilac", x: 41, y: 28, rotation: 2, size: "sm" },
+  { id: "hotspot-1", text: "Does this person deliver?", color: "pink", x: 41, y: 45, rotation: -1, size: "sm" },
+  { id: "ext-linkedin", text: "LinkedIn", color: "lilac", x: 41, y: 38, rotation: 2, size: "sm" },
 
-  { id: "cmd-who", text: "Learn About Person", color: "blue", x: 53, y: 33, rotation: 1.5, size: "sm" },
+  { id: "cmd-who", text: "Learn About Person", color: "blue", x: 53, y: 43, rotation: 1.5, size: "sm" },
 
   // The "About" aggregate - CLICKABLE
-  { id: "agg-about", text: "About", subtext: "CV · Skills · Background", color: "yellow", x: 64, y: 30, rotation: -1, href: "/about", size: "lg" },
+  { id: "agg-about", text: "About", subtext: "CV · Skills · Background", color: "yellow", x: 64, y: 40, rotation: -1, href: "/about", size: "lg" },
 
-  { id: "evt-convinced", text: "Decision Made", color: "orange", x: 78, y: 33, rotation: 1, size: "sm" },
+  { id: "evt-convinced", text: "Decision Made", color: "orange", x: 78, y: 43, rotation: 1, size: "sm" },
 
   // Bottom row - the action
-  { id: "policy-reach", text: "If convinced → reach out", color: "purple", x: 8, y: 58, rotation: -1, size: "sm" },
-  { id: "cmd-contact", text: "Send Message", color: "blue", x: 22, y: 60, rotation: 1.5, size: "sm" },
+  { id: "policy-reach", text: "If convinced → reach out", color: "purple", x: 8, y: 66, rotation: -1, size: "sm" },
+  { id: "cmd-contact", text: "Send Message", color: "blue", x: 22, y: 68, rotation: 1.5, size: "sm" },
 
   // The "Contact" aggregate - CLICKABLE
-  { id: "agg-contact", text: "Contact", subtext: "Get in touch", color: "yellow", x: 37, y: 57, rotation: -0.5, href: "/contact", size: "lg" },
+  { id: "agg-contact", text: "Contact", subtext: "Get in touch", color: "yellow", x: 37, y: 65, rotation: -0.5, href: "/contact", size: "lg" },
 
-  { id: "evt-sent", text: "Message Sent", color: "orange", x: 52, y: 59, rotation: 2, size: "sm" },
-  { id: "evt-hired", text: "Consultant Hired 🎉", color: "orange", x: 66, y: 57, rotation: -1, size: "sm" },
+  { id: "evt-sent", text: "Message Sent", color: "orange", x: 52, y: 67, rotation: 2, size: "sm" },
+  { id: "evt-hired", text: "Consultant Hired 🎉", color: "orange", x: 66, y: 65, rotation: -1, size: "sm" },
 
   // Legend area (bottom right)
-  { id: "hotspot-legend", text: "← You are here", color: "pink", x: 80, y: 58, rotation: 0, size: "sm" },
+  { id: "hotspot-legend", text: "← You are here", color: "pink", x: 80, y: 66, rotation: 0, size: "sm" },
 ];
 
 // Arrows connecting the flow
