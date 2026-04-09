@@ -22,6 +22,8 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-text-body);
+  font-size: 1.0625rem; /* 17px base instead of 16px */
+  line-height: 1.7;
 }
 
 .dot-grid {
