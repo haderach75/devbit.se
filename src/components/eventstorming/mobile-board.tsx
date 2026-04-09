@@ -57,13 +57,14 @@ function StickyNote({ step, index }: { step: StoryStep; index: number }) {
       viewport={{ once: true, margin: "-10px" }}
       transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
       onClick={() => step.href && router.push(step.href)}
-      className={`${colors.bg} ${colors.text} shadow-[2px_3px_8px_rgba(0,0,0,0.2)]
+      className={`${colors.bg} ${colors.text}
         ${isAggregate ? "w-40 h-40 p-4 border-2 border-white/30" : "w-28 h-28 p-3"}
         ${isClickable ? "cursor-pointer active:scale-95" : ""}
-        flex flex-col justify-center items-center text-center
+        flex flex-col justify-center items-center text-center rounded-sm
       `}
       style={{
         fontFamily: "'Caveat', 'Segoe Print', 'Comic Sans MS', cursive",
+        boxShadow: "3px 4px 8px rgba(0,0,0,0.18), 1px 1px 3px rgba(0,0,0,0.1)",
       }}
     >
       <span className={isAggregate ? "text-base font-bold" : "text-sm font-semibold"}>

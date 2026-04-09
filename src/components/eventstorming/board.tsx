@@ -126,7 +126,7 @@ function StickyNoteCard({ note, index }: { note: StickyNote; index: number }) {
       }}
       whileHover={isClickable ? { scale: 1.1, rotate: 0, zIndex: 50, transition: { duration: 0.2 } } : { scale: 1.03 }}
       onClick={() => note.href && router.push(note.href)}
-      className={`absolute ${colors.bg} ${colors.text} ${sizeClass} rounded-sm shadow-lg ${colors.shadow}
+      className={`absolute ${colors.bg} ${colors.text} ${sizeClass} rounded-sm
         flex flex-col justify-center items-center text-center leading-tight
         ${isClickable ? "cursor-pointer ring-0 hover:ring-2 hover:ring-crimson/50" : ""}
         ${isAggregate ? "border-2 border-white/30" : ""}
@@ -135,6 +135,7 @@ function StickyNoteCard({ note, index }: { note: StickyNote; index: number }) {
         left: `${note.x}%`,
         top: `${note.y}%`,
         fontFamily: "'Caveat', 'Segoe Print', 'Comic Sans MS', cursive",
+        boxShadow: "3px 4px 8px rgba(0,0,0,0.18), 1px 1px 3px rgba(0,0,0,0.1)",
       }}
     >
       <span className={textSize}>{note.text}</span>
