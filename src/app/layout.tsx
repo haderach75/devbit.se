@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import { inter, jetbrainsMono } from "@/lib/fonts";
+import "@/styles/globals.css";
+
+export const metadata: Metadata = {
+  title: "Devbit Consulting | Michael Hultman — System Architect & Senior Developer",
+  description:
+    "System Architect and Senior Developer specializing in distributed systems, C#/.NET, cloud infrastructure, and clean architecture. Available for consulting.",
+  openGraph: {
+    title: "Devbit Consulting | Michael Hultman",
+    description:
+      "System Architect and Senior Developer. Distributed systems, C#/.NET, cloud, DDD/CQRS.",
+    url: "https://devbit.se",
+    siteName: "Devbit Consulting",
+    locale: "en_US",
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <body className="min-h-screen font-sans antialiased">{children}</body>
+    </html>
+  );
+}
