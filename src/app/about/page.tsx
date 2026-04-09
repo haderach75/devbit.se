@@ -26,10 +26,8 @@ export default function AboutPage() {
       </Link>
       <div className="mb-8">
         <p className="text-xs font-medium uppercase tracking-widest text-amber mb-3 border-b border-border pb-2">Experience</p>
-        <ExperienceItem title="Architect / Developer" company="Volvo Energy — Freelancer via Devbit" dates="Dec 2023 — Present" description="IoT energy cloud backend with MQTT, OCPP, Orleans, AWS, gRPC, GraphQL." />
-        <ExperienceItem title="Architect / Developer" company="Stena Line — Consultant via Devbit" dates="Jan 2023 — Dec 2023" description="Monolith to distributed booking system transformation." />
-        <ExperienceItem title="Architect / Developer" company="Worldstream — Consultant via Devbit" dates="Sep 2021 — Jan 2023" description="Go-based DDD/CQRS/ES systems for VXLAN automation." />
-        <ExperienceItem title="Developer / DevOps" company="Cuviva — Consultant" dates="Mar 2021 — Sep 2021" description="Azure to hybrid cloud migration in Kubernetes for medtech." />
+        <ExperienceItem title="Freelance System Architect / Developer" company="Devbit Consulting AB" dates="Aug 2022 — Present" description="Freelance consulting. Clients: Volvo Energy (IoT cloud backend), Stena Line (booking system modernization), Worldstream (VXLAN automation)." />
+        <ExperienceItem title="Consultant Architect / Developer" company="Evolve / Afry" dates="Mar 2021 — Aug 2022" description="Consulting assignments: Worldstream (Go/DDD/CQRS systems), Cuviva (Azure to Kubernetes migration for medtech)." />
         <ExperienceItem title="Architect" company="Collector Bank" dates="Feb 2017 — Mar 2021" description="Credit evaluation, anti-fraud, GDPR compliance, and AML on Azure/Kubernetes." />
         <ExperienceItem title="Software Developer" company="Autocom Diagnostic Partner" dates="Aug 2007 — Feb 2017" description="Vehicle diagnostic tools, licensing systems, and distributed device testing." />
       </div>
