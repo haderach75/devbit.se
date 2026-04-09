@@ -25,6 +25,34 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  name: "Michael Hultman",
+                  jobTitle: "System Architect & Senior Developer",
+                  url: "https://devbit.se",
+                  email: "michael@devbit.se",
+                  telephone: "+46737120558",
+                  address: { "@type": "PostalAddress", addressLocality: "Vänersborg", addressCountry: "SE" },
+                  worksFor: { "@type": "Organization", name: "Devbit Consulting AB" },
+                },
+                {
+                  "@type": "Organization",
+                  name: "Devbit Consulting AB",
+                  url: "https://devbit.se",
+                  logo: "https://devbit.se/logo.svg",
+                },
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-screen font-sans antialiased">
         <Header />
         {children}
