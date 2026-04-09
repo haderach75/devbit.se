@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EventStormingBoard } from "@/components/eventstorming/board";
+import { MobileEventStormingBoard } from "@/components/eventstorming/mobile-board";
 
 export const metadata: Metadata = {
   title: "Devbit Consulting | Michael Hultman — System Architect & Senior Developer",
@@ -10,7 +11,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
-      <EventStormingBoard />
+      <div className="hidden md:block">
+        <EventStormingBoard />
+      </div>
+      <div className="md:hidden">
+        <MobileEventStormingBoard />
+      </div>
     </main>
   );
 }

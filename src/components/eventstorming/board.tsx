@@ -174,7 +174,7 @@ export function EventStormingBoard() {
   const noteMap = Object.fromEntries(notes.map(n => [n.id, n]));
 
   return (
-    <div className="w-full h-screen pt-14 overflow-hidden" style={{ background: "#e8e0d4" }}>
+    <div className="w-full h-screen pt-14 overflow-hidden bg-[#e8e0d4] dark:bg-[#1a1714]">
       <div className="relative w-full h-full overflow-hidden">
       {/* Whiteboard texture */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
