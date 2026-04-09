@@ -16,7 +16,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             {companyLogos[project.client] && (
               <Image src={companyLogos[project.client]} alt={project.client} width={80} height={20} className="h-4 w-auto opacity-60 shrink-0" />
             )}
-            <p className="text-sm md:text-base text-crimson truncate">{project.client}</p>
+            <p className="text-sm md:text-base text-crimson">{project.client}</p>
           </div>
         </div>
         <span className="rounded-md border border-border bg-bg px-2 py-0.5 text-xs md:text-sm text-text-dim shrink-0">{project.domain}</span>
