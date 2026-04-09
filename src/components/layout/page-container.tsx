@@ -1,25 +1,27 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
+import { FloatingSticky } from "./floating-sticky";
 
 interface PageContainerProps {
   children: React.ReactNode;
+  stickyLabel?: string;
+  stickyRotation?: number;
 }
 
-export function PageContainer({ children }: PageContainerProps) {
+export function PageContainer({ children, stickyLabel, stickyRotation }: PageContainerProps) {
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="mx-auto max-w-5xl px-4 pt-20 md:pt-24 pb-16 overflow-x-hidden">
-      <Link href="/" className="mb-6 md:mb-8 inline-flex items-center gap-1.5 text-sm md:text-base font-mono text-crimson hover:text-crimson-hover transition-colors">
-        <ArrowLeft size={14} />
-        back to diagram
-      </Link>
-      {children}
-    </motion.main>
+    <>
+      {stickyLabel && (
+        <FloatingSticky label={stickyLabel} rotation={stickyRotation} />
+      )}
+      <motion.main
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="mx-auto max-w-5xl px-4 pt-20 md:pt-24 pb-16 overflow-x-hidden">
+        {children}
+      </motion.main>
+    </>
   );
 }

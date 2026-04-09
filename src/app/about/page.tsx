@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <PageContainer>
+    <PageContainer stickyLabel="About" stickyRotation={-1}>
       <div className="flex flex-col sm:flex-row gap-6 mb-8">
         <Image
           src="/michael.jpg"

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function CareerPage() {
   return (
-    <PageContainer>
+    <PageContainer stickyLabel="Career Stream" stickyRotation={1.5}>
       <SectionHeading label="Career Stream" title="Career.EventStore.replay()" description="20+ years of software engineering, replayed as an event stream. Click roles to expand project details." />
       <EventStream />
     </PageContainer>
