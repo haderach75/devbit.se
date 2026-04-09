@@ -10,7 +10,7 @@ export const careerEvents: CareerEvent[] = [
     payload: {
       role: "Freelance System Architect / Developer",
       domain: "Consulting",
-      tech: ["C#", "Go", "Orleans", "AWS", "Kubernetes", "gRPC", "GraphQL", "React"],
+      tech: ["C#", "Go", "Orleans", "AWS", "Azure", "Kubernetes", "gRPC", "GraphQL"],
     },
     children: [
       {
@@ -18,7 +18,7 @@ export const careerEvents: CareerEvent[] = [
         type: "ProjectInProgress",
         timestamp: "2025-06",
         source: "Worldstream Netherlands",
-        payload: { scope: "Building a deployer app that handles configuration deployment to datacenter switches, using Go, Kubernetes, gRPC, and React" },
+        payload: { scope: "Building a deployer system that handles configuration deployment to datacenter switches, using Go, Kubernetes, gRPC, and React" },
       },
       {
         id: "volvo-energy-cloud",
@@ -71,7 +71,7 @@ export const careerEvents: CareerEvent[] = [
         timestamp: "2021-09",
         endTimestamp: "2022-08",
         source: "Worldstream Netherlands",
-        payload: { scope: "Built systems to automate VXLAN/EVPN network setup using Go, DDD, CQRS, and Event Sourcing" },
+        payload: { scope: "Built system to automate VXLAN/EVPN network setup using Go, DDD, CQRS, and Event Sourcing" },
       },
       {
         id: "cuviva-migration",
