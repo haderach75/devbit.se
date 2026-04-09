@@ -99,7 +99,7 @@ export const careerEvents: CareerEvent[] = [
       { id: "collector-savings", type: "ProjectDelivered", timestamp: "2018-01", source: "Collector Bank", payload: { scope: "Developed a savings account system for both individual and business customers" } },
       { id: "collector-antifraud", type: "ProjectDelivered", timestamp: "2019-01", source: "Collector Bank", payload: { scope: "Updated and improved the anti-fraud detection system" } },
       { id: "collector-gdpr", type: "ProjectDelivered", timestamp: "2019-06", source: "Collector Bank", payload: { scope: "Added GDPR support with data cleanup routines and reporting" } },
-      { id: "collector-aml", type: "ProjectDelivered", timestamp: "2020-01", source: "Collector Bank", payload: { scope: "Connected an anti-money laundering solution to the existing banking systems" } },
+      { id: "collector-aml", type: "ProjectDelivered", timestamp: "2020-01", source: "Collector Bank", payload: { scope: "Integrated anti-money laundering (AML) checks into the core banking platform" } },
     ],
   },
   {
