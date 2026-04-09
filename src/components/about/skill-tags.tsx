@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-
-const skills = ["C#", ".NET", "Go", "Azure", "AWS", "Kubernetes", "DDD", "CQRS", "Event Sourcing", "gRPC", "GraphQL", "Orleans", "MQTT", "Docker", "ASP.NET Core"];
+import { skills } from "@/data/skills";
 
 export function SkillTags() {
   return (

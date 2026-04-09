@@ -5,6 +5,8 @@ import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SkillTags } from "@/components/about/skill-tags";
 import { ExperienceItem } from "@/components/about/experience-item";
+import { DownloadCvButton } from "@/components/cv/download-cv-button";
+import { languages } from "@/data/languages";
 
 export const metadata: Metadata = {
   title: "About — Devbit Consulting | Michael Hultman",
@@ -33,9 +35,12 @@ export default function AboutPage() {
         <p className="text-xs md:text-sm font-medium uppercase tracking-widest text-amber mb-3">Expertise</p>
         <SkillTags />
       </div>
-      <Link href="/career" className="mb-8 inline-block rounded-lg border border-crimson/30 bg-crimson/10 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-crimson hover:bg-crimson/20 transition-colors">
-        View interactive Career Event Stream →
-      </Link>
+      <div className="flex flex-wrap gap-3 mb-0">
+        <Link href="/career" className="mb-8 inline-block rounded-lg border border-crimson/30 bg-crimson/10 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-crimson hover:bg-crimson/20 transition-colors">
+          View interactive Career Event Stream →
+        </Link>
+        <DownloadCvButton />
+      </div>
       <div className="mb-8">
         <p className="text-xs md:text-sm font-medium uppercase tracking-widest text-amber mb-3 border-b border-border pb-2">Experience</p>
         <ExperienceItem title="Freelance System Architect / Developer" company="Devbit Consulting AB" dates="Aug 2022 — Present" description="Freelance consulting. Clients: Worldstream (datacenter deployer), Volvo Energy (IoT cloud backend), Stena Line (booking system modernization)." />
@@ -51,9 +56,9 @@ export default function AboutPage() {
       <div>
         <p className="text-xs md:text-sm font-medium uppercase tracking-widest text-amber mb-3 border-b border-border pb-2">Languages</p>
         <div className="flex flex-wrap gap-3 md:gap-4 text-sm md:text-base text-text-muted">
-          <span>Swedish <span className="text-text-dim">(native)</span></span>
-          <span>English <span className="text-text-dim">(fluent)</span></span>
-          <span>German <span className="text-text-dim">(basic)</span></span>
+          {languages.map((lang) => (
+            <span key={lang.name}>{lang.name} <span className="text-text-dim">({lang.level})</span></span>
+          ))}
         </div>
       </div>
     </PageContainer>
