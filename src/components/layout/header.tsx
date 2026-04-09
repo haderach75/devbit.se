@@ -14,7 +14,8 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <Link href="/" className="flex items-center group">
-          <Image src="/logo.svg" alt="Devbit Consulting" width={280} height={120} className="h-12 w-auto dark:brightness-0 dark:invert" />
+          <Image src="/logo.svg" alt="Devbit Consulting" width={280} height={120} className="h-12 w-auto dark:hidden" />
+          <Image src="/logo-dark.svg" alt="Devbit Consulting" width={280} height={120} className="h-12 w-auto hidden dark:block" />
         </Link>
         <div className="flex items-center gap-4">
           <nav className="hidden md:flex items-center gap-6">

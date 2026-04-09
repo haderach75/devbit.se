@@ -11,6 +11,7 @@ interface StoryStep {
   subtext?: string;
   color: NoteColor;
   href?: string;
+  rotation: number;
 }
 
 const colorMap: Record<NoteColor, { bg: string; text: string }> = {
@@ -23,27 +24,27 @@ const colorMap: Record<NoteColor, { bg: string; text: string }> = {
 };
 
 const story: StoryStep[] = [
-  { id: "1", text: "Website Visited", color: "orange" },
-  { id: "2", text: "Explore Services", color: "blue" },
-  { id: "3", text: "Services", subtext: "Architecture · Dev · Cloud", color: "yellow", href: "/services" },
-  { id: "4", text: "Interest Sparked", color: "orange" },
-  { id: "5", text: "Check Background", color: "blue" },
-  { id: "6", text: "Career Stream", subtext: "Event-sourced timeline", color: "yellow", href: "/career" },
-  { id: "7", text: "If experience matches → build trust", color: "purple" },
-  { id: "8", text: "Review Case Studies", color: "blue" },
-  { id: "9", text: "Projects", subtext: "Case studies & results", color: "yellow", href: "/projects" },
-  { id: "10", text: "Does this person deliver?", color: "pink" },
-  { id: "11", text: "Learn About Person", color: "blue" },
-  { id: "12", text: "About", subtext: "CV · Skills · Background", color: "yellow", href: "/about" },
-  { id: "13", text: "Decision Made", color: "orange" },
-  { id: "14", text: "If convinced → reach out", color: "purple" },
-  { id: "15", text: "Send Message", color: "blue" },
-  { id: "16", text: "Contact", subtext: "Get in touch", color: "yellow", href: "/contact" },
-  { id: "17", text: "Message Sent", color: "orange" },
-  { id: "18", text: "Consultant Hired 🎉", color: "orange" },
+  { id: "1", text: "Website Visited", color: "orange", rotation: -1.5 },
+  { id: "2", text: "Explore Services", color: "blue", rotation: 1 },
+  { id: "3", text: "Services", subtext: "Architecture · Dev · Cloud", color: "yellow", href: "/services", rotation: -0.5 },
+  { id: "4", text: "Interest Sparked", color: "orange", rotation: 2 },
+  { id: "5", text: "Check Background", color: "blue", rotation: -1 },
+  { id: "6", text: "Career Stream", subtext: "Event-sourced timeline", color: "yellow", href: "/career", rotation: 1.5 },
+  { id: "7", text: "If experience matches → build trust", color: "purple", rotation: -2 },
+  { id: "8", text: "Review Case Studies", color: "blue", rotation: 1 },
+  { id: "9", text: "Projects", subtext: "Case studies & results", color: "yellow", href: "/projects", rotation: -0.5 },
+  { id: "10", text: "Does this person deliver?", color: "pink", rotation: 1.5 },
+  { id: "11", text: "Learn About Person", color: "blue", rotation: -1 },
+  { id: "12", text: "About", subtext: "CV · Skills · Background", color: "yellow", href: "/about", rotation: 0.5 },
+  { id: "13", text: "Decision Made", color: "orange", rotation: -1.5 },
+  { id: "14", text: "If convinced → reach out", color: "purple", rotation: 1 },
+  { id: "15", text: "Send Message", color: "blue", rotation: -0.5 },
+  { id: "16", text: "Contact", subtext: "Get in touch", color: "yellow", href: "/contact", rotation: 1 },
+  { id: "17", text: "Message Sent", color: "orange", rotation: -1 },
+  { id: "18", text: "Consultant Hired 🎉", color: "orange", rotation: 2 },
 ];
 
-function StoryCard({ step, index }: { step: StoryStep; index: number }) {
+function StickyNote({ step, index }: { step: StoryStep; index: number }) {
   const router = useRouter();
   const colors = colorMap[step.color];
   const isClickable = !!step.href;
@@ -51,27 +52,28 @@ function StoryCard({ step, index }: { step: StoryStep; index: number }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30, y: 10 }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.4, ease: "backOut" }}
+      initial={{ opacity: 0, y: -30, scale: 0.5, rotate: step.rotation + 10 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, rotate: step.rotation }}
+      viewport={{ once: true, margin: "-10px" }}
+      transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
       onClick={() => step.href && router.push(step.href)}
-      className={`${colors.bg} ${colors.text} rounded-sm shadow-md
-        ${isAggregate ? "px-5 py-4 border-2 border-white/30" : "px-4 py-3"}
+      className={`${colors.bg} ${colors.text} shadow-[2px_3px_8px_rgba(0,0,0,0.2)]
+        ${isAggregate ? "w-40 h-40 p-4 border-2 border-white/30" : "w-28 h-28 p-3"}
         ${isClickable ? "cursor-pointer active:scale-95" : ""}
+        flex flex-col justify-center items-center text-center
       `}
-      style={{ fontFamily: "'Caveat', 'Segoe Print', 'Comic Sans MS', cursive" }}
+      style={{
+        fontFamily: "'Caveat', 'Segoe Print', 'Comic Sans MS', cursive",
+      }}
     >
-      <div className="flex items-center justify-between">
-        <span className={isAggregate ? "text-lg font-bold" : "text-base font-semibold"}>
-          {step.text}
-        </span>
-        {isClickable && (
-          <span className="text-xs opacity-50 font-sans ml-2">→</span>
-        )}
-      </div>
+      <span className={isAggregate ? "text-base font-bold" : "text-sm font-semibold"}>
+        {step.text}
+      </span>
       {step.subtext && (
-        <span className="text-xs font-normal opacity-70 block mt-0.5">{step.subtext}</span>
+        <span className="text-[10px] font-normal opacity-70 mt-1">{step.subtext}</span>
+      )}
+      {isClickable && (
+        <span className="mt-1 text-[9px] opacity-50 font-sans font-normal">tap →</span>
       )}
     </motion.div>
   );
@@ -89,15 +91,17 @@ export function MobileEventStormingBoard() {
         <p className="text-sm text-text-muted font-mono">// event storming: the customer journey</p>
       </motion.div>
 
-      {/* Story flow */}
-      <div className="max-w-sm mx-auto space-y-3">
+      {/* Story flow — zigzag sticky notes */}
+      <div className="flex flex-col items-center gap-2">
         {story.map((step, i) => (
-          <div key={step.id}>
-            <StoryCard step={step} index={i} />
-            {/* Connecting line between cards */}
+          <div key={step.id} className="flex flex-col items-center">
+            <div className={i % 2 === 0 ? "self-start ml-4" : "self-end mr-4"}>
+              <StickyNote step={step} index={i} />
+            </div>
+            {/* Connecting dashes */}
             {i < story.length - 1 && (
-              <div className="flex justify-center py-1">
-                <div className="w-px h-4 bg-[#6b5e50]/30" style={{ borderLeft: "2px dashed #6b5e5080" }} />
+              <div className="py-0.5">
+                <div className="h-3 border-l-2 border-dashed border-[#6b5e50]/40" />
               </div>
             )}
           </div>
