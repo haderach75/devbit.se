@@ -162,10 +162,10 @@ function Arrow({ fromNote, toNote }: { fromNote: StickyNote; toNote: StickyNote 
       y1={`${y1}%`}
       x2={`${x2}%`}
       y2={`${y2}%`}
-      stroke="#8a7e72"
-      strokeWidth="1"
-      strokeDasharray="6 4"
-      opacity="0.3"
+      stroke="#6b5e50"
+      strokeWidth="2"
+      strokeDasharray="8 5"
+      opacity="0.5"
     />
   );
 }
