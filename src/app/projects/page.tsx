@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <PageContainer>
-      <SectionHeading label="Projects" title="Case Studies" description="Featured engagements across IoT, banking, shipping, and infrastructure." />
+      <SectionHeading label="Projects" title="Case Studies" description="Featured projects across EV charging, banking, shipping, and datacenter infrastructure." />
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {projects.map((project, i) => <ProjectCard key={project.id} project={project} index={i} />)}
       </div>
