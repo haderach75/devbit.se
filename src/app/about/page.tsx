@@ -26,9 +26,17 @@ export default function AboutPage() {
         />
         <div>
           <SectionHeading label="About" title="Michael Hultman" description="System Architect & Senior Developer" />
-          <p className="text-sm md:text-base text-text-muted max-w-2xl">
-            With over 20 years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. My expertise lies in the .NET platform, especially C#, with deep experience in DDD, CQRS, and Event Sourcing. I keep up with the latest trends in the industry and have spent the past two and a half years working hands-on with AI-assisted development, focusing on context engineering — structuring sessions and prompts to get the most out of AI tools. I run Devbit Consulting AB from Vänersborg, Sweden.
-          </p>
+          <div className="text-sm md:text-base text-text-muted max-w-2xl space-y-3">
+            <p>
+              With over 20 years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. My expertise lies in the .NET platform, especially C#, with deep experience in DDD, CQRS, and Event Sourcing.
+            </p>
+            <p>
+              I keep up with the latest trends in the industry and have spent the past two and a half years working hands-on with AI-assisted development, focusing on context engineering, structuring sessions and prompts to get the most out of AI tools.
+            </p>
+            <p>
+              I run Devbit Consulting AB from Vänersborg, Sweden.
+            </p>
+          </div>
         </div>
       </div>
       <div className="mb-8">
