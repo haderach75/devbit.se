@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <PageContainer stickyLabel="Contact" stickyRotation={-0.5}>
+    <PageContainer>
       <SectionHeading label="Contact" title="Get In Touch" description="Have a project in mind? Let's talk." />
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <ContactForm />

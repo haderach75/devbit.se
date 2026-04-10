@@ -8,14 +8,6 @@ interface FloatingStickyProps {
   rotation?: number;
 }
 
-const pageStickies: Record<string, { label: string; rotation: number }> = {
-  "/services": { label: "Services", rotation: -0.5 },
-  "/career": { label: "Career Stream", rotation: 1.5 },
-  "/projects": { label: "Projects", rotation: 0.5 },
-  "/about": { label: "About", rotation: -1 },
-  "/contact": { label: "Contact", rotation: -0.5 },
-};
-
 export function FloatingSticky({ label, rotation = 3 }: FloatingStickyProps) {
   return (
     <motion.div
@@ -44,4 +36,3 @@ export function FloatingSticky({ label, rotation = 3 }: FloatingStickyProps) {
   );
 }
 
-export { pageStickies };

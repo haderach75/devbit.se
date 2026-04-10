@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <PageContainer stickyLabel="Services" stickyRotation={-0.5}>
+    <PageContainer>
       <SectionHeading label="Services" title="What Devbit Brings" description="System architecture, hands-on development, cloud infrastructure, and strategic consulting." />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {services.map((service, i) => <ServiceCard key={service.id} service={service} index={i} />)}

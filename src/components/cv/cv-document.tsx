@@ -179,9 +179,9 @@ interface CvDocumentProps {
 }
 
 function fmtDates(start: string, end?: string): string {
-  const s = start.replace("-", "/");
-  const e = end === "present" ? "Present" : end ? end.replace("-", "/") : "";
-  return e ? `${s} — ${e}` : s;
+  const from = start.replace("-", "/");
+  const to = end === "present" ? "Present" : end ? end.replace("-", "/") : "";
+  return to ? `${from} — ${to}` : from;
 }
 
 export function CvDocument({ data }: CvDocumentProps) {
@@ -270,7 +270,7 @@ export function CvDocument({ data }: CvDocumentProps) {
         <View style={s.section}>
           <Text style={s.sectionTitle}>Languages</Text>
           <Text style={s.langText}>
-            {data.languages.map((l, i) => `${l.name} (${l.level})${i < data.languages.length - 1 ? ", " : ""}`).join("")}
+            {data.languages.map((l) => `${l.name} (${l.level})`).join(", ")}
           </Text>
         </View>
 

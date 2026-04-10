@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <PageContainer stickyLabel="Projects" stickyRotation={0.5}>
+    <PageContainer>
       <SectionHeading label="Projects" title="Case Studies" description="Featured projects across EV charging, banking, shipping, and datacenter infrastructure." />
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {projects.map((project, i) => <ProjectCard key={project.id} project={project} index={i} />)}

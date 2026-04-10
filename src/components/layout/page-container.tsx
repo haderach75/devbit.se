@@ -1,19 +1,29 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { FloatingSticky } from "./floating-sticky";
 
+const pageStickies: Record<string, { label: string; rotation: number }> = {
+  "/services": { label: "Services", rotation: -0.5 },
+  "/career": { label: "Career Stream", rotation: 1.5 },
+  "/projects": { label: "Projects", rotation: 0.5 },
+  "/about": { label: "About", rotation: -1 },
+  "/contact": { label: "Contact", rotation: -0.5 },
+};
+
 interface PageContainerProps {
   children: React.ReactNode;
-  stickyLabel?: string;
-  stickyRotation?: number;
 }
 
-export function PageContainer({ children, stickyLabel, stickyRotation }: PageContainerProps) {
+export function PageContainer({ children }: PageContainerProps) {
+  const pathname = usePathname();
+  const sticky = pageStickies[pathname];
+
   return (
     <>
-      {stickyLabel && (
-        <FloatingSticky label={stickyLabel} rotation={stickyRotation} />
+      {sticky && (
+        <FloatingSticky label={sticky.label} rotation={sticky.rotation} />
       )}
       <motion.main
         initial={{ opacity: 0, y: 20 }}
