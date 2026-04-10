@@ -5,4 +5,5 @@ export const services: Service[] = [
   { id: "development", title: "Senior Development", description: "Hands-on C#/.NET development. Clean code, test-driven, production-ready systems.", icon: "Code" },
   { id: "cloud", title: "Cloud & DevOps", description: "Azure, AWS, Kubernetes. Cloud migrations, infrastructure automation, CI/CD pipelines.", icon: "Cloud" },
   { id: "consulting", title: "Technical Consulting", description: "Architecture reviews, tech strategy, team mentoring. Helping teams level up.", icon: "MessageSquare" },
+  { id: "ai", title: "AI-Assisted Development", description: "Practical experience integrating AI into development workflows. Context engineering, prompt design, and getting consistent results from AI tools.", icon: "Cpu" },
 ];
