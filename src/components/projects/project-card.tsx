@@ -8,7 +8,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="rounded-xl border border-border bg-surface p-4 md:p-6">
+      whileHover={{ y: -2, borderColor: "#a31f2e" }}
+      className="rounded-xl border border-border bg-surface p-4 md:p-6 transition-shadow hover:shadow-[0_4px_20px_rgba(163,31,46,0.08)]">
       <div className="flex items-start justify-between mb-3 gap-2">
         <div className="min-w-0">
           <h3 className="font-semibold text-text-primary text-sm md:text-base">{project.title}</h3>
@@ -22,22 +23,19 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <span className="rounded-md border border-border bg-bg px-2 py-0.5 text-xs md:text-sm text-text-dim shrink-0">{project.domain}</span>
       </div>
       <div className="space-y-3 text-sm md:text-base">
-        <div>
-          <p className="text-xs md:text-sm font-medium uppercase tracking-widest text-text-dim mb-1">Challenge</p>
-          <p className="text-text-muted">{project.challenge}</p>
-        </div>
-        <div>
-          <p className="text-xs md:text-sm font-medium uppercase tracking-widest text-text-dim mb-1">Approach</p>
-          <p className="text-text-muted">{project.approach}</p>
-        </div>
-        <div>
-          <p className="text-xs md:text-sm font-medium uppercase tracking-widest text-text-dim mb-1">Result</p>
-          <p className="text-text-muted">{project.result}</p>
-        </div>
+        {(["challenge", "approach", "result"] as const).map((section, i) => (
+          <motion.div key={section} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: index * 0.1 + (i + 1) * 0.1 }}>
+            <p className="text-xs md:text-sm font-medium uppercase tracking-widest text-text-dim mb-1">{section}</p>
+            <p className="text-text-muted">{project[section]}</p>
+          </motion.div>
+        ))}
       </div>
       <div className="mt-4 flex flex-wrap gap-1.5">
-        {project.tech.map((t) => (
-          <span key={t} className="rounded border border-crimson/20 bg-crimson/5 px-2 py-0.5 font-mono text-xs md:text-sm text-amber">{t}</span>
+        {project.tech.map((t, i) => (
+          <motion.span key={t} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+            transition={{ duration: 0.2, delay: index * 0.1 + 0.4 + i * 0.05 }}
+            className="rounded border border-crimson/20 bg-crimson/5 px-2 py-0.5 font-mono text-xs md:text-sm text-amber">{t}</motion.span>
         ))}
       </div>
     </motion.div>
