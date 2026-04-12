@@ -48,6 +48,7 @@ export default function AboutPage() {
           View interactive Career Event Stream →
         </Link>
         <DownloadCvButton />
+        <DownloadCvButton variant="broker" />
       </div>
       <div className="mb-8">
         <p className="text-xs md:text-sm font-medium uppercase tracking-widest text-amber mb-3 border-b border-border pb-2">Experience</p>
