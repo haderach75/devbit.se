@@ -167,9 +167,9 @@ const s = StyleSheet.create({
     marginBottom: 6,
   },
   assignmentHead: {
-    flexDirection: "row" as const,
-    justifyContent: "space-between" as const,
-    alignItems: "baseline" as const,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "baseline",
     marginBottom: 1,
   },
   assignmentClient: {
