@@ -4,6 +4,8 @@ import { skills } from "@/data/skills";
 import { languages } from "@/data/languages";
 import type { CareerEvent } from "@/lib/types";
 
+const consultingRoleIds = ["devbit-freelance", "evolve-afry"];
+
 export const cvData = {
   name: "Michael Hultman",
   title: "Senior System Architect / Developer",
@@ -18,4 +20,8 @@ export const cvData = {
   education: careerEvents.filter(
     (e): e is CareerEvent & { type: "EducationCompleted" } => e.type === "EducationCompleted"
   ),
+  assignments: careerEvents
+    .filter((e) => consultingRoleIds.includes(e.id))
+    .flatMap((e) => e.children ?? [])
+    .sort((a, b) => b.timestamp.localeCompare(a.timestamp)),
 };
