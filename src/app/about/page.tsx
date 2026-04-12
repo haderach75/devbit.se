@@ -10,7 +10,9 @@ import { languages } from "@/data/languages";
 
 export const metadata: Metadata = {
   title: "About — Devbit Consulting | Michael Hultman",
-  description: "Michael Hultman — System Architect and Senior Developer with 20+ years of experience in distributed systems, C#/.NET, and cloud infrastructure.",
+  description:
+    "Michael Hultman — Freelance System Architect and Senior Developer. 20+ years experience in distributed systems, C#/.NET, Go, and cloud infrastructure. Based in Vänersborg, Sweden.",
+  alternates: { canonical: "https://devbit.se/about" },
 };
 
 export default function AboutPage() {

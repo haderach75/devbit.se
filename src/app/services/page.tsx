@@ -6,7 +6,9 @@ import { services } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Services — Devbit Consulting | Michael Hultman",
-  description: "System architecture, senior C#/.NET development, cloud & DevOps, and technical consulting services.",
+  description:
+    "System architecture, backend development, and cloud consulting services. C#/.NET, Go, Azure, AWS, Kubernetes, DDD, CQRS, Event Sourcing. Available for freelance consulting.",
+  alternates: { canonical: "https://devbit.se/services" },
 };
 
 export default function ServicesPage() {

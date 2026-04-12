@@ -5,7 +5,9 @@ import { EventStream } from "@/components/career/event-stream";
 
 export const metadata: Metadata = {
   title: "Career Stream — Devbit Consulting | Michael Hultman",
-  description: "20+ years of software engineering experience as an event-sourced timeline. System architecture, distributed systems, cloud development.",
+  description:
+    "Career timeline of Michael Hultman — 20+ years in software development, from automotive diagnostics to fintech and cloud infrastructure consulting.",
+  alternates: { canonical: "https://devbit.se/career" },
 };
 
 export default function CareerPage() {

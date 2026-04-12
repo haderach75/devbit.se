@@ -6,7 +6,9 @@ import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects — Devbit Consulting | Michael Hultman",
-  description: "Featured case studies: IoT cloud platforms, banking modernization, booking systems, and network automation.",
+  description:
+    "Consulting case studies: Volvo Energy IoT cloud, Stena Line booking modernization, Worldstream datacenter automation, Collector Bank fintech platform.",
+  alternates: { canonical: "https://devbit.se/projects" },
 };
 
 export default function ProjectsPage() {

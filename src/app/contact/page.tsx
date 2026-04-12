@@ -6,7 +6,9 @@ import { ContactInfo } from "@/components/contact/contact-info";
 
 export const metadata: Metadata = {
   title: "Contact — Devbit Consulting | Michael Hultman",
-  description: "Get in touch with Michael Hultman at Devbit Consulting. Available for system architecture and senior development contracts.",
+  description:
+    "Hire a freelance system architect and senior developer. Contact Michael Hultman at Devbit Consulting for consulting in distributed systems, C#, Go, and cloud.",
+  alternates: { canonical: "https://devbit.se/contact" },
 };
 
 export default function ContactPage() {
