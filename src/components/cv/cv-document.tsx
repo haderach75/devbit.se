@@ -162,6 +162,27 @@ const s = StyleSheet.create({
     fontSize: 9,
     color: c.body,
   },
+  // Assignments
+  assignmentEntry: {
+    marginBottom: 6,
+  },
+  assignmentHead: {
+    flexDirection: "row" as const,
+    justifyContent: "space-between" as const,
+    alignItems: "baseline" as const,
+    marginBottom: 1,
+  },
+  assignmentClient: {
+    fontWeight: 600,
+    color: c.crimson,
+    fontSize: 9.5,
+  },
+  assignmentScope: {
+    color: c.muted,
+    fontSize: 8.5,
+    lineHeight: 1.4,
+    paddingLeft: 6,
+  },
 });
 
 interface CvDocumentProps {
@@ -175,7 +196,9 @@ interface CvDocumentProps {
     languages: { name: string; level: string }[];
     experience: (CareerEvent & { type: "RoleStarted" })[];
     education: (CareerEvent & { type: "EducationCompleted" })[];
+    assignments: CareerEvent[];
   };
+  omitContact?: boolean;
 }
 
 function fmtDates(start: string, end?: string): string {
@@ -184,7 +207,7 @@ function fmtDates(start: string, end?: string): string {
   return to ? `${from} — ${to}` : from;
 }
 
-export function CvDocument({ data }: CvDocumentProps) {
+export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
   return (
     <Document title={`${data.name} — CV`} author={data.name}>
       <Page size="A4" style={s.page}>
@@ -195,19 +218,25 @@ export function CvDocument({ data }: CvDocumentProps) {
           <View style={s.headerText}>
             <Text style={s.name}>{data.name}</Text>
             <Text style={s.title}>{data.title}</Text>
-            <View style={s.contactRow}>
-              <Link src={`mailto:${data.contact.email}`} style={s.link}>
-                <Text>{data.contact.email}</Text>
-              </Link>
-              <Text style={s.sep}>·</Text>
-              <Text>{data.contact.phone}</Text>
-              <Text style={s.sep}>·</Text>
-              <Text>{data.contact.location}</Text>
-              <Text style={s.sep}>·</Text>
-              <Link src={data.linkedin} style={s.link}>
-                <Text>LinkedIn Profile</Text>
-              </Link>
-            </View>
+            {!omitContact ? (
+              <View style={s.contactRow}>
+                <Link src={`mailto:${data.contact.email}`} style={s.link}>
+                  <Text>{data.contact.email}</Text>
+                </Link>
+                <Text style={s.sep}>·</Text>
+                <Text>{data.contact.phone}</Text>
+                <Text style={s.sep}>·</Text>
+                <Text>{data.contact.location}</Text>
+                <Text style={s.sep}>·</Text>
+                <Link src={data.linkedin} style={s.link}>
+                  <Text>LinkedIn Profile</Text>
+                </Link>
+              </View>
+            ) : (
+              <View style={s.contactRow}>
+                <Text>{data.contact.location}</Text>
+              </View>
+            )}
           </View>
         </View>
 
@@ -248,6 +277,24 @@ export function CvDocument({ data }: CvDocumentProps) {
             </View>
           ))}
         </View>
+
+        {/* Assignments */}
+        {data.assignments.length > 0 && (
+          <View style={s.section}>
+            <Text style={s.sectionTitle}>Consulting Assignments</Text>
+            {data.assignments.map((a) => (
+              <View key={a.id} style={s.assignmentEntry} wrap={false}>
+                <View style={s.assignmentHead}>
+                  <Text style={s.assignmentClient}>{a.source}</Text>
+                  <Text style={s.dates}>{fmtDates(a.timestamp, a.endTimestamp)}</Text>
+                </View>
+                {a.payload.scope && (
+                  <Text style={s.assignmentScope}>{a.payload.scope}</Text>
+                )}
+              </View>
+            ))}
+          </View>
+        )}
 
         {/* Education */}
         <View style={s.section}>
