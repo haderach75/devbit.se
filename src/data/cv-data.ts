@@ -46,7 +46,7 @@ function buildTimeline(): TimelineEntry[] {
         startDate: evt.timestamp,
         endDate: evt.endTimestamp,
         type: "employment",
-        highlights: (evt.children ?? []).map((c) => c.payload.scope ?? ""),
+        highlights: (evt.children ?? []).map((c) => c.payload.scope ?? "").filter(Boolean),
       });
     }
   }

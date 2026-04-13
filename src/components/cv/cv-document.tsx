@@ -202,10 +202,12 @@ const s = StyleSheet.create({
     borderRadius: 3,
     paddingHorizontal: 5,
     paddingVertical: 1,
-    fontSize: 7,
-    color: c.muted,
     alignSelf: "flex-start",
     marginTop: 2,
+  },
+  viaTagText: {
+    fontSize: 7,
+    color: c.muted,
   },
   legend: {
     flexDirection: "row",
@@ -339,7 +341,7 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
                 </View>
                 {entry.via && (
                   <View style={s.viaTag}>
-                    <Text>via {entry.via}</Text>
+                    <Text style={s.viaTagText}>via {entry.via}</Text>
                   </View>
                 )}
                 {entry.description && (
