@@ -16,7 +16,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <div className="flex items-center gap-2 mt-0.5">
             {companyLogos[project.client] && (
               <Image src={companyLogos[project.client]} alt={project.client} width={80} height={20}
-                className={`w-auto opacity-60 shrink-0 ${companyLogos[project.client].endsWith(".png") ? "h-6 dark:invert dark:opacity-80" : "h-4"}`} />
+                className={`w-auto opacity-60 dark:opacity-90 shrink-0 ${companyLogos[project.client].endsWith(".png") ? "h-6 dark:invert" : "h-4"}`} />
             )}
             <p className="text-sm md:text-base text-crimson">{project.client}</p>
           </div>
