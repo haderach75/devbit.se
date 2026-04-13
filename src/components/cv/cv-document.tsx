@@ -175,22 +175,18 @@ const s = StyleSheet.create({
     marginBottom: 6,
     position: "relative",
   },
-  timelineDotEmployment: {
+  timelineDot: {
     position: "absolute",
     left: -21.25,
     top: 3,
     width: 10,
     height: 10,
     borderRadius: 5,
+  },
+  timelineDotEmployment: {
     backgroundColor: c.crimson,
   },
   timelineDotConsulting: {
-    position: "absolute",
-    left: -21.25,
-    top: 3,
-    width: 10,
-    height: 10,
-    borderRadius: 5,
     backgroundColor: c.surface,
     borderWidth: 2,
     borderColor: c.amber,
@@ -220,16 +216,15 @@ const s = StyleSheet.create({
     alignItems: "center",
     gap: 3,
   },
-  legendDotEmployment: {
+  legendDot: {
     width: 7,
     height: 7,
     borderRadius: 3.5,
+  },
+  legendDotEmployment: {
     backgroundColor: c.crimson,
   },
   legendDotConsulting: {
-    width: 7,
-    height: 7,
-    borderRadius: 3.5,
     backgroundColor: c.surface,
     borderWidth: 1.5,
     borderColor: c.amber,
@@ -311,11 +306,11 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
           <Text style={s.sectionTitle}>Experience</Text>
           <View style={s.legend}>
             <View style={s.legendItem}>
-              <View style={s.legendDotEmployment} />
+              <View style={[s.legendDot, s.legendDotEmployment]} />
               <Text style={s.legendText}>Employed</Text>
             </View>
             <View style={s.legendItem}>
-              <View style={s.legendDotConsulting} />
+              <View style={[s.legendDot, s.legendDotConsulting]} />
               <Text style={s.legendText}>Consulting</Text>
             </View>
           </View>
@@ -323,11 +318,12 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
             {data.timeline.map((entry) => (
               <View key={entry.id} style={s.timelineEntry} wrap={false}>
                 <View
-                  style={
+                  style={[
+                    s.timelineDot,
                     entry.type === "employment"
                       ? s.timelineDotEmployment
-                      : s.timelineDotConsulting
-                  }
+                      : s.timelineDotConsulting,
+                  ]}
                 />
                 <View style={s.entryHead}>
                   <View style={s.entryTitles}>

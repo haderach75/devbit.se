@@ -4,7 +4,15 @@ import { motion } from "framer-motion";
 import type { Project } from "@/lib/types";
 import { companyLogos } from "@/data/logos";
 
-export function ProjectCard({ project, index }: { project: Project; index: number }) {
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+}
+
+export function ProjectCard({ project, index }: ProjectCardProps) {
+  const logoSrc = companyLogos[project.client];
+  const logoHeight = logoSrc?.endsWith(".png") ? "h-6" : "h-4";
+
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -14,9 +22,9 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <div className="min-w-0">
           <h3 className="font-semibold text-text-primary text-sm md:text-base">{project.title}</h3>
           <div className="flex items-center gap-2 mt-0.5">
-            {companyLogos[project.client] && (
-              <Image src={companyLogos[project.client]} alt={project.client} width={80} height={20}
-                className={`w-auto opacity-60 dark:opacity-90 dark:invert shrink-0 ${companyLogos[project.client].endsWith(".png") ? "h-6" : "h-4"}`} />
+            {logoSrc && (
+              <Image src={logoSrc} alt={project.client} width={80} height={20}
+                className={`w-auto opacity-60 dark:opacity-90 dark:invert shrink-0 ${logoHeight}`} />
             )}
             <p className="text-sm md:text-base text-crimson">{project.client}</p>
           </div>

@@ -36,7 +36,6 @@ export function DownloadCvButton({ variant = "full" }: DownloadCvButtonProps) {
   }
 
   const label = isBroker ? "Download CV (Broker)" : "Download CV";
-  const loadingLabel = "Generating...";
 
   return (
     <button
@@ -45,7 +44,7 @@ export function DownloadCvButton({ variant = "full" }: DownloadCvButtonProps) {
       className="mb-8 inline-flex items-center gap-2 rounded-lg border border-crimson/30 bg-crimson/10 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-crimson hover:bg-crimson/20 transition-colors disabled:opacity-50"
     >
       {loading ? <Loader2 size={14} className="animate-spin" /> : <Download size={14} />}
-      {loading ? loadingLabel : label}
+      {loading ? "Generating..." : label}
     </button>
   );
 }
