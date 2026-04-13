@@ -26,7 +26,7 @@ const s = StyleSheet.create({
   page: {
     fontFamily: "Inter",
     backgroundColor: c.surface,
-    paddingVertical: 32,
+    paddingVertical: 24,
     paddingHorizontal: 36,
     fontSize: 9,
     color: c.body,
@@ -35,8 +35,8 @@ const s = StyleSheet.create({
   // Header
   header: {
     flexDirection: "row",
-    marginBottom: 14,
-    paddingBottom: 10,
+    marginBottom: 10,
+    paddingBottom: 8,
     borderBottomWidth: 1,
     borderBottomColor: c.border,
     gap: 14,
@@ -81,7 +81,7 @@ const s = StyleSheet.create({
   },
   // Sections
   section: {
-    marginBottom: 12,
+    marginBottom: 8,
   },
   sectionTitle: {
     fontSize: 8.5,
@@ -172,7 +172,7 @@ const s = StyleSheet.create({
     marginLeft: 5,
   },
   timelineEntry: {
-    marginBottom: 8,
+    marginBottom: 6,
     position: "relative",
   },
   timelineDotEmployment: {
