@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, Link, Image, StyleSheet, Font } from "@react-pdf/renderer";
-import type { CareerEvent } from "@/lib/types";
+import type { TimelineEntry } from "@/data/cv-data";
 
 Font.register({
   family: "Inter",
@@ -45,6 +45,7 @@ const s = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 6,
+    objectFit: "cover",
   },
   headerText: {
     flex: 1,
@@ -162,26 +163,78 @@ const s = StyleSheet.create({
     fontSize: 9,
     color: c.body,
   },
-  // Assignments
-  assignmentEntry: {
-    marginBottom: 6,
+  // Timeline
+  timeline: {
+    position: "relative",
+    paddingLeft: 16,
+    borderLeftWidth: 1.5,
+    borderLeftColor: c.border,
+    marginLeft: 5,
   },
-  assignmentHead: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "baseline",
-    marginBottom: 1,
+  timelineEntry: {
+    marginBottom: 8,
+    position: "relative",
   },
-  assignmentClient: {
-    fontWeight: 600,
-    color: c.crimson,
-    fontSize: 9.5,
+  timelineDotEmployment: {
+    position: "absolute",
+    left: -21.25,
+    top: 3,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: c.crimson,
   },
-  assignmentScope: {
+  timelineDotConsulting: {
+    position: "absolute",
+    left: -21.25,
+    top: 3,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: c.surface,
+    borderWidth: 2,
+    borderColor: c.amber,
+  },
+  viaTag: {
+    backgroundColor: c.bg,
+    borderWidth: 0.5,
+    borderColor: c.border,
+    borderRadius: 3,
+    paddingHorizontal: 5,
+    paddingVertical: 1,
+    fontSize: 7,
     color: c.muted,
-    fontSize: 8.5,
-    lineHeight: 1.4,
-    paddingLeft: 6,
+    alignSelf: "flex-start",
+    marginTop: 2,
+  },
+  legend: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 8,
+  },
+  legendItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 3,
+  },
+  legendDotEmployment: {
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    backgroundColor: c.crimson,
+  },
+  legendDotConsulting: {
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    backgroundColor: c.surface,
+    borderWidth: 1.5,
+    borderColor: c.amber,
+  },
+  legendText: {
+    fontSize: 7,
+    color: c.dim,
   },
 });
 
@@ -194,9 +247,8 @@ interface CvDocumentProps {
     linkedin: string;
     skills: string[];
     languages: { name: string; level: string }[];
-    experience: (CareerEvent & { type: "RoleStarted" })[];
-    education: (CareerEvent & { type: "EducationCompleted" })[];
-    assignments: CareerEvent[];
+    timeline: TimelineEntry[];
+    education: { id: string; timestamp: string; endTimestamp?: string; source: string; payload: { degree?: string } }[];
   };
   omitContact?: boolean;
 }
@@ -252,49 +304,62 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
           </View>
         </View>
 
-        {/* Experience */}
+        {/* Timeline */}
         <View style={s.section}>
           <Text style={s.sectionTitle}>Experience</Text>
-          {data.experience.map((evt) => (
-            <View key={evt.id} style={s.entry} wrap={false}>
-              <View style={s.entryHead}>
-                <View style={s.entryTitles}>
-                  <Text style={s.role}>{evt.payload.role}</Text>
-                  <Text style={s.at}>at</Text>
-                  <Text style={s.company}>{evt.source}</Text>
-                </View>
-                <Text style={s.dates}>{fmtDates(evt.timestamp, evt.endTimestamp)}</Text>
-              </View>
-              {evt.children && evt.children.length > 0 && (
-                <View style={s.bullets}>
-                  {evt.children.map((child) => (
-                    <Text key={child.id} style={s.bullet}>
-                      • {child.payload.scope}
-                    </Text>
-                  ))}
-                </View>
-              )}
+          <View style={s.legend}>
+            <View style={s.legendItem}>
+              <View style={s.legendDotEmployment} />
+              <Text style={s.legendText}>Employed</Text>
             </View>
-          ))}
-        </View>
-
-        {/* Assignments */}
-        {data.assignments.length > 0 && (
-          <View style={s.section}>
-            <Text style={s.sectionTitle}>Consulting Assignments</Text>
-            {data.assignments.map((a) => (
-              <View key={a.id} style={s.assignmentEntry} wrap={false}>
-                <View style={s.assignmentHead}>
-                  <Text style={s.assignmentClient}>{a.source}</Text>
-                  <Text style={s.dates}>{fmtDates(a.timestamp, a.endTimestamp)}</Text>
+            <View style={s.legendItem}>
+              <View style={s.legendDotConsulting} />
+              <Text style={s.legendText}>Consulting</Text>
+            </View>
+          </View>
+          <View style={s.timeline}>
+            {data.timeline.map((entry) => (
+              <View key={entry.id} style={s.timelineEntry} wrap={false}>
+                <View
+                  style={
+                    entry.type === "employment"
+                      ? s.timelineDotEmployment
+                      : s.timelineDotConsulting
+                  }
+                />
+                <View style={s.entryHead}>
+                  <View style={s.entryTitles}>
+                    <Text style={s.company}>{entry.company}</Text>
+                    <Text style={s.at}>—</Text>
+                    <Text style={s.role}>{entry.role}</Text>
+                  </View>
+                  <Text style={s.dates}>
+                    {fmtDates(entry.startDate, entry.endDate)}
+                  </Text>
                 </View>
-                {a.payload.scope && (
-                  <Text style={s.assignmentScope}>{a.payload.scope}</Text>
+                {entry.via && (
+                  <View style={s.viaTag}>
+                    <Text>via {entry.via}</Text>
+                  </View>
+                )}
+                {entry.description && (
+                  <View style={s.bullets}>
+                    <Text style={s.bullet}>{entry.description}</Text>
+                  </View>
+                )}
+                {entry.highlights && entry.highlights.length > 0 && (
+                  <View style={s.bullets}>
+                    {entry.highlights.map((h, i) => (
+                      <Text key={i} style={s.bullet}>
+                        • {h}
+                      </Text>
+                    ))}
+                  </View>
                 )}
               </View>
             ))}
           </View>
-        )}
+        </View>
 
         {/* Education */}
         <View style={s.section}>
