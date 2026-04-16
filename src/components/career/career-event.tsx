@@ -12,10 +12,10 @@ const typeStyles: Record<string, { color: string; border: string; dot: string }>
   SkillAcquired: { color: "text-amber", border: "border-amber/20", dot: "bg-amber/20 border-amber" },
 };
 
-interface CareerEventProps { event: CareerEventType; }
+interface CareerEventProps { event: CareerEventType; defaultExpanded?: boolean; }
 
-export function CareerEvent({ event }: CareerEventProps) {
-  const [expanded, setExpanded] = useState(false);
+export function CareerEvent({ event, defaultExpanded = false }: CareerEventProps) {
+  const [expanded, setExpanded] = useState(defaultExpanded);
   const style = typeStyles[event.type] ?? typeStyles.RoleStarted;
   const hasChildren = event.children && event.children.length > 0;
 
@@ -23,13 +23,18 @@ export function CareerEvent({ event }: CareerEventProps) {
     <motion.div initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.4 }}
       className={`relative border-l-2 ${style.border} pl-5 mb-6`}>
       <div className={`absolute -left-[5px] top-1 h-2 w-2 rounded-full border-2 ${style.dot}`} />
-      <div className={hasChildren ? "cursor-pointer" : ""} onClick={() => hasChildren && setExpanded(!expanded)}>
+      <div className={hasChildren ? "cursor-pointer hover:bg-crimson/5 rounded-lg p-2 -m-2 transition-colors" : ""} onClick={() => hasChildren && setExpanded(!expanded)}>
         <div className="flex items-center gap-2">
           <p className={`font-mono text-xs md:text-sm font-semibold tracking-wide ${style.color}`}>{event.type}</p>
           {hasChildren && (
-            <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown size={12} className="text-text-dim" />
-            </motion.div>
+            <>
+              <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                <ChevronDown size={16} className={style.color} />
+              </motion.div>
+              {!expanded && (
+                <span className="font-mono text-xs text-text-dim">// {event.children!.length} projects</span>
+              )}
+            </>
           )}
         </div>
         <p className="font-mono text-xs md:text-sm text-text-dim mt-0.5 break-words">
