@@ -1,3 +1,5 @@
+import type { LocalizedString } from "./i18n";
+
 export type EventType =
   | "EducationCompleted"
   | "RoleStarted"
@@ -6,45 +8,47 @@ export type EventType =
   | "ProjectInProgress"
   | "CompanyFounded";
 
+export interface CareerEventPayload {
+  role?: LocalizedString;
+  domain?: LocalizedString;
+  tech?: string[];
+  degree?: LocalizedString;
+  scope?: LocalizedString;
+  skills?: string[];
+  status?: string;
+}
+
 export interface CareerEvent {
   id: string;
   type: EventType;
   timestamp: string;
   endTimestamp?: string;
   source: string;
-  payload: {
-    role?: string;
-    domain?: string;
-    tech?: string[];
-    degree?: string;
-    scope?: string;
-    skills?: string[];
-    status?: string;
-  };
+  payload: CareerEventPayload;
   children?: CareerEvent[];
 }
 
 export interface Service {
   id: string;
-  title: string;
-  description: string;
+  title: LocalizedString;
+  description: LocalizedString;
   icon: string;
 }
 
 export interface Project {
   id: string;
-  title: string;
+  title: LocalizedString;
   client: string;
-  domain: string;
-  challenge: string;
-  approach: string;
-  result: string;
+  domain: LocalizedString;
+  challenge: LocalizedString;
+  approach: LocalizedString;
+  result: LocalizedString;
   tech: string[];
 }
 
 export interface SiteLink {
-  label: string;
+  label: LocalizedString;
   href: string;
-  description: string;
+  description: LocalizedString;
   icon: string;
 }
