@@ -1,21 +1,27 @@
 "use client";
+import { useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-
-const schema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  subject: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-type FormData = z.infer<typeof schema>;
+import { useTranslations } from "next-intl";
 
 export function ContactForm() {
+  const t = useTranslations("contactForm");
+  const tErr = useTranslations("contactForm.errors");
+
+  const schema = useMemo(() => z.object({
+    name: z.string().min(1, tErr("nameRequired")),
+    email: z.string().email(tErr("emailInvalid")),
+    subject: z.string().optional(),
+    message: z.string().min(10, tErr("messageMin")),
+  }), [tErr]);
+
+  type FormData = z.infer<typeof schema>;
+
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   function onSubmit(data: FormData) {
-    const subject = encodeURIComponent(data.subject || "Website inquiry");
+    const subject = encodeURIComponent(data.subject || t("defaultSubject"));
     const body = encodeURIComponent(`From: ${data.name} (${data.email})\n\n${data.message}`);
     window.location.href = `mailto:michael@devbit.se?subject=${subject}&body=${body}`;
   }
@@ -24,12 +30,12 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-      <div><input {...register("name")} placeholder="Your name" className={inputClass} />{errors.name && <p className="mt-1 text-sm text-crimson">{errors.name.message}</p>}</div>
-      <div><input {...register("email")} placeholder="Email address" className={inputClass} />{errors.email && <p className="mt-1 text-sm text-crimson">{errors.email.message}</p>}</div>
-      <div><input {...register("subject")} placeholder="Subject (optional)" className={inputClass} /></div>
-      <div><textarea {...register("message")} placeholder="Tell me about your project..." rows={5} className={`${inputClass} resize-vertical`} />{errors.message && <p className="mt-1 text-sm text-crimson">{errors.message.message}</p>}</div>
+      <div><input {...register("name")} placeholder={t("namePlaceholder")} className={inputClass} />{errors.name && <p className="mt-1 text-sm text-crimson">{errors.name.message}</p>}</div>
+      <div><input {...register("email")} placeholder={t("emailPlaceholder")} className={inputClass} />{errors.email && <p className="mt-1 text-sm text-crimson">{errors.email.message}</p>}</div>
+      <div><input {...register("subject")} placeholder={t("subjectPlaceholder")} className={inputClass} /></div>
+      <div><textarea {...register("message")} placeholder={t("messagePlaceholder")} rows={5} className={`${inputClass} resize-vertical`} />{errors.message && <p className="mt-1 text-sm text-crimson">{errors.message.message}</p>}</div>
       <button type="submit" className="rounded-lg bg-crimson px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-crimson-hover">
-        Send Message
+        {t("submit")}
       </button>
     </form>
   );

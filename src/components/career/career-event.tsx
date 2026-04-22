@@ -2,20 +2,27 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { CareerEvent as CareerEventType } from "@/lib/types";
+import { loc, type Locale } from "@/lib/i18n";
 import { ProjectEvent } from "./project-event";
 
 const typeStyles: Record<string, { color: string; border: string; dot: string }> = {
-  RoleStarted: { color: "text-crimson", border: "border-border", dot: "bg-crimson/20 border-crimson" },
-  EducationCompleted: { color: "text-purple", border: "border-purple/20", dot: "bg-purple/20 border-purple" },
-  CompanyFounded: { color: "text-gold", border: "border-gold/20", dot: "bg-gold/20 border-gold" },
-  SkillAcquired: { color: "text-amber", border: "border-amber/20", dot: "bg-amber/20 border-amber" },
+  RoleStarted:        { color: "text-crimson", border: "border-border",   dot: "bg-crimson/20 border-crimson" },
+  EducationCompleted: { color: "text-purple",  border: "border-purple/20", dot: "bg-purple/20 border-purple"  },
+  CompanyFounded:     { color: "text-gold",    border: "border-gold/20",   dot: "bg-gold/20 border-gold"      },
+  SkillAcquired:      { color: "text-amber",   border: "border-amber/20",  dot: "bg-amber/20 border-amber"    },
 };
 
-interface CareerEventProps { event: CareerEventType; defaultExpanded?: boolean; }
+interface CareerEventProps {
+  event: CareerEventType;
+  locale: Locale;
+  defaultExpanded?: boolean;
+}
 
-export function CareerEvent({ event, defaultExpanded = false }: CareerEventProps) {
+export function CareerEvent({ event, locale, defaultExpanded = false }: CareerEventProps) {
   const [expanded, setExpanded] = useState(defaultExpanded);
+  const t = useTranslations("career");
   const style = typeStyles[event.type] ?? typeStyles.RoleStarted;
   const hasChildren = event.children && event.children.length > 0;
 
@@ -32,7 +39,7 @@ export function CareerEvent({ event, defaultExpanded = false }: CareerEventProps
                 <ChevronDown size={16} className={style.color} />
               </motion.div>
               {!expanded && (
-                <span className="font-mono text-xs text-text-dim">// {event.children!.length} projects</span>
+                <span className="font-mono text-xs text-text-dim">{t("projectsCollapsed", { count: event.children!.length })}</span>
               )}
             </>
           )}
@@ -41,18 +48,18 @@ export function CareerEvent({ event, defaultExpanded = false }: CareerEventProps
           {event.timestamp}{event.endTimestamp && ` → ${event.endTimestamp}`}{" · "}{event.source}
         </p>
         <div className="font-mono text-xs md:text-sm text-text-muted mt-1 space-y-0.5 break-words">
-          {event.payload.role && <p><span className="text-text-dim">role: </span><span className="text-text-body">&quot;{event.payload.role}&quot;</span></p>}
-          {event.payload.domain && <p><span className="text-text-dim">domain: </span><span className="text-text-body">&quot;{event.payload.domain}&quot;</span></p>}
-          {event.payload.tech && <p><span className="text-text-dim">tech: </span><span className="text-amber">[{event.payload.tech.map((t) => `"${t}"`).join(", ")}]</span></p>}
-          {event.payload.degree && <p><span className="text-text-dim">degree: </span><span className="text-text-body">&quot;{event.payload.degree}&quot;</span></p>}
-          {event.payload.status && <p><span className="text-text-dim">status: </span><span className="text-sage">&quot;{event.payload.status}&quot;</span></p>}
+          {event.payload.role && <p><span className="text-text-dim">{t("fieldRole")}: </span><span className="text-text-body">&quot;{loc(event.payload.role, locale)}&quot;</span></p>}
+          {event.payload.domain && <p><span className="text-text-dim">{t("fieldDomain")}: </span><span className="text-text-body">&quot;{loc(event.payload.domain, locale)}&quot;</span></p>}
+          {event.payload.tech && <p><span className="text-text-dim">{t("fieldTech")}: </span><span className="text-amber">[{event.payload.tech.map((v) => `"${v}"`).join(", ")}]</span></p>}
+          {event.payload.degree && <p><span className="text-text-dim">{t("fieldDegree")}: </span><span className="text-text-body">&quot;{loc(event.payload.degree, locale)}&quot;</span></p>}
+          {event.payload.status && <p><span className="text-text-dim">{t("fieldStatus")}: </span><span className="text-sage">&quot;{event.payload.status}&quot;</span></p>}
         </div>
       </div>
       <AnimatePresence>
         {expanded && hasChildren && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}
             className="mt-3 pt-2 border-t border-dashed border-border">
-            {event.children!.map((child) => <ProjectEvent key={child.id} event={child} />)}
+            {event.children!.map((child) => <ProjectEvent key={child.id} event={child} locale={locale} />)}
           </motion.div>
         )}
       </AnimatePresence>

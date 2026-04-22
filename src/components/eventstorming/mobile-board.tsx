@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { useTranslations, useLocale } from "next-intl";
+import { localizedHref, type Locale } from "@/lib/i18n";
 
 type NoteColor = "orange" | "blue" | "yellow" | "pink" | "purple" | "lilac";
 
@@ -22,27 +24,6 @@ const colorMap: Record<NoteColor, { bg: string; text: string }> = {
   purple: { bg: "bg-[#9B7ED8]", text: "text-[#2a1a42]" },
   lilac:  { bg: "bg-[#C9A9E8]", text: "text-[#2a1a42]" },
 };
-
-const story: StoryStep[] = [
-  { id: "1", text: "Website Visited", color: "orange", rotation: -1.5 },
-  { id: "2", text: "Explore Services", color: "blue", rotation: 1 },
-  { id: "3", text: "Services", subtext: "Architecture · Dev · Cloud", color: "yellow", href: "/services", rotation: -0.5 },
-  { id: "4", text: "Interest Sparked", color: "orange", rotation: 2 },
-  { id: "5", text: "Check Background", color: "blue", rotation: -1 },
-  { id: "6", text: "Career Stream", subtext: "Event-sourced timeline", color: "yellow", href: "/career", rotation: 1.5 },
-  { id: "7", text: "If experience matches → build trust", color: "purple", rotation: -2 },
-  { id: "8", text: "Review Case Studies", color: "blue", rotation: 1 },
-  { id: "9", text: "Projects", subtext: "Case studies & results", color: "yellow", href: "/projects", rotation: -0.5 },
-  { id: "10", text: "Does this person deliver?", color: "pink", rotation: 1.5 },
-  { id: "11", text: "Learn About Person", color: "blue", rotation: -1 },
-  { id: "12", text: "About", subtext: "CV · Skills · Background", color: "yellow", href: "/about", rotation: 0.5 },
-  { id: "13", text: "Decision Made", color: "orange", rotation: -1.5 },
-  { id: "14", text: "If convinced → reach out", color: "purple", rotation: 1 },
-  { id: "15", text: "Send Message", color: "blue", rotation: -0.5 },
-  { id: "16", text: "Contact", subtext: "Get in touch", color: "yellow", href: "/contact", rotation: 1 },
-  { id: "17", text: "Message Sent", color: "orange", rotation: -1 },
-  { id: "18", text: "Consultant Hired 🎉", color: "orange", rotation: 2 },
-];
 
 function StickyNote({ step, index }: { step: StoryStep; index: number }) {
   const router = useRouter();
@@ -81,6 +62,32 @@ function StickyNote({ step, index }: { step: StoryStep; index: number }) {
 }
 
 export function MobileEventStormingBoard() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("board");
+  const tAgg = useTranslations("board.aggregates");
+  const tHome = useTranslations("home");
+
+  const story: StoryStep[] = [
+    { id: "1",  text: t("websiteVisited"), color: "orange", rotation: -1.5 },
+    { id: "2",  text: t("exploreServices"), color: "blue", rotation: 1 },
+    { id: "3",  text: tAgg("services"), subtext: tAgg("servicesSub"), color: "yellow", href: localizedHref("/services", locale), rotation: -0.5 },
+    { id: "4",  text: t("interestSparked"), color: "orange", rotation: 2 },
+    { id: "5",  text: t("checkBackground"), color: "blue", rotation: -1 },
+    { id: "6",  text: tAgg("career"), subtext: tAgg("careerSub"), color: "yellow", href: localizedHref("/career", locale), rotation: 1.5 },
+    { id: "7",  text: t("trustPolicy"), color: "purple", rotation: -2 },
+    { id: "8",  text: t("reviewCaseStudies"), color: "blue", rotation: 1 },
+    { id: "9",  text: tAgg("projects"), subtext: tAgg("projectsSub"), color: "yellow", href: localizedHref("/projects", locale), rotation: -0.5 },
+    { id: "10", text: t("doesThisPersonDeliver"), color: "pink", rotation: 1.5 },
+    { id: "11", text: t("learnAboutPerson"), color: "blue", rotation: -1 },
+    { id: "12", text: tAgg("about"), subtext: tAgg("aboutSub"), color: "yellow", href: localizedHref("/about", locale), rotation: 0.5 },
+    { id: "13", text: t("decisionMade"), color: "orange", rotation: -1.5 },
+    { id: "14", text: t("reachPolicy"), color: "purple", rotation: 1 },
+    { id: "15", text: t("sendMessage"), color: "blue", rotation: -0.5 },
+    { id: "16", text: tAgg("contact"), subtext: tAgg("contactSub"), color: "yellow", href: localizedHref("/contact", locale), rotation: 1 },
+    { id: "17", text: t("messageSent"), color: "orange", rotation: -1 },
+    { id: "18", text: t("consultantHired"), color: "orange", rotation: 2 },
+  ];
+
   return (
     <div className="min-h-screen pt-16 pb-8 px-4 bg-[#e8e0d4] dark:bg-[#1a1714]">
       {/* Title */}
@@ -89,7 +96,7 @@ export function MobileEventStormingBoard() {
         animate={{ opacity: 1 }}
         className="text-center mb-6"
       >
-        <p className="text-sm text-text-muted font-mono">// event storming: the customer journey</p>
+        <p className="text-sm text-text-muted font-mono">{tHome("comment")}</p>
       </motion.div>
 
       {/* Story flow — zigzag sticky notes */}

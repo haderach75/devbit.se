@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 interface FloatingStickyProps {
   label: string;
   rotation?: number;
+  backLabel: string;
+  homeHref: string;
 }
 
-export function FloatingSticky({ label, rotation = 3 }: FloatingStickyProps) {
+export function FloatingSticky({ label, rotation = 3, backLabel, homeHref }: FloatingStickyProps) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0, rotate: rotation + 15 }}
@@ -20,7 +22,7 @@ export function FloatingSticky({ label, rotation = 3 }: FloatingStickyProps) {
         md:top-20 md:right-8 md:w-[75px] md:h-[75px] md:text-sm
         max-[480px]:w-[48px] max-[480px]:h-[48px] max-[480px]:text-[10px] max-[480px]:top-16 max-[480px]:right-2"
     >
-      <Link href="/" className="block w-full h-full">
+      <Link href={homeHref} className="block w-full h-full">
         <div
           className="w-full h-full bg-[#FFD966] text-[#3d3000] border-2 border-white/30 rounded-sm flex flex-col items-center justify-center text-center font-semibold cursor-pointer"
           style={{
@@ -29,10 +31,9 @@ export function FloatingSticky({ label, rotation = 3 }: FloatingStickyProps) {
           }}
         >
           <span>{label}</span>
-          <span className="text-[8px] md:text-[9px] opacity-50 font-sans font-normal mt-0.5">← back</span>
+          <span className="text-[8px] md:text-[9px] opacity-50 font-sans font-normal mt-0.5">{backLabel}</span>
         </div>
       </Link>
     </motion.div>
   );
 }
-

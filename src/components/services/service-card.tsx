@@ -1,11 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import { Cpu, Code, Cloud, MessageSquare } from "lucide-react";
+import { useLocale } from "next-intl";
 import type { Service } from "@/lib/types";
+import { loc, type Locale } from "@/lib/i18n";
 
 const iconMap: Record<string, React.ElementType> = { Cpu, Code, Cloud, MessageSquare };
 
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
+  const locale = useLocale() as Locale;
   const Icon = iconMap[service.icon] ?? Cpu;
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -15,8 +18,8 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
       <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border border-crimson/25 bg-crimson/10">
         <Icon size={20} className="text-crimson" />
       </div>
-      <h3 className="text-sm md:text-base font-semibold text-text-body mb-1">{service.title}</h3>
-      <p className="text-sm md:text-base leading-relaxed text-text-dim">{service.description}</p>
+      <h3 className="text-sm md:text-base font-semibold text-text-body mb-1">{loc(service.title, locale)}</h3>
+      <p className="text-sm md:text-base leading-relaxed text-text-dim">{loc(service.description, locale)}</p>
     </motion.div>
   );
 }

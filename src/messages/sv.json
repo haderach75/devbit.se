@@ -1,0 +1,154 @@
+{
+  "nav": {
+    "home": "Hem"
+  },
+  "header": {
+    "toggleTheme": "Växla mörkt läge",
+    "toggleLanguage": "Byt språk",
+    "toggleMenu": "Växla meny"
+  },
+  "home": {
+    "sectionLabel": "Kundresan",
+    "comment": "// event storming: kundresan"
+  },
+  "pages": {
+    "services": { "label": "Tjänster", "title": "Det Devbit erbjuder", "description": "Systemarkitektur, hands-on-utveckling, molninfrastruktur och strategisk rådgivning." },
+    "career":   { "label": "Karriärström", "title": "Career.EventStore.replay()", "description": "20+ års mjukvaruutveckling, uppspelat som en event stream. Klicka på rollerna för att expandera projekten." },
+    "projects": { "label": "Projekt", "title": "Fallstudier", "description": "Utvalda projekt inom EV-laddning, bank, sjöfart och datacenter-infrastruktur." },
+    "about":    { "label": "Om mig", "title": "Michael Hultman", "description": "Systemarkitekt & Senior Utvecklare" },
+    "contact":  { "label": "Kontakt", "title": "Hör av dig", "description": "Har du ett projekt i åtanke? Vi tar ett snack." }
+  },
+  "sticky": {
+    "services": "Tjänster",
+    "career": "Karriärström",
+    "projects": "Projekt",
+    "about": "Om mig",
+    "contact": "Kontakt",
+    "back": "← tillbaka"
+  },
+  "career": {
+    "streamHeader": "Career.EventStore.replay() — {count} events",
+    "projectsCollapsed": "// {count, plural, one {# projekt} other {# projekt}}",
+    "fieldRole": "roll",
+    "fieldDomain": "domän",
+    "fieldTech": "tech",
+    "fieldDegree": "examen",
+    "fieldStatus": "status",
+    "fieldScope": "scope"
+  },
+  "project": {
+    "sectionChallenge": "utmaning",
+    "sectionApproach": "angreppssätt",
+    "sectionResult": "resultat"
+  },
+  "about": {
+    "paragraphs": [
+      "Med över 20 år i mjukvarubranschen är jag specialiserad på distribuerade system, molninfrastruktur och ren arkitektur. Min expertis ligger i .NET-plattformen, framför allt C#, med djup erfarenhet av DDD, CQRS och Event Sourcing.",
+      "Jag håller mig uppdaterad med de senaste trenderna i branschen och har de senaste två och ett halvt åren arbetat hands-on med AI-assisterad utveckling, med fokus på context engineering — att strukturera sessioner och prompts för att få ut mesta möjliga av AI-verktyg.",
+      "Jag driver Devbit Consulting AB från Vänersborg."
+    ],
+    "expertise": "Expertis",
+    "viewCareerStream": "Visa interaktiv Career Event Stream →",
+    "downloadCv": "Ladda ner CV",
+    "downloadCvBroker": "Ladda ner CV (mäklare)",
+    "downloadGenerating": "Skapar...",
+    "experienceHeading": "Erfarenhet",
+    "educationHeading": "Utbildning",
+    "languagesHeading": "Språk"
+  },
+  "experience": [
+    { "title": "Frilansande systemarkitekt / utvecklare", "company": "Devbit Consulting AB", "dates": "Aug 2022 — Nu", "description": "Frilanskonsult. Kunder: Worldstream (datacenter-deployer), Volvo Energy (IoT-moln-backend), Stena Line (modernisering av bokningssystem)." },
+    { "title": "Konsultarkitekt / utvecklare", "company": "Evolve / Afry", "dates": "Mar 2021 — Aug 2022", "description": "Konsultuppdrag: Worldstream (Go/DDD/CQRS-system), Cuviva (migrering från Azure till Kubernetes för medtech)." },
+    { "title": "Arkitekt", "company": "Collector Bank", "dates": "Feb 2017 — Mar 2021", "description": "Kreditvärdering, bedrägeriskydd, GDPR-efterlevnad och AML på Azure/Kubernetes." },
+    { "title": "Mjukvaruutvecklare", "company": "Autocom Diagnostic Partner", "dates": "Aug 2007 — Feb 2017", "description": "Fordonsdiagnostiska verktyg, licenssystem och distribuerad enhetstestning." }
+  ],
+  "education": [
+    { "title": "Datavetenskap / Informationssystem", "company": "Högskolan Väst", "dates": "2001 — 2005" },
+    { "title": "Företagsekonomi", "company": "Högskolan Trollhättan/Uddevalla", "dates": "1996 — 1998" }
+  ],
+  "contact": {
+    "labels": { "email": "E-post", "phone": "Telefon", "location": "Plats", "linkedin": "LinkedIn" },
+    "linkedinName": "Michael Hultman"
+  },
+  "contactForm": {
+    "namePlaceholder": "Ditt namn",
+    "emailPlaceholder": "E-postadress",
+    "subjectPlaceholder": "Ämne (valfritt)",
+    "messagePlaceholder": "Berätta om ditt projekt...",
+    "submit": "Skicka meddelande",
+    "defaultSubject": "Förfrågan från webbplatsen",
+    "errors": {
+      "nameRequired": "Namn krävs",
+      "emailInvalid": "Ogiltig e-postadress",
+      "messageMin": "Meddelandet måste vara minst 10 tecken"
+    }
+  },
+  "board": {
+    "websiteVisited": "Besöker webbplatsen",
+    "exploreServices": "Utforska tjänster",
+    "interestSparked": "Intresse väckt",
+    "checkBackground": "Kolla bakgrund",
+    "trustPolicy": "Om erfarenheten matchar → bygg förtroende",
+    "candidateEvaluated": "Kandidat utvärderad",
+    "reviewCaseStudies": "Granska fallstudier",
+    "doesThisPersonDeliver": "Levererar den här personen?",
+    "linkedin": "LinkedIn",
+    "learnAboutPerson": "Lär känna personen",
+    "decisionMade": "Beslut fattat",
+    "reachPolicy": "Om övertygad → hör av dig",
+    "sendMessage": "Skicka meddelande",
+    "messageSent": "Meddelande skickat",
+    "consultantHired": "Konsult anlitad 🎉",
+    "youAreHere": "← Du är här",
+    "aggregates": {
+      "services": "Tjänster",
+      "servicesSub": "Arkitektur · Dev · Cloud",
+      "career": "Karriärström",
+      "careerSub": "Event-sourced tidslinje",
+      "projects": "Projekt",
+      "projectsSub": "Fallstudier & resultat",
+      "about": "Om mig",
+      "aboutSub": "CV · Kompetens · Bakgrund",
+      "contact": "Kontakt",
+      "contactSub": "Hör av dig"
+    }
+  },
+  "cv": {
+    "experience": "Erfarenhet",
+    "education": "Utbildning",
+    "skills": "Kompetens",
+    "languages": "Språk",
+    "employed": "Anställd",
+    "consulting": "Konsultuppdrag",
+    "linkedinProfile": "LinkedIn-profil",
+    "at": "vid",
+    "consultingVia": "via {company}",
+    "present": "Nu"
+  },
+  "meta": {
+    "home": {
+      "title": "Devbit Consulting | Michael Hultman — Systemarkitekt & Senior Utvecklare",
+      "description": "Systemarkitekt och senior utvecklare specialiserad på distribuerade system, C#/.NET, molninfrastruktur och ren arkitektur. Tillgänglig för konsultuppdrag."
+    },
+    "services": {
+      "title": "Tjänster — Devbit Consulting | Michael Hultman",
+      "description": "Systemarkitektur, backend-utveckling och molnkonsultation. C#/.NET, Go, Azure, AWS, Kubernetes, DDD, CQRS, Event Sourcing. Tillgänglig för frilansuppdrag."
+    },
+    "career": {
+      "title": "Karriärström — Devbit Consulting | Michael Hultman",
+      "description": "Karriärtidslinjen för Michael Hultman — 20+ år inom mjukvaruutveckling, från fordonsdiagnostik till fintech och molninfrastruktur."
+    },
+    "projects": {
+      "title": "Projekt — Devbit Consulting | Michael Hultman",
+      "description": "Konsultfallstudier: Volvo Energy IoT-moln, Stena Line bokningsmodernisering, Worldstream datacenterautomatisering, Collector Bank fintech-plattform."
+    },
+    "about": {
+      "title": "Om mig — Devbit Consulting | Michael Hultman",
+      "description": "Michael Hultman — Frilansande systemarkitekt och senior utvecklare. 20+ år av erfarenhet inom distribuerade system, C#/.NET, Go och molninfrastruktur. Baserad i Vänersborg."
+    },
+    "contact": {
+      "title": "Kontakt — Devbit Consulting | Michael Hultman",
+      "description": "Anlita en frilansande systemarkitekt och senior utvecklare. Kontakta Michael Hultman på Devbit Consulting för konsultation inom distribuerade system, C#, Go och moln."
+    }
+  }
+}
