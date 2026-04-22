@@ -11,13 +11,14 @@ Font.register({
 });
 
 export interface CvLabels {
-  contact: string;
-  profileSummary: string;
-  summary: string;
   experience: string;
   education: string;
   skills: string;
   languages: string;
+  employed: string;
+  consulting: string;
+  linkedinProfile: string;
+  at: string;
   consultingVia: (company: string) => string;
   present: string;
 }
@@ -281,7 +282,7 @@ export function CvDocument({ data, labels, omitContact = false }: CvDocumentProp
                 <Text>{data.contact.location}</Text>
                 <Text style={s.sep}>·</Text>
                 <Link src={data.linkedin} style={s.link}>
-                  <Text>LinkedIn Profile</Text>
+                  <Text>{labels.linkedinProfile}</Text>
                 </Link>
               </View>
             ) : (
@@ -310,11 +311,11 @@ export function CvDocument({ data, labels, omitContact = false }: CvDocumentProp
           <View style={s.legend}>
             <View style={s.legendItem}>
               <View style={[s.legendDot, s.legendDotEmployment]} />
-              <Text style={s.legendText}>Employed</Text>
+              <Text style={s.legendText}>{labels.employed}</Text>
             </View>
             <View style={s.legendItem}>
               <View style={[s.legendDot, s.legendDotConsulting]} />
-              <Text style={s.legendText}>Consulting</Text>
+              <Text style={s.legendText}>{labels.consulting}</Text>
             </View>
           </View>
           <View style={s.timeline}>
@@ -370,7 +371,7 @@ export function CvDocument({ data, labels, omitContact = false }: CvDocumentProp
               <View style={s.entryHead}>
                 <View style={s.entryTitles}>
                   <Text style={s.role}>{evt.degree}</Text>
-                  <Text style={s.at}>at</Text>
+                  <Text style={s.at}>{labels.at}</Text>
                   <Text style={s.company}>{evt.source}</Text>
                 </View>
                 <Text style={s.dates}>{fmtDates(evt.timestamp, evt.endTimestamp, labels.present)}</Text>

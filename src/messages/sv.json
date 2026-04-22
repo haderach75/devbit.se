@@ -113,13 +113,14 @@
     }
   },
   "cv": {
-    "contact": "Kontakt",
-    "profileSummary": "Profil",
-    "summary": "Senior systemarkitekt och utvecklare med 20+ år i branschen. Specialiserad på distribuerade system, moln och ren arkitektur på .NET-plattformen (C#) med djup erfarenhet av DDD, CQRS och Event Sourcing.",
     "experience": "Erfarenhet",
     "education": "Utbildning",
     "skills": "Kompetens",
     "languages": "Språk",
+    "employed": "Anställd",
+    "consulting": "Konsultuppdrag",
+    "linkedinProfile": "LinkedIn-profil",
+    "at": "vid",
     "consultingVia": "via {company}",
     "present": "Nu"
   },

@@ -113,13 +113,14 @@
     }
   },
   "cv": {
-    "contact": "Contact",
-    "profileSummary": "Profile",
-    "summary": "Senior System Architect and Developer with 20+ years in the industry. Specialises in distributed systems, cloud, and clean architecture on the .NET platform (C#) with deep experience in DDD, CQRS, and Event Sourcing.",
     "experience": "Experience",
     "education": "Education",
     "skills": "Skills",
     "languages": "Languages",
+    "employed": "Employed",
+    "consulting": "Consulting",
+    "linkedinProfile": "LinkedIn Profile",
+    "at": "at",
     "consultingVia": "via {company}",
     "present": "Present"
   },
