@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ServiceCard } from "@/components/services/service-card";
@@ -11,7 +12,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://devbit.se/services" },
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <PageContainer>
       <SectionHeading label="Services" title="What Devbit Brings" description="System architecture, hands-on development, cloud infrastructure, and strategic consulting." />

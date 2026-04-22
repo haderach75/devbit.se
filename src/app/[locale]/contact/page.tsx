@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ContactForm } from "@/components/contact/contact-form";
@@ -11,7 +12,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://devbit.se/contact" },
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <PageContainer>
       <SectionHeading label="Contact" title="Get In Touch" description="Have a project in mind? Let's talk." />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProjectCard } from "@/components/projects/project-card";
@@ -11,7 +12,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://devbit.se/projects" },
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <PageContainer>
       <SectionHeading label="Projects" title="Case Studies" description="Featured projects across EV charging, banking, shipping, and datacenter infrastructure." />

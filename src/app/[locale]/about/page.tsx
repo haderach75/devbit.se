@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { PageContainer } from "@/components/layout/page-container";
@@ -15,7 +16,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://devbit.se/about" },
 };
 
-export default function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <PageContainer>
       <div className="flex flex-col sm:flex-row gap-6 mb-8">

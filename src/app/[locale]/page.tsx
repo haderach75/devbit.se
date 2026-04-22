@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { EventStormingBoard } from "@/components/eventstorming/board";
 import { MobileEventStormingBoard } from "@/components/eventstorming/mobile-board";
 
@@ -8,7 +9,13 @@ export const metadata: Metadata = {
     "System Architect and Senior Developer specializing in distributed systems, C#/.NET, cloud infrastructure, and clean architecture. Available for consulting.",
 };
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
       <div className="hidden md:block">
