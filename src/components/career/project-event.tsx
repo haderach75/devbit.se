@@ -1,10 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import type { CareerEvent } from "@/lib/types";
+import { loc, type Locale } from "@/lib/i18n";
 
-interface ProjectEventProps { event: CareerEvent; }
+interface ProjectEventProps { event: CareerEvent; locale: Locale; }
 
-export function ProjectEvent({ event }: ProjectEventProps) {
+export function ProjectEvent({ event, locale }: ProjectEventProps) {
+  const t = useTranslations("career");
   const color = event.type === "ProjectInProgress" ? "text-amber" : "text-sage";
   const borderColor = event.type === "ProjectInProgress" ? "border-amber/30" : "border-sage/30";
   const dotBg = event.type === "ProjectInProgress" ? "bg-amber/20 border-amber" : "bg-sage/20 border-sage";
@@ -16,8 +19,8 @@ export function ProjectEvent({ event }: ProjectEventProps) {
       <p className={`font-mono text-xs md:text-sm font-semibold tracking-wide ${color}`}>{event.type}</p>
       <p className="font-mono text-xs md:text-sm text-text-dim">{event.source}</p>
       <p className="font-mono text-xs md:text-sm text-text-muted mt-0.5 break-words">
-        <span className="text-text-dim">scope: </span>
-        <span className="text-text-body">&quot;{event.payload.scope}&quot;</span>
+        <span className="text-text-dim">{t("fieldScope")}: </span>
+        <span className="text-text-body">&quot;{event.payload.scope ? loc(event.payload.scope, locale) : ""}&quot;</span>
       </p>
     </motion.div>
   );
