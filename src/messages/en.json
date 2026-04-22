@@ -1,1 +1,152 @@
-{}
+{
+  "nav": {
+    "home": "Home"
+  },
+  "header": {
+    "toggleTheme": "Toggle dark mode",
+    "toggleLanguage": "Switch language",
+    "toggleMenu": "Toggle menu"
+  },
+  "home": {
+    "sectionLabel": "Customer journey"
+  },
+  "pages": {
+    "services": { "label": "Services", "title": "What Devbit Brings", "description": "System architecture, hands-on development, cloud infrastructure, and strategic consulting." },
+    "career":   { "label": "Career Stream", "title": "Career.EventStore.replay()", "description": "20+ years of software engineering, replayed as an event stream. Click roles to expand project details." },
+    "projects": { "label": "Projects", "title": "Case Studies", "description": "Featured projects across EV charging, banking, shipping, and datacenter infrastructure." },
+    "about":    { "label": "About", "title": "Michael Hultman", "description": "System Architect & Senior Developer" },
+    "contact":  { "label": "Contact", "title": "Get In Touch", "description": "Have a project in mind? Let's talk." }
+  },
+  "sticky": {
+    "services": "Services",
+    "career": "Career Stream",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "back": "← back"
+  },
+  "career": {
+    "streamHeader": "Career.EventStore.replay() — {count} events",
+    "projectsCollapsed": "// {count, plural, one {# project} other {# projects}}",
+    "fieldRole": "role",
+    "fieldDomain": "domain",
+    "fieldTech": "tech",
+    "fieldDegree": "degree",
+    "fieldStatus": "status",
+    "fieldScope": "scope"
+  },
+  "project": {
+    "sectionChallenge": "challenge",
+    "sectionApproach": "approach",
+    "sectionResult": "result"
+  },
+  "about": {
+    "paragraphs": [
+      "With over 20 years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. My expertise lies in the .NET platform, especially C#, with deep experience in DDD, CQRS, and Event Sourcing.",
+      "I keep up with the latest trends in the industry and have spent the past two and a half years working hands-on with AI-assisted development, focusing on context engineering, structuring sessions and prompts to get the most out of AI tools.",
+      "I run Devbit Consulting AB from Vänersborg, Sweden."
+    ],
+    "expertise": "Expertise",
+    "viewCareerStream": "View interactive Career Event Stream →",
+    "downloadCv": "Download CV",
+    "downloadCvBroker": "Download CV (Broker)",
+    "downloadGenerating": "Generating...",
+    "experienceHeading": "Experience",
+    "educationHeading": "Education",
+    "languagesHeading": "Languages"
+  },
+  "experience": [
+    { "title": "Freelance System Architect / Developer", "company": "Devbit Consulting AB", "dates": "Aug 2022 — Present", "description": "Freelance consulting. Clients: Worldstream (datacenter deployer), Volvo Energy (IoT cloud backend), Stena Line (booking system modernization)." },
+    { "title": "Consultant Architect / Developer", "company": "Evolve / Afry", "dates": "Mar 2021 — Aug 2022", "description": "Consulting assignments: Worldstream (Go/DDD/CQRS systems), Cuviva (Azure to Kubernetes migration for medtech)." },
+    { "title": "Architect", "company": "Collector Bank", "dates": "Feb 2017 — Mar 2021", "description": "Credit evaluation, anti-fraud, GDPR compliance, and AML on Azure/Kubernetes." },
+    { "title": "Software Developer", "company": "Autocom Diagnostic Partner", "dates": "Aug 2007 — Feb 2017", "description": "Vehicle diagnostic tools, licensing systems, and distributed device testing." }
+  ],
+  "education": [
+    { "title": "Computer Science / Information Systems", "company": "University West", "dates": "2001 — 2005" },
+    { "title": "Business Economics", "company": "Högskolan Trollhättan/Uddevalla", "dates": "1996 — 1998" }
+  ],
+  "contact": {
+    "labels": { "email": "Email", "phone": "Phone", "location": "Location", "linkedin": "LinkedIn" },
+    "linkedinName": "Michael Hultman"
+  },
+  "contactForm": {
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Email address",
+    "subjectPlaceholder": "Subject (optional)",
+    "messagePlaceholder": "Tell me about your project...",
+    "submit": "Send Message",
+    "defaultSubject": "Website inquiry",
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailInvalid": "Invalid email address",
+      "messageMin": "Message must be at least 10 characters"
+    }
+  },
+  "board": {
+    "websiteVisited": "Website Visited",
+    "exploreServices": "Explore Services",
+    "interestSparked": "Interest Sparked",
+    "checkBackground": "Check Background",
+    "trustPolicy": "If experience matches → build trust",
+    "candidateEvaluated": "Candidate Evaluated",
+    "reviewCaseStudies": "Review Case Studies",
+    "doesThisPersonDeliver": "Does this person deliver?",
+    "linkedin": "LinkedIn",
+    "learnAboutPerson": "Learn About Person",
+    "decisionMade": "Decision Made",
+    "reachPolicy": "If convinced → reach out",
+    "sendMessage": "Send Message",
+    "messageSent": "Message Sent",
+    "consultantHired": "Consultant Hired 🎉",
+    "youAreHere": "← You are here",
+    "aggregates": {
+      "services": "Services",
+      "servicesSub": "Architecture · Dev · Cloud",
+      "career": "Career Stream",
+      "careerSub": "Event-sourced timeline",
+      "projects": "Projects",
+      "projectsSub": "Case studies & results",
+      "about": "About",
+      "aboutSub": "CV · Skills · Background",
+      "contact": "Contact",
+      "contactSub": "Get in touch"
+    }
+  },
+  "cv": {
+    "contact": "Contact",
+    "profileSummary": "Profile",
+    "summary": "Senior System Architect and Developer with 20+ years in the industry. Specialises in distributed systems, cloud, and clean architecture on the .NET platform (C#) with deep experience in DDD, CQRS, and Event Sourcing.",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "languages": "Languages",
+    "consultingVia": "via {company}",
+    "present": "Present"
+  },
+  "meta": {
+    "home": {
+      "title": "Devbit Consulting | Michael Hultman — System Architect & Senior Developer",
+      "description": "System Architect and Senior Developer specializing in distributed systems, C#/.NET, cloud infrastructure, and clean architecture. Available for consulting."
+    },
+    "services": {
+      "title": "Services — Devbit Consulting | Michael Hultman",
+      "description": "System architecture, backend development, and cloud consulting services. C#/.NET, Go, Azure, AWS, Kubernetes, DDD, CQRS, Event Sourcing. Available for freelance consulting."
+    },
+    "career": {
+      "title": "Career Stream — Devbit Consulting | Michael Hultman",
+      "description": "Career timeline of Michael Hultman — 20+ years in software development, from automotive diagnostics to fintech and cloud infrastructure consulting."
+    },
+    "projects": {
+      "title": "Projects — Devbit Consulting | Michael Hultman",
+      "description": "Consulting case studies: Volvo Energy IoT cloud, Stena Line booking modernization, Worldstream datacenter automation, Collector Bank fintech platform."
+    },
+    "about": {
+      "title": "About — Devbit Consulting | Michael Hultman",
+      "description": "Michael Hultman — Freelance System Architect and Senior Developer. 20+ years experience in distributed systems, C#/.NET, Go, and cloud infrastructure. Based in Vänersborg, Sweden."
+    },
+    "contact": {
+      "title": "Contact — Devbit Consulting | Michael Hultman",
+      "description": "Hire a freelance system architect and senior developer. Contact Michael Hultman at Devbit Consulting for consulting in distributed systems, C#, Go, and cloud."
+    }
+  }
+}
