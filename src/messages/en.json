@@ -8,7 +8,8 @@
     "toggleMenu": "Toggle menu"
   },
   "home": {
-    "sectionLabel": "Customer journey"
+    "sectionLabel": "Customer journey",
+    "comment": "// event storming: the customer journey"
   },
   "pages": {
     "services": { "label": "Services", "title": "What Devbit Brings", "description": "System architecture, hands-on development, cloud infrastructure, and strategic consulting." },

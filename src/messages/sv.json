@@ -8,7 +8,8 @@
     "toggleMenu": "Växla meny"
   },
   "home": {
-    "sectionLabel": "Kundresan"
+    "sectionLabel": "Kundresan",
+    "comment": "// event storming: kundresan"
   },
   "pages": {
     "services": { "label": "Tjänster", "title": "Det Devbit erbjuder", "description": "Systemarkitektur, hands-on-utveckling, molninfrastruktur och strategisk rådgivning." },

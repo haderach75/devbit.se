@@ -65,6 +65,7 @@ export function MobileEventStormingBoard() {
   const locale = useLocale() as Locale;
   const t = useTranslations("board");
   const tAgg = useTranslations("board.aggregates");
+  const tHome = useTranslations("home");
 
   const story: StoryStep[] = [
     { id: "1",  text: t("websiteVisited"), color: "orange", rotation: -1.5 },
@@ -95,7 +96,7 @@ export function MobileEventStormingBoard() {
         animate={{ opacity: 1 }}
         className="text-center mb-6"
       >
-        <p className="text-sm text-text-muted font-mono">// event storming: the customer journey</p>
+        <p className="text-sm text-text-muted font-mono">{tHome("comment")}</p>
       </motion.div>
 
       {/* Story flow — zigzag sticky notes */}

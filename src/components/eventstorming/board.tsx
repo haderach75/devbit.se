@@ -130,6 +130,7 @@ export function EventStormingBoard() {
   const locale = useLocale() as Locale;
   const t = useTranslations("board");
   const tAgg = useTranslations("board.aggregates");
+  const tHome = useTranslations("home");
 
   const notes: StickyNote[] = [
     { id: "evt-visit", text: t("websiteVisited"), color: "orange", x: 9, y: 5, rotation: -1.5, size: "sm" },
@@ -185,7 +186,7 @@ export function EventStormingBoard() {
         animate={{ opacity: 1, y: 0 }}
         className="absolute top-2 left-1/2 -translate-x-1/2 text-center z-10"
       >
-        <p className="text-sm text-text-muted font-mono mb-4">// event storming: the customer journey</p>
+        <p className="text-sm text-text-muted font-mono mb-4">{tHome("comment")}</p>
       </motion.div>
 
       {/* Legend */}
