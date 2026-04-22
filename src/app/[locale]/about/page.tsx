@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { setRequestLocale, getTranslations, getMessages } from "next-intl/server";
@@ -14,6 +15,21 @@ interface ExperienceEntry {
   company: string;
   dates: string;
   description?: string;
+}
+
+export async function generateMetadata({
+  params,
+}: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.about" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `https://devbit.se/${locale}/about`,
+      languages: { en: "/en/about", sv: "/sv/about" },
+    },
+  };
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
