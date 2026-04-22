@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, Link, Image, StyleSheet, Font } from "@react-pdf/renderer";
-import type { TimelineEntry } from "@/data/cv-data";
+import type { CvData } from "@/data/cv-data";
 
 Font.register({
   family: "Inter",
@@ -9,6 +9,18 @@ Font.register({
     { src: "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf", fontWeight: 700 },
   ],
 });
+
+export interface CvLabels {
+  contact: string;
+  profileSummary: string;
+  summary: string;
+  experience: string;
+  education: string;
+  skills: string;
+  languages: string;
+  consultingVia: (company: string) => string;
+  present: string;
+}
 
 const c = {
   bg: "#f0eae2",
@@ -236,27 +248,18 @@ const s = StyleSheet.create({
 });
 
 interface CvDocumentProps {
-  data: {
-    name: string;
-    title: string;
-    photo: string;
-    contact: { email: string; phone: string; location: string };
-    linkedin: string;
-    skills: string[];
-    languages: { name: string; level: string }[];
-    timeline: TimelineEntry[];
-    education: { id: string; timestamp: string; endTimestamp?: string; source: string; payload: { degree?: string } }[];
-  };
+  data: CvData;
+  labels: CvLabels;
   omitContact?: boolean;
 }
 
-function fmtDates(start: string, end?: string): string {
+function fmtDates(start: string, end: string | undefined, presentLabel: string): string {
   const from = start.replace("-", "/");
-  const to = end === "present" ? "Present" : end ? end.replace("-", "/") : "";
+  const to = end === "present" ? presentLabel : end ? end.replace("-", "/") : "";
   return to ? `${from} — ${to}` : from;
 }
 
-export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
+export function CvDocument({ data, labels, omitContact = false }: CvDocumentProps) {
   return (
     <Document title={`${data.name} — CV`} author={data.name}>
       <Page size="A4" style={s.page}>
@@ -291,7 +294,7 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
 
         {/* Expertise */}
         <View style={s.section}>
-          <Text style={s.sectionTitle}>Expertise</Text>
+          <Text style={s.sectionTitle}>{labels.skills}</Text>
           <View style={s.pills}>
             {data.skills.map((skill) => (
               <View key={skill} style={s.pill}>
@@ -303,7 +306,7 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
 
         {/* Timeline */}
         <View style={s.section}>
-          <Text style={s.sectionTitle}>Experience</Text>
+          <Text style={s.sectionTitle}>{labels.experience}</Text>
           <View style={s.legend}>
             <View style={s.legendItem}>
               <View style={[s.legendDot, s.legendDotEmployment]} />
@@ -332,12 +335,12 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
                     <Text style={s.role}>{entry.role}</Text>
                   </View>
                   <Text style={s.dates}>
-                    {fmtDates(entry.startDate, entry.endDate)}
+                    {fmtDates(entry.startDate, entry.endDate, labels.present)}
                   </Text>
                 </View>
                 {entry.via && (
                   <View style={s.viaTag}>
-                    <Text style={s.viaTagText}>via {entry.via}</Text>
+                    <Text style={s.viaTagText}>{labels.consultingVia(entry.via)}</Text>
                   </View>
                 )}
                 {entry.description && (
@@ -361,16 +364,16 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
 
         {/* Education */}
         <View style={s.section}>
-          <Text style={s.sectionTitle}>Education</Text>
+          <Text style={s.sectionTitle}>{labels.education}</Text>
           {data.education.map((evt) => (
             <View key={evt.id} style={s.entry}>
               <View style={s.entryHead}>
                 <View style={s.entryTitles}>
-                  <Text style={s.role}>{evt.payload.degree}</Text>
+                  <Text style={s.role}>{evt.degree}</Text>
                   <Text style={s.at}>at</Text>
                   <Text style={s.company}>{evt.source}</Text>
                 </View>
-                <Text style={s.dates}>{fmtDates(evt.timestamp, evt.endTimestamp)}</Text>
+                <Text style={s.dates}>{fmtDates(evt.timestamp, evt.endTimestamp, labels.present)}</Text>
               </View>
             </View>
           ))}
@@ -378,7 +381,7 @@ export function CvDocument({ data, omitContact = false }: CvDocumentProps) {
 
         {/* Languages */}
         <View style={s.section}>
-          <Text style={s.sectionTitle}>Languages</Text>
+          <Text style={s.sectionTitle}>{labels.languages}</Text>
           <Text style={s.langText}>
             {data.languages.map((l) => `${l.name} (${l.level})`).join(", ")}
           </Text>
