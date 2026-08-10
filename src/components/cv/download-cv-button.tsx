@@ -35,6 +35,8 @@ export function DownloadCvButton({ variant = "full" }: DownloadCvButtonProps) {
         at: tCv("at"),
         consultingVia: (company: string) => tCv("consultingVia", { company }),
         present: tCv("present"),
+        contact: tCv("contact"),
+        atAGlance: tCv("atAGlance"),
       };
 
       const blob = await pdf(
