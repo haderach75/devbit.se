@@ -39,7 +39,11 @@ const c = {
 };
 
 const SIDEBAR_W = 158;
-const GLANCE_LABEL_W = 96;
+/** A4 width minus the sidebar and the main column's horizontal padding. */
+const GLANCE_TRACK_W = 595.28 - SIDEBAR_W - 40;
+const GLANCE_LABEL_SIZE = 6;
+const GLANCE_LABEL_CHAR_W = GLANCE_LABEL_SIZE * 0.52; // rough advance width, for collisions
+const GLANCE_TIER_H = 9;
 
 const s = StyleSheet.create({
   page: {
@@ -161,17 +165,28 @@ const s = StyleSheet.create({
     color: c.body,
   },
   // Career-at-a-glance strip
-  glanceAxis: {
-    flexDirection: "row",
-    marginBottom: 2,
-  },
-  glanceTrackArea: {
-    flex: 1,
+  glanceLabels: {
     position: "relative",
+  },
+  glanceLabelBox: {
+    position: "absolute",
+    backgroundColor: c.surface,
+    paddingRight: 2,
+  },
+  glanceLabel: {
+    fontSize: GLANCE_LABEL_SIZE,
+    lineHeight: 1,
+    color: c.body,
+    maxLines: 1,
+  },
+  glanceLeader: {
+    position: "absolute",
+    backgroundColor: c.dim,
   },
   glanceAxisRow: {
     height: 8,
     position: "relative",
+    marginTop: 2,
   },
   glanceYear: {
     position: "absolute",
@@ -179,25 +194,11 @@ const s = StyleSheet.create({
     fontSize: 5.5,
     color: c.dim,
   },
-  glanceRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 2.5,
-  },
-  glanceLabel: {
-    width: GLANCE_LABEL_W,
-    fontSize: 6.5,
-    color: c.body,
-    paddingRight: 6,
-    maxLines: 1,
-    textOverflow: "ellipsis",
-  },
   glanceTrack: {
-    flex: 1,
-    height: 7,
+    height: 8,
     position: "relative",
     backgroundColor: c.bg,
-    borderRadius: 3.5,
+    borderRadius: 4,
   },
   glanceGrid: {
     position: "absolute",
@@ -209,8 +210,8 @@ const s = StyleSheet.create({
   glanceBar: {
     position: "absolute",
     top: 0,
-    height: 7,
-    borderRadius: 3.5,
+    height: 8,
+    borderRadius: 4,
   },
   glanceBarEmployment: {
     backgroundColor: c.crimson,
@@ -363,53 +364,83 @@ function toMonths(value: string): number {
   return Number(y) * 12 + (m ? Number(m) - 1 : 0);
 }
 
-interface GlanceSpan {
-  start: number;
-  end: number;
+interface GlanceBar {
+  key: string;
+  label: string;
   type: TimelineEntry["type"];
+  left: number;
+  width: number;
+  /** Stack level of the label above the track — 0 sits closest to the bars. */
+  tier: number;
+  labelLeft: number;
+  /** Bar start in pt, so the leader can elbow back to a label that had to shift. */
+  x: number;
 }
 
-interface GlanceRow {
-  company: string;
-  spans: GlanceSpan[];
-}
-
-/** One row per company (most recent first), with a bar per assignment/role. */
+/**
+ * Assignments are sequential, so they all fit one track. Labels are stacked
+ * into as few tiers as it takes to keep them from overlapping, with a leader
+ * line down to the bar each one names.
+ */
 function buildGlance(timeline: TimelineEntry[]) {
   const now = new Date();
   const nowMonths = now.getFullYear() * 12 + now.getMonth();
-  const rows = new Map<string, GlanceRow>();
-  let min = Infinity;
-  let max = -Infinity;
 
-  for (const entry of timeline) {
-    const start = toMonths(entry.startDate);
-    const end =
-      !entry.endDate || entry.endDate === "present" ? nowMonths : toMonths(entry.endDate);
-    if (start < min) min = start;
-    if (end > max) max = end;
-    const row = rows.get(entry.company) ?? { company: entry.company, spans: [] };
-    row.spans.push({ start, end, type: entry.type });
-    rows.set(entry.company, row);
-  }
+  const spans = timeline
+    .map((entry) => ({
+      key: entry.id,
+      label: entry.company,
+      type: entry.type,
+      start: toMonths(entry.startDate),
+      end:
+        !entry.endDate || entry.endDate === "present" ? nowMonths : toMonths(entry.endDate),
+    }))
+    .sort((a, b) => a.start - b.start);
 
-  if (min === Infinity) return { rows: [], ticks: [], min: 0, span: 1 };
+  if (spans.length === 0) return { bars: [], ticks: [], tiers: 0 };
 
   // Snap the axis to whole years so gridlines land on the labels.
-  const firstYear = Math.floor(min / 12);
-  const lastYear = Math.floor(max / 12) + 1;
+  const firstYear = Math.floor(Math.min(...spans.map((sp) => sp.start)) / 12);
+  const lastYear = Math.floor(Math.max(...spans.map((sp) => sp.end)) / 12) + 1;
   const axisMin = firstYear * 12;
-  const span = lastYear * 12 - axisMin;
+  const axisSpan = lastYear * 12 - axisMin;
+  const pct = (months: number) => ((months - axisMin) / axisSpan) * 100;
+
+  const tierEnds: number[] = []; // right edge (in pt) of the last label on each tier
+  const bars: GlanceBar[] = spans.map((sp) => {
+    const left = pct(sp.start);
+    const gap = Math.min(2, (sp.end - sp.start) * 0.25); // months, so bars don't merge
+    const x = (left / 100) * GLANCE_TRACK_W;
+    const labelW = sp.label.length * GLANCE_LABEL_CHAR_W + 4;
+    const labelLeft = Math.min(x, GLANCE_TRACK_W - labelW);
+
+    let tier = 0;
+    while (tier < tierEnds.length && tierEnds[tier] > labelLeft) tier++;
+    tierEnds[tier] = labelLeft + labelW;
+
+    return {
+      key: sp.key,
+      label: sp.label,
+      type: sp.type,
+      left,
+      width: Math.max(pct(sp.end - gap) - left, 0.8),
+      tier,
+      labelLeft,
+      x,
+    };
+  });
 
   const step = Math.max(1, Math.ceil((lastYear - firstYear) / 6));
   const ticks: { year: number; pct: number }[] = [];
   for (let y = firstYear; y <= lastYear; y += step) {
-    const pct = ((y * 12 - axisMin) / span) * 100;
-    if (pct > 90) break; // last label would collide with the right edge
-    ticks.push({ year: y, pct });
+    const at = pct(y * 12);
+    if (at > 93) break; // last label would collide with the right edge
+    ticks.push({ year: y, pct: at });
   }
 
-  return { rows: [...rows.values()], ticks, min: axisMin, span };
+  // Deepest tier renders at the top, so tier 0 ends up adjacent to the track.
+  const tiers = tierEnds.length;
+  return { bars: bars.map((b) => ({ ...b, tier: tiers - 1 - b.tier })), ticks, tiers };
 }
 
 export function CvDocument({ data, labels, omitContact = false }: CvDocumentProps) {
@@ -471,49 +502,72 @@ export function CvDocument({ data, labels, omitContact = false }: CvDocumentProp
           <View style={s.rule} />
 
           {/* Career at a glance */}
-          {glance.rows.length > 0 && (
+          {glance.bars.length > 0 && (
             <View style={s.section}>
               <Text style={s.sectionTitle}>{labels.atAGlance}</Text>
-              <View style={s.glanceAxis}>
-                <View style={{ width: GLANCE_LABEL_W }} />
-                <View style={s.glanceTrackArea}>
-                  <View style={s.glanceAxisRow}>
-                    {glance.ticks.map((t) => (
-                      <Text
-                        key={t.year}
-                        style={[s.glanceYear, { left: `${Math.min(t.pct, 93)}%` }]}
-                      >
-                        {t.year}
-                      </Text>
-                    ))}
-                  </View>
-                </View>
-              </View>
-              {glance.rows.map((row) => (
-                <View key={row.company} style={s.glanceRow}>
-                  <Text style={s.glanceLabel}>{row.company}</Text>
-                  <View style={s.glanceTrack}>
-                    {glance.ticks.map((t) => (
-                      <View key={t.year} style={[s.glanceGrid, { left: `${t.pct}%` }]} />
-                    ))}
-                    {row.spans.map((sp, i) => (
+              <View style={[s.glanceLabels, { height: glance.tiers * GLANCE_TIER_H }]}>
+                {/* elbows first: label baseline -> bar start -> down to the track */}
+                {glance.bars.map((b) => {
+                  const elbow = (b.tier + 1) * GLANCE_TIER_H - 2.5;
+                  return (
+                    <View key={b.key}>
                       <View
-                        key={i}
                         style={[
-                          s.glanceBar,
-                          sp.type === "employment"
-                            ? s.glanceBarEmployment
-                            : s.glanceBarConsulting,
+                          s.glanceLeader,
                           {
-                            left: `${((sp.start - glance.min) / glance.span) * 100}%`,
-                            width: `${Math.max((sp.end - sp.start) / glance.span, 0.012) * 100}%`,
+                            left: Math.min(b.x, b.labelLeft),
+                            top: elbow,
+                            width: Math.max(Math.abs(b.x - b.labelLeft), 0.5),
+                            height: 0.5,
                           },
                         ]}
                       />
-                    ))}
+                      <View
+                        style={[
+                          s.glanceLeader,
+                          {
+                            left: b.x,
+                            top: elbow,
+                            width: 0.5,
+                            height: (glance.tiers - b.tier - 1) * GLANCE_TIER_H + 2.5,
+                          },
+                        ]}
+                      />
+                    </View>
+                  );
+                })}
+                {/* labels last, on an opaque background, so leaders never cross text */}
+                {glance.bars.map((b) => (
+                  <View
+                    key={b.key}
+                    style={[s.glanceLabelBox, { left: b.labelLeft, top: b.tier * GLANCE_TIER_H }]}
+                  >
+                    <Text style={s.glanceLabel}>{b.label}</Text>
                   </View>
-                </View>
-              ))}
+                ))}
+              </View>
+              <View style={s.glanceTrack}>
+                {glance.ticks.map((t) => (
+                  <View key={t.year} style={[s.glanceGrid, { left: `${t.pct}%` }]} />
+                ))}
+                {glance.bars.map((b) => (
+                  <View
+                    key={b.key}
+                    style={[
+                      s.glanceBar,
+                      b.type === "employment" ? s.glanceBarEmployment : s.glanceBarConsulting,
+                      { left: `${b.left}%`, width: `${b.width}%` },
+                    ]}
+                  />
+                ))}
+              </View>
+              <View style={s.glanceAxisRow}>
+                {glance.ticks.map((t) => (
+                  <Text key={t.year} style={[s.glanceYear, { left: `${t.pct}%` }]}>
+                    {t.year}
+                  </Text>
+                ))}
+              </View>
             </View>
           )}
 
