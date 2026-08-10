@@ -15,7 +15,7 @@ export function LanguageToggle() {
     try {
       localStorage.setItem("locale", next);
     } catch {
-      // localStorage unavailable — proceed anyway
+      // localStorage unavailable, proceed anyway
     }
     router.replace(swapLocaleInPath(pathname, next));
   }

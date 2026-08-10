@@ -28,7 +28,7 @@ export async function generateMetadata({
       siteName: "Devbit Consulting",
       locale: locale === "sv" ? "sv_SE" : "en_US",
       type: "website",
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Devbit Consulting — Michael Hultman" }],
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Devbit Consulting, Michael Hultman" }],
     },
     twitter: { card: "summary_large_image", title: t("title"), description: t("description"), images: ["/og-image.png"] },
   };

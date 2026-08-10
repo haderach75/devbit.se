@@ -9,7 +9,7 @@ export const careerEvents: CareerEvent[] = [
     source: "Devbit Consulting AB",
     payload: {
       role: { en: "Freelance System Architect / Developer", sv: "Frilansande systemarkitekt / utvecklare" },
-      domain: { en: "Consulting", sv: "Konsultation" },
+      domain: { en: "Consulting", sv: "Konsultuppdrag" },
       tech: ["Go", "C#", "Orleans", "AWS", "Azure", "Kubernetes", "gRPC", "GraphQL"],
     },
     children: [
@@ -35,7 +35,7 @@ export const careerEvents: CareerEvent[] = [
         payload: {
           scope: {
             en: "Built a cloud backend for wallboxes and other energy devices using MQTT, OCPP, Orleans, AWS, gRPC, and GraphQL",
-            sv: "Byggde ett molnbaserat backend för wallboxar och andra energi-enheter med MQTT, OCPP, Orleans, AWS, gRPC och GraphQL",
+            sv: "Byggde en molnbaserad backend för wallboxar och andra energienheter med MQTT, OCPP, Orleans, AWS, gRPC och GraphQL",
           },
         },
       },
@@ -82,7 +82,7 @@ export const careerEvents: CareerEvent[] = [
     source: "Evolve / Afry",
     payload: {
       role: { en: "Consultant Architect / Developer", sv: "Konsultarkitekt / utvecklare" },
-      domain: { en: "Consulting", sv: "Konsultation" },
+      domain: { en: "Consulting", sv: "Konsultuppdrag" },
       tech: ["Go", "C#", "Azure", "Kubernetes", "DDD", "CQRS", "Event Sourcing"],
     },
     children: [
@@ -108,7 +108,7 @@ export const careerEvents: CareerEvent[] = [
         payload: {
           scope: {
             en: "Moved an existing system from Azure to a hybrid cloud setup running on Kubernetes",
-            sv: "Flyttade ett befintligt system från Azure till en hybrid moln-lösning på Kubernetes",
+            sv: "Flyttade ett befintligt system från Azure till en hybridmolnlösning på Kubernetes",
           },
         },
       },
@@ -128,7 +128,7 @@ export const careerEvents: CareerEvent[] = [
     children: [
       {
         id: "collector-credit", type: "ProjectDelivered", timestamp: "2017-02", source: "Collector Bank",
-        payload: { scope: { en: "Built a credit evaluation system running on Kubernetes and Azure", sv: "Byggde ett kreditvärderingssystem som kör på Kubernetes och Azure" } },
+        payload: { scope: { en: "Built a credit evaluation system running on Kubernetes and Azure", sv: "Byggde ett kreditvärderingssystem som körs på Kubernetes och Azure" } },
       },
       {
         id: "collector-savings", type: "ProjectDelivered", timestamp: "2018-01", source: "Collector Bank",
@@ -140,7 +140,7 @@ export const careerEvents: CareerEvent[] = [
       },
       {
         id: "collector-gdpr", type: "ProjectDelivered", timestamp: "2019-06", source: "Collector Bank",
-        payload: { scope: { en: "Added GDPR support with data cleanup routines and reporting", sv: "La till GDPR-stöd med dataröjningsrutiner och rapportering" } },
+        payload: { scope: { en: "Added GDPR support with routines for erasing personal data, plus reporting", sv: "Lade till GDPR-stöd med rutiner för radering av persondata och rapportering" } },
       },
       {
         id: "collector-aml", type: "ProjectDelivered", timestamp: "2020-01", source: "Collector Bank",
@@ -170,7 +170,7 @@ export const careerEvents: CareerEvent[] = [
       },
       {
         id: "autocom-testing", type: "ProjectDelivered", timestamp: "2013-01", source: "Autocom",
-        payload: { scope: { en: "Built a system for testing and preparing devices before shipping", sv: "Byggde ett system för att testa och förbereda enheter innan leverans" } },
+        payload: { scope: { en: "Built a system for testing and preparing devices before shipping", sv: "Byggde ett system för att testa och förbereda enheter före leverans" } },
       },
     ],
   },

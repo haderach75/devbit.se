@@ -27,7 +27,7 @@
     "back": "← back"
   },
   "career": {
-    "streamHeader": "Career.EventStore.replay() — {count} events",
+    "streamHeader": "Career.EventStore.replay() · {count} events",
     "projectsCollapsed": "// {count, plural, one {# project} other {# projects}}",
     "fieldRole": "role",
     "fieldDomain": "domain",
@@ -44,7 +44,7 @@
   "about": {
     "paragraphs": [
       "With over 20 years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. I work hands-on in both Go and C#/.NET, with deep experience in DDD, CQRS, and Event Sourcing.",
-      "I keep up with the latest trends in the industry and have spent the past two and a half years working hands-on with AI-assisted development, focusing on context engineering, structuring sessions and prompts to get the most out of AI tools.",
+      "For the past two and a half years I have worked hands-on with AI-assisted development, mostly with context engineering: structuring sessions and prompts so the tools produce code worth keeping.",
       "I run Devbit Consulting AB from Vänersborg, Sweden."
     ],
     "expertise": "Expertise",
@@ -57,14 +57,14 @@
     "languagesHeading": "Languages"
   },
   "experience": [
-    { "title": "Freelance System Architect / Developer", "company": "Devbit Consulting AB", "dates": "Aug 2022 — Present", "description": "Freelance consulting. Clients: Worldstream (datacenter deployer), Volvo Energy (IoT cloud backend), Stena Line (booking system modernization)." },
-    { "title": "Consultant Architect / Developer", "company": "Evolve / Afry", "dates": "Mar 2021 — Aug 2022", "description": "Consulting assignments: Worldstream (Go/DDD/CQRS systems), Cuviva (Azure to Kubernetes migration for medtech)." },
-    { "title": "Architect", "company": "Collector Bank", "dates": "Feb 2017 — Mar 2021", "description": "Credit evaluation, anti-fraud, GDPR compliance, and AML on Azure/Kubernetes." },
-    { "title": "Software Developer", "company": "Autocom Diagnostic Partner", "dates": "Aug 2007 — Feb 2017", "description": "Vehicle diagnostic tools, licensing systems, and distributed device testing." }
+    { "title": "Freelance System Architect / Developer", "company": "Devbit Consulting AB", "dates": "Aug 2022–Present", "description": "Freelance consulting. Clients: Worldstream (datacenter deployer), Volvo Energy (IoT cloud backend), Stena Line (booking system modernization)." },
+    { "title": "Consultant Architect / Developer", "company": "Evolve / Afry", "dates": "Mar 2021–Aug 2022", "description": "Consulting assignments: Worldstream (Go/DDD/CQRS systems), Cuviva (Azure to Kubernetes migration for medtech)." },
+    { "title": "Architect", "company": "Collector Bank", "dates": "Feb 2017–Mar 2021", "description": "Credit evaluation, anti-fraud, GDPR compliance, and AML on Azure/Kubernetes." },
+    { "title": "Software Developer", "company": "Autocom Diagnostic Partner", "dates": "Aug 2007–Feb 2017", "description": "Vehicle diagnostic tools, licensing systems, and test rigs for devices before shipping." }
   ],
   "education": [
-    { "title": "Computer Science / Information Systems", "company": "University West", "dates": "2001 — 2005" },
-    { "title": "Business Economics", "company": "Högskolan Trollhättan/Uddevalla", "dates": "1996 — 1998" }
+    { "title": "Computer Science / Information Systems", "company": "University West", "dates": "2001–2005" },
+    { "title": "Business Economics", "company": "Högskolan Trollhättan/Uddevalla", "dates": "1996–1998" }
   ],
   "contact": {
     "labels": { "email": "Email", "phone": "Phone", "location": "Location", "linkedin": "LinkedIn" },
@@ -128,27 +128,27 @@
   },
   "meta": {
     "home": {
-      "title": "Devbit Consulting | Michael Hultman — System Architect & Senior Developer",
+      "title": "Devbit Consulting | Michael Hultman, System Architect & Senior Developer",
       "description": "System Architect and Senior Developer specializing in distributed systems, Go, C#/.NET, cloud infrastructure, and AI-assisted development. Available for consulting."
     },
     "services": {
-      "title": "Services — Devbit Consulting | Michael Hultman",
+      "title": "Services | Michael Hultman, Devbit Consulting",
       "description": "System architecture, backend development, AI-assisted development, and cloud consulting. Go, C#/.NET, Azure, AWS, Kubernetes, DDD, CQRS, Event Sourcing. Available for freelance consulting."
     },
     "career": {
-      "title": "Career Stream — Devbit Consulting | Michael Hultman",
-      "description": "Career timeline of Michael Hultman — 20+ years in software development, from automotive diagnostics to fintech and cloud infrastructure consulting."
+      "title": "Career Stream | Michael Hultman, Devbit Consulting",
+      "description": "Career timeline of Michael Hultman: 20+ years in software development, from automotive diagnostics to fintech and cloud infrastructure consulting."
     },
     "projects": {
-      "title": "Projects — Devbit Consulting | Michael Hultman",
+      "title": "Projects | Michael Hultman, Devbit Consulting",
       "description": "Consulting case studies: Volvo Energy IoT cloud, Stena Line booking modernization, Worldstream datacenter automation, Collector Bank fintech platform."
     },
     "about": {
-      "title": "About — Devbit Consulting | Michael Hultman",
-      "description": "Michael Hultman — Freelance System Architect and Senior Developer. 20+ years experience in distributed systems, Go, C#/.NET, cloud infrastructure, and AI-assisted development. Based in Vänersborg, Sweden."
+      "title": "About | Michael Hultman, Devbit Consulting",
+      "description": "Michael Hultman, freelance system architect and senior developer. 20+ years in distributed systems, Go, C#/.NET, cloud infrastructure, and AI-assisted development. Based in Vänersborg, Sweden."
     },
     "contact": {
-      "title": "Contact — Devbit Consulting | Michael Hultman",
+      "title": "Contact | Michael Hultman, Devbit Consulting",
       "description": "Hire a freelance system architect and senior developer. Contact Michael Hultman at Devbit Consulting for consulting in distributed systems, Go, C#, and cloud."
     }
   }

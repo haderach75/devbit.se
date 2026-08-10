@@ -15,7 +15,7 @@ export default function NotFound() {
         <script dangerouslySetInnerHTML={{ __html: redirectScript }} />
       </head>
       <body style={{ fontFamily: "system-ui, sans-serif", padding: "4rem", textAlign: "center" }}>
-        <h1 style={{ fontSize: "1.5rem", margin: 0 }}>404 — Page not found</h1>
+        <h1 style={{ fontSize: "1.5rem", margin: 0 }}>404 · Page not found</h1>
         <p style={{ marginTop: "1rem" }}>
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a href="/en/">Go to homepage</a>

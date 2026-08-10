@@ -320,12 +320,12 @@ interface CvDocumentProps {
 function fmtDates(start: string, end: string | undefined, presentLabel: string): string {
   const from = start.replace("-", "/");
   const to = end === "present" ? presentLabel : end ? end.replace("-", "/") : "";
-  return to ? `${from} — ${to}` : from;
+  return to ? `${from}–${to}` : from;
 }
 
 export function CvDocument({ data, labels, omitContact = false }: CvDocumentProps) {
   return (
-    <Document title={`${data.name} — CV`} author={data.name}>
+    <Document title={`${data.name} CV`} author={data.name}>
       <Page size="A4" style={s.page}>
         <View fixed style={s.sidebarBg} />
 

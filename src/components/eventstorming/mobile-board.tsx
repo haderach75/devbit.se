@@ -99,7 +99,7 @@ export function MobileEventStormingBoard() {
         <p className="text-sm text-text-muted font-mono">{tHome("comment")}</p>
       </motion.div>
 
-      {/* Story flow — zigzag sticky notes */}
+      {/* Story flow: zigzag sticky notes */}
       <div className="flex flex-col items-center gap-2">
         {story.map((step, i) => (
           <div key={step.id} className="flex flex-col items-center">
