@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, Link, Image, StyleSheet, Font } from "@react-pdf/renderer";
-import type { CvData, TimelineEntry } from "@/data/cv-data";
+import type { CvData } from "@/data/cv-data";
 
 Font.register({
   family: "Inter",
@@ -16,13 +16,12 @@ export interface CvLabels {
   skills: string;
   languages: string;
   employed: string;
-  consulting: string;
+  ownCompany: string;
+  consultancy: string;
   linkedinProfile: string;
   at: string;
-  consultingVia: (company: string) => string;
   present: string;
   contact: string;
-  atAGlance: string;
 }
 
 const c = {
@@ -39,11 +38,6 @@ const c = {
 };
 
 const SIDEBAR_W = 158;
-/** A4 width minus the sidebar and the main column's horizontal padding. */
-const GLANCE_TRACK_W = 595.28 - SIDEBAR_W - 40;
-const GLANCE_LABEL_SIZE = 6;
-const GLANCE_LABEL_CHAR_W = GLANCE_LABEL_SIZE * 0.52; // rough advance width, for collisions
-const GLANCE_TIER_H = 9;
 
 const s = StyleSheet.create({
   page: {
@@ -170,63 +164,6 @@ const s = StyleSheet.create({
     fontSize: 7,
     color: c.body,
   },
-  // Career-at-a-glance strip
-  glanceLabels: {
-    position: "relative",
-  },
-  glanceLabelBox: {
-    position: "absolute",
-    backgroundColor: c.surface,
-    paddingRight: 2,
-  },
-  glanceLabel: {
-    fontSize: GLANCE_LABEL_SIZE,
-    lineHeight: 1,
-    color: c.body,
-    maxLines: 1,
-  },
-  glanceLeader: {
-    position: "absolute",
-    backgroundColor: c.dim,
-  },
-  glanceAxisRow: {
-    height: 8,
-    position: "relative",
-    marginTop: 2,
-  },
-  glanceYear: {
-    position: "absolute",
-    top: 0,
-    fontSize: 5.5,
-    color: c.dim,
-  },
-  glanceTrack: {
-    height: 8,
-    position: "relative",
-    backgroundColor: c.bg,
-    borderRadius: 4,
-  },
-  glanceGrid: {
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    width: 0.5,
-    backgroundColor: c.border,
-  },
-  glanceBar: {
-    position: "absolute",
-    top: 0,
-    height: 8,
-    borderRadius: 4,
-  },
-  glanceBarEmployment: {
-    backgroundColor: c.crimson,
-  },
-  glanceBarConsulting: {
-    backgroundColor: c.amberSoft,
-    borderWidth: 0.75,
-    borderColor: c.amber,
-  },
   // Experience
   entry: {
     marginBottom: 4,
@@ -290,7 +227,7 @@ const s = StyleSheet.create({
     marginLeft: 4,
   },
   timelineEntry: {
-    marginBottom: 5,
+    marginBottom: 8,
     position: "relative",
   },
   timelineDot: {
@@ -309,46 +246,68 @@ const s = StyleSheet.create({
     borderWidth: 2,
     borderColor: c.amber,
   },
-  viaTag: {
+  // Parent role: company on top, role + engagement tag beneath
+  roleRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 1,
+  },
+  companyLead: {
+    color: c.crimson,
+    fontWeight: 700,
+    fontSize: 10,
+  },
+  roleLead: {
+    fontSize: 8.5,
+    color: c.body,
+    flex: 1,
+    marginRight: 6,
+  },
+  tag: {
     backgroundColor: c.bg,
     borderWidth: 0.5,
     borderColor: c.border,
     borderRadius: 3,
     paddingHorizontal: 4,
     paddingVertical: 0.5,
-    marginLeft: 5,
+    flexShrink: 0,
   },
-  viaTagText: {
-    fontSize: 6.5,
-    color: c.muted,
-  },
-  legend: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-    marginBottom: 5,
-  },
-  legendItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 3,
-  },
-  legendDot: {
-    width: 7,
-    height: 7,
-    borderRadius: 3.5,
-  },
-  legendDotEmployment: {
-    backgroundColor: c.crimson,
-  },
-  legendDotConsulting: {
-    backgroundColor: c.surface,
-    borderWidth: 1.5,
+  tagOwn: {
+    backgroundColor: c.amberSoft,
     borderColor: c.amber,
   },
-  legendText: {
+  tagText: {
     fontSize: 6.5,
-    color: c.dim,
+    color: c.muted,
+    textTransform: "uppercase",
+    letterSpacing: 0.4,
+  },
+  tagTextOwn: {
+    color: c.primary,
+  },
+  // Client assignments nested under a consulting role
+  assignments: {
+    marginTop: 3,
+    marginLeft: 1,
+    paddingLeft: 9,
+    borderLeftWidth: 0.75,
+    borderLeftColor: c.border,
+  },
+  assignment: {
+    marginBottom: 3.5,
+  },
+  assignmentHead: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "baseline",
+  },
+  client: {
+    color: c.crimson,
+    fontWeight: 600,
+    fontSize: 9,
+    flex: 1,
+    marginRight: 6,
   },
 });
 
@@ -364,94 +323,7 @@ function fmtDates(start: string, end: string | undefined, presentLabel: string):
   return to ? `${from} — ${to}` : from;
 }
 
-/** "2021-03" | "2021" -> absolute month index, for positioning bars on the year axis. */
-function toMonths(value: string): number {
-  const [y, m] = value.split("-");
-  return Number(y) * 12 + (m ? Number(m) - 1 : 0);
-}
-
-interface GlanceBar {
-  key: string;
-  label: string;
-  type: TimelineEntry["type"];
-  left: number;
-  width: number;
-  /** Stack level of the label above the track — 0 sits closest to the bars. */
-  tier: number;
-  labelLeft: number;
-  /** Bar start in pt, so the leader can elbow back to a label that had to shift. */
-  x: number;
-}
-
-/**
- * Assignments are sequential, so they all fit one track. Labels are stacked
- * into as few tiers as it takes to keep them from overlapping, with a leader
- * line down to the bar each one names.
- */
-function buildGlance(timeline: TimelineEntry[]) {
-  const now = new Date();
-  const nowMonths = now.getFullYear() * 12 + now.getMonth();
-
-  const spans = timeline
-    .map((entry) => ({
-      key: entry.id,
-      label: entry.company,
-      type: entry.type,
-      start: toMonths(entry.startDate),
-      end:
-        !entry.endDate || entry.endDate === "present" ? nowMonths : toMonths(entry.endDate),
-    }))
-    .sort((a, b) => a.start - b.start);
-
-  if (spans.length === 0) return { bars: [], ticks: [], tiers: 0 };
-
-  // Snap the axis to whole years so gridlines land on the labels.
-  const firstYear = Math.floor(Math.min(...spans.map((sp) => sp.start)) / 12);
-  const lastYear = Math.floor(Math.max(...spans.map((sp) => sp.end)) / 12) + 1;
-  const axisMin = firstYear * 12;
-  const axisSpan = lastYear * 12 - axisMin;
-  const pct = (months: number) => ((months - axisMin) / axisSpan) * 100;
-
-  const tierEnds: number[] = []; // right edge (in pt) of the last label on each tier
-  const bars: GlanceBar[] = spans.map((sp) => {
-    const left = pct(sp.start);
-    const gap = Math.min(2, (sp.end - sp.start) * 0.25); // months, so bars don't merge
-    const x = (left / 100) * GLANCE_TRACK_W;
-    const labelW = sp.label.length * GLANCE_LABEL_CHAR_W + 4;
-    const labelLeft = Math.min(x, GLANCE_TRACK_W - labelW);
-
-    let tier = 0;
-    while (tier < tierEnds.length && tierEnds[tier] > labelLeft) tier++;
-    tierEnds[tier] = labelLeft + labelW;
-
-    return {
-      key: sp.key,
-      label: sp.label,
-      type: sp.type,
-      left,
-      width: Math.max(pct(sp.end - gap) - left, 0.8),
-      tier,
-      labelLeft,
-      x,
-    };
-  });
-
-  const step = Math.max(1, Math.ceil((lastYear - firstYear) / 6));
-  const ticks: { year: number; pct: number }[] = [];
-  for (let y = firstYear; y <= lastYear; y += step) {
-    const at = pct(y * 12);
-    if (at > 93) break; // last label would collide with the right edge
-    ticks.push({ year: y, pct: at });
-  }
-
-  // Deepest tier renders at the top, so tier 0 ends up adjacent to the track.
-  const tiers = tierEnds.length;
-  return { bars: bars.map((b) => ({ ...b, tier: tiers - 1 - b.tier })), ticks, tiers };
-}
-
 export function CvDocument({ data, labels, omitContact = false }: CvDocumentProps) {
-  const glance = buildGlance(data.timeline);
-
   return (
     <Document title={`${data.name} — CV`} author={data.name}>
       <Page size="A4" style={s.page}>
@@ -509,129 +381,68 @@ export function CvDocument({ data, labels, omitContact = false }: CvDocumentProp
 
           <Text style={s.summary}>{data.summary}</Text>
 
-          {/* Career at a glance */}
-          {glance.bars.length > 0 && (
-            <View style={s.section}>
-              <Text style={s.sectionTitle}>{labels.atAGlance}</Text>
-              <View style={[s.glanceLabels, { height: glance.tiers * GLANCE_TIER_H }]}>
-                {/* elbows first: label baseline -> bar start -> down to the track */}
-                {glance.bars.map((b) => {
-                  const elbow = (b.tier + 1) * GLANCE_TIER_H - 2.5;
-                  return (
-                    <View key={b.key}>
-                      <View
-                        style={[
-                          s.glanceLeader,
-                          {
-                            left: Math.min(b.x, b.labelLeft),
-                            top: elbow,
-                            width: Math.max(Math.abs(b.x - b.labelLeft), 0.5),
-                            height: 0.5,
-                          },
-                        ]}
-                      />
-                      <View
-                        style={[
-                          s.glanceLeader,
-                          {
-                            left: b.x,
-                            top: elbow,
-                            width: 0.5,
-                            height: (glance.tiers - b.tier - 1) * GLANCE_TIER_H + 2.5,
-                          },
-                        ]}
-                      />
-                    </View>
-                  );
-                })}
-                {/* labels last, on an opaque background, so leaders never cross text */}
-                {glance.bars.map((b) => (
-                  <View
-                    key={b.key}
-                    style={[s.glanceLabelBox, { left: b.labelLeft, top: b.tier * GLANCE_TIER_H }]}
-                  >
-                    <Text style={s.glanceLabel}>{b.label}</Text>
-                  </View>
-                ))}
-              </View>
-              <View style={s.glanceTrack}>
-                {glance.ticks.map((t) => (
-                  <View key={t.year} style={[s.glanceGrid, { left: `${t.pct}%` }]} />
-                ))}
-                {glance.bars.map((b) => (
-                  <View
-                    key={b.key}
-                    style={[
-                      s.glanceBar,
-                      b.type === "employment" ? s.glanceBarEmployment : s.glanceBarConsulting,
-                      { left: `${b.left}%`, width: `${b.width}%` },
-                    ]}
-                  />
-                ))}
-              </View>
-              <View style={s.glanceAxisRow}>
-                {glance.ticks.map((t) => (
-                  <Text key={t.year} style={[s.glanceYear, { left: `${t.pct}%` }]}>
-                    {t.year}
-                  </Text>
-                ))}
-              </View>
-            </View>
-          )}
-
           {/* Experience */}
           <View style={s.section}>
             <Text style={s.sectionTitle}>{labels.experience}</Text>
-            <View style={s.legend}>
-              <View style={s.legendItem}>
-                <View style={[s.legendDot, s.legendDotEmployment]} />
-                <Text style={s.legendText}>{labels.employed}</Text>
-              </View>
-              <View style={s.legendItem}>
-                <View style={[s.legendDot, s.legendDotConsulting]} />
-                <Text style={s.legendText}>{labels.consulting}</Text>
-              </View>
-            </View>
             <View style={s.timeline}>
-              {data.timeline.map((entry) => (
-                <View key={entry.id} style={s.timelineEntry} wrap={false}>
-                  <View
-                    style={[
-                      s.timelineDot,
-                      entry.type === "employment" ? s.dotEmployment : s.dotConsulting,
-                    ]}
-                  />
-                  <View style={s.entryHead}>
-                    <View style={s.entryTitles}>
-                      <Text style={s.company}>{entry.company}</Text>
-                      <Text style={s.at}>—</Text>
-                      <Text style={s.role}>{entry.role}</Text>
-                      {entry.via && (
-                        <View style={s.viaTag}>
-                          <Text style={s.viaTagText}>{labels.consultingVia(entry.via)}</Text>
-                        </View>
-                      )}
+              {data.timeline.map((entry) => {
+                const own = entry.ownCompany === true;
+                const tagText =
+                  entry.type === "employment"
+                    ? labels.employed
+                    : own
+                      ? labels.ownCompany
+                      : labels.consultancy;
+
+                return (
+                  <View key={entry.id} style={s.timelineEntry}>
+                    <View
+                      style={[
+                        s.timelineDot,
+                        entry.type === "employment" ? s.dotEmployment : s.dotConsulting,
+                      ]}
+                    />
+                    <View style={s.entryHead} wrap={false}>
+                      <Text style={s.companyLead}>{entry.company}</Text>
+                      <Text style={s.dates}>
+                        {fmtDates(entry.startDate, entry.endDate, labels.present)}
+                      </Text>
                     </View>
-                    <Text style={s.dates}>
-                      {fmtDates(entry.startDate, entry.endDate, labels.present)}
-                    </Text>
+                    <View style={s.roleRow} wrap={false}>
+                      <Text style={s.roleLead}>{entry.role}</Text>
+                      <View style={own ? [s.tag, s.tagOwn] : s.tag}>
+                        <Text style={own ? [s.tagText, s.tagTextOwn] : s.tagText}>{tagText}</Text>
+                      </View>
+                    </View>
+
+                    {entry.assignments && entry.assignments.length > 0 && (
+                      <View style={s.assignments}>
+                        {entry.assignments.map((a) => (
+                          <View key={a.id} style={s.assignment} wrap={false}>
+                            <View style={s.assignmentHead}>
+                              <Text style={s.client}>{a.client}</Text>
+                              <Text style={s.dates}>
+                                {fmtDates(a.startDate, a.endDate, labels.present)}
+                              </Text>
+                            </View>
+                            {a.description && <Text style={s.bullet}>{a.description}</Text>}
+                          </View>
+                        ))}
+                      </View>
+                    )}
+
+                    {entry.highlights && entry.highlights.length > 0 && (
+                      <View style={[s.assignments, s.bullets]}>
+                        {entry.highlights.map((h, i) => (
+                          <Text key={i} style={s.bullet}>
+                            • {h}
+                          </Text>
+                        ))}
+                      </View>
+                    )}
                   </View>
-                  {entry.description && (
-                    <View style={s.bullets}>
-                      <Text style={s.bullet}>{entry.description}</Text>
-                    </View>
-                  )}
-                  {entry.highlights && entry.highlights.length > 0 && (
-                    <View style={s.bullets}>
-                      {entry.highlights.map((h, i) => (
-                        <Text key={i} style={s.bullet}>
-                          • {h}
-                        </Text>
-                      ))}
-                    </View>
-                  )}
-                </View>
-              ))}
+                );
+              })}
             </View>
           </View>
 

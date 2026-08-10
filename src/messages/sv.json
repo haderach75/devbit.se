@@ -119,13 +119,12 @@
     "skills": "Kompetens",
     "languages": "Språk",
     "employed": "Anställd",
-    "consulting": "Konsultuppdrag",
+    "ownCompany": "Eget bolag",
+    "consultancy": "Konsultbolag",
     "linkedinProfile": "LinkedIn-profil",
     "at": "vid",
-    "consultingVia": "via {company}",
     "present": "Nu",
-    "contact": "Kontakt",
-    "atAGlance": "Karriär i överblick"
+    "contact": "Kontakt"
   },
   "meta": {
     "home": {
