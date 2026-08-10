@@ -6,6 +6,16 @@ import { loc, type Locale } from "@/lib/i18n";
 import type { CareerEvent } from "@/lib/types";
 
 const consultingRoleIds = ["devbit-freelance", "evolve-afry"];
+/** Freelance through my own AB, as opposed to being employed by a consultancy. */
+const ownCompanyRoleIds = ["devbit-freelance"];
+
+export interface TimelineAssignment {
+  id: string;
+  client: string;
+  startDate: string;
+  endDate?: string;
+  description?: string;
+}
 
 export interface TimelineEntry {
   id: string;
@@ -14,8 +24,10 @@ export interface TimelineEntry {
   startDate: string;
   endDate?: string;
   type: "employment" | "consulting";
-  via?: string;
-  description?: string;
+  ownCompany?: boolean;
+  /** Client assignments, for consulting roles. */
+  assignments?: TimelineAssignment[];
+  /** Deliverables, for employments. */
   highlights?: string[];
 }
 
@@ -57,34 +69,34 @@ function buildTimeline(locale: Locale, roleLabelFallback: string): TimelineEntry
 
   for (const evt of careerEvents) {
     if (evt.type !== "RoleStarted") continue;
-    const roleText = evt.payload.role ? loc(evt.payload.role, locale) : roleLabelFallback;
+    const children = evt.children ?? [];
+    const isConsulting = consultingRoleIds.includes(evt.id);
 
-    if (consultingRoleIds.includes(evt.id)) {
-      for (const child of evt.children ?? []) {
-        entries.push({
-          id: child.id,
-          company: child.source,
-          role: roleText,
-          startDate: child.timestamp,
-          endDate: child.endTimestamp,
-          type: "consulting",
-          via: evt.source,
-          description: child.payload.scope ? loc(child.payload.scope, locale) : undefined,
-        });
-      }
-    } else {
-      entries.push({
-        id: evt.id,
-        company: evt.source,
-        role: roleText,
-        startDate: evt.timestamp,
-        endDate: evt.endTimestamp,
-        type: "employment",
-        highlights: (evt.children ?? [])
-          .map((c: CareerEvent) => (c.payload.scope ? loc(c.payload.scope, locale) : ""))
-          .filter(Boolean),
-      });
-    }
+    entries.push({
+      id: evt.id,
+      company: evt.source,
+      role: evt.payload.role ? loc(evt.payload.role, locale) : roleLabelFallback,
+      startDate: evt.timestamp,
+      endDate: evt.endTimestamp,
+      type: isConsulting ? "consulting" : "employment",
+      ownCompany: ownCompanyRoleIds.includes(evt.id) || undefined,
+      assignments: isConsulting
+        ? children
+            .map((child: CareerEvent) => ({
+              id: child.id,
+              client: child.source,
+              startDate: child.timestamp,
+              endDate: child.endTimestamp,
+              description: child.payload.scope ? loc(child.payload.scope, locale) : undefined,
+            }))
+            .sort((a, b) => b.startDate.localeCompare(a.startDate))
+        : undefined,
+      highlights: isConsulting
+        ? undefined
+        : children
+            .map((c: CareerEvent) => (c.payload.scope ? loc(c.payload.scope, locale) : ""))
+            .filter(Boolean),
+    });
   }
 
   return entries.sort((a, b) => b.startDate.localeCompare(a.startDate));

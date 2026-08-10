@@ -119,13 +119,12 @@
     "skills": "Skills",
     "languages": "Languages",
     "employed": "Employed",
-    "consulting": "Consulting",
+    "ownCompany": "Own company",
+    "consultancy": "Consultancy",
     "linkedinProfile": "LinkedIn Profile",
     "at": "at",
-    "consultingVia": "via {company}",
     "present": "Present",
-    "contact": "Contact",
-    "atAGlance": "Career at a glance"
+    "contact": "Contact"
   },
   "meta": {
     "home": {

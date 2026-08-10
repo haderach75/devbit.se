@@ -30,13 +30,12 @@ export function DownloadCvButton({ variant = "full" }: DownloadCvButtonProps) {
         skills: tCv("skills"),
         languages: tCv("languages"),
         employed: tCv("employed"),
-        consulting: tCv("consulting"),
+        ownCompany: tCv("ownCompany"),
+        consultancy: tCv("consultancy"),
         linkedinProfile: tCv("linkedinProfile"),
         at: tCv("at"),
-        consultingVia: (company: string) => tCv("consultingVia", { company }),
         present: tCv("present"),
         contact: tCv("contact"),
-        atAGlance: tCv("atAGlance"),
       };
 
       const blob = await pdf(
