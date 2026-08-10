@@ -14,10 +14,19 @@ export const services: Service[] = [
     id: "development",
     title: { en: "Senior Development", sv: "Senior utveckling" },
     description: {
-      en: "Hands-on C#/.NET development. Clean code, test-driven, production-ready systems.",
-      sv: "Hands-on-utveckling i C#/.NET. Ren kod, test-driven och produktionsredo.",
+      en: "Hands-on backend development in Go and C#/.NET. Clean code, test-driven, production-ready systems.",
+      sv: "Hands-on backend-utveckling i Go och C#/.NET. Ren kod, test-driven och produktionsredo.",
     },
     icon: "Code",
+  },
+  {
+    id: "ai",
+    title: { en: "AI-Assisted Development", sv: "AI-assisterad utveckling" },
+    description: {
+      en: "Building AI into the development process itself — context engineering, prompt and session design, agent workflows, and getting consistent results from AI tools across a team.",
+      sv: "Att bygga in AI i själva utvecklingsprocessen — context engineering, prompt- och sessionsdesign, agentflöden och att få konsekventa resultat från AI-verktyg i ett helt team.",
+    },
+    icon: "Sparkles",
   },
   {
     id: "cloud",
@@ -36,14 +45,5 @@ export const services: Service[] = [
       sv: "Arkitekturgranskningar, teknisk strategi, mentorskap. Hjälper team att växa.",
     },
     icon: "MessageSquare",
-  },
-  {
-    id: "ai",
-    title: { en: "AI-Assisted Development", sv: "AI-Assisted Development" },
-    description: {
-      en: "Practical experience integrating AI into development workflows. Context engineering, prompt design, and getting consistent results from AI tools.",
-      sv: "Praktisk erfarenhet av att integrera AI i utvecklingsflöden. Context engineering, promptdesign och att få konsekventa resultat från AI-verktyg.",
-    },
-    icon: "Cpu",
   },
 ];

@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { Cpu, Code, Cloud, MessageSquare } from "lucide-react";
+import { Cpu, Code, Cloud, MessageSquare, Sparkles } from "lucide-react";
 import { useLocale } from "next-intl";
 import type { Service } from "@/lib/types";
 import { loc, type Locale } from "@/lib/i18n";
 
-const iconMap: Record<string, React.ElementType> = { Cpu, Code, Cloud, MessageSquare };
+const iconMap: Record<string, React.ElementType> = { Cpu, Code, Cloud, MessageSquare, Sparkles };
 
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
   const locale = useLocale() as Locale;

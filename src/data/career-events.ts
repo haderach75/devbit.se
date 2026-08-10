@@ -10,7 +10,7 @@ export const careerEvents: CareerEvent[] = [
     payload: {
       role: { en: "Freelance System Architect / Developer", sv: "Frilansande systemarkitekt / utvecklare" },
       domain: { en: "Consulting", sv: "Konsultation" },
-      tech: ["C#", "Go", "Orleans", "AWS", "Azure", "Kubernetes", "gRPC", "GraphQL"],
+      tech: ["Go", "C#", "Orleans", "AWS", "Azure", "Kubernetes", "gRPC", "GraphQL"],
     },
     children: [
       {
@@ -83,7 +83,7 @@ export const careerEvents: CareerEvent[] = [
     payload: {
       role: { en: "Consultant Architect / Developer", sv: "Konsultarkitekt / utvecklare" },
       domain: { en: "Consulting", sv: "Konsultation" },
-      tech: ["C#", "Go", "Azure", "Kubernetes", "DDD", "CQRS", "Event Sourcing"],
+      tech: ["Go", "C#", "Azure", "Kubernetes", "DDD", "CQRS", "Event Sourcing"],
     },
     children: [
       {
