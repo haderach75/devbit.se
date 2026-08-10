@@ -204,7 +204,7 @@ export function EventStormingBoard() {
         <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm bg-[#C9A9E8]" /> External</span>
       </motion.div>
 
-      {/* Dashed flow arrows — fade in after notes land */}
+      {/* Dashed flow arrows, fade in after notes land */}
       <motion.svg
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

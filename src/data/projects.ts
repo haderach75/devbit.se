@@ -12,7 +12,7 @@ export const projects: Project[] = [
     },
     approach: {
       en: "Built a deployer app in Go running on Kubernetes, with gRPC for the backend and a React frontend for operators.",
-      sv: "Byggde en deployer-app i Go som kör på Kubernetes, med gRPC i backend och ett React-gränssnitt för operatörer.",
+      sv: "Byggde en deployer-app i Go som körs på Kubernetes, med gRPC i backend och ett React-gränssnitt för operatörer.",
     },
     result: {
       en: "Automated configuration deployment to datacenter switches.",
@@ -27,15 +27,15 @@ export const projects: Project[] = [
     domain: { en: "EV Charging / Automotive", sv: "EV-laddning / Fordon" },
     challenge: {
       en: "Needed a cloud backend to communicate with wallboxes and other energy devices in real time using MQTT and OCPP.",
-      sv: "Behövde ett molnbaserat backend för att kommunicera med wallboxar och andra energi-enheter i realtid via MQTT och OCPP.",
+      sv: "Behövde en molnbaserad backend för att kommunicera med wallboxar och andra energienheter i realtid via MQTT och OCPP.",
     },
     approach: {
       en: "Used Microsoft Orleans on AWS for an actor-based setup, with gRPC between services and GraphQL for the client API.",
       sv: "Använde Microsoft Orleans på AWS för en aktörsbaserad lösning, med gRPC mellan tjänster och GraphQL för klient-API:et.",
     },
     result: {
-      en: "A working cloud platform that manages IoT energy devices with real-time monitoring and control.",
-      sv: "En fungerande molnplattform som hanterar IoT-energienheter med realtidsövervakning och styrning.",
+      en: "A cloud platform in production that manages IoT energy devices with real-time monitoring and control.",
+      sv: "En molnplattform i drift som hanterar IoT-energienheter med realtidsövervakning och styrning.",
     },
     tech: ["C#", "Orleans", "AWS", "MQTT", "OCPP", "gRPC", "GraphQL"],
   },
@@ -45,8 +45,8 @@ export const projects: Project[] = [
     client: "Collector Bank",
     domain: { en: "Banking / FinTech", sv: "Bank / FinTech" },
     challenge: {
-      en: "Several core banking systems needed to be built or modernized — credit evaluation, savings accounts, fraud detection, and regulatory compliance.",
-      sv: "Flera centrala banksystem behövde byggas eller moderniseras — kreditvärdering, sparkonton, bedrägeridetektering och regelefterlevnad.",
+      en: "Several core banking systems needed to be built or modernized: credit evaluation, savings accounts, fraud detection, and regulatory compliance.",
+      sv: "Flera centrala banksystem behövde byggas eller moderniseras: kreditvärdering, sparkonton, bedrägeridetektering och regelefterlevnad.",
     },
     approach: {
       en: "Built microservices on Azure and Kubernetes using C#, CQRS, and Event Sourcing for each system.",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     },
     result: {
       en: "Delivered five systems: credit evaluation, savings accounts, anti-fraud, GDPR data cleanup, and anti-money laundering integration.",
-      sv: "Levererade fem system: kreditvärdering, sparkonton, bedrägeriskydd, GDPR-dataröjning och integration för penningtvättskontroll.",
+      sv: "Levererade fem system: kreditvärdering, sparkonton, bedrägeriskydd, radering av persondata enligt GDPR och integration för penningtvättskontroll.",
     },
     tech: ["C#", "Azure", "Kubernetes", "CQRS", "Event Sourcing"],
   },
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     },
     result: {
       en: "Established the architectural foundation and patterns for the ongoing transformation of the booking system.",
-      sv: "La den arkitektoniska grunden och mönster för den pågående omvandlingen av bokningssystemet.",
+      sv: "Lade grunden för arkitekturen och mönstren i den pågående omvandlingen av bokningssystemet.",
     },
     tech: ["C#", "ASP.NET Core", "Distributed Systems"],
   },
