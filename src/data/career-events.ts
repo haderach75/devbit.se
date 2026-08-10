@@ -15,13 +15,14 @@ export const careerEvents: CareerEvent[] = [
     children: [
       {
         id: "worldstream-deployer",
-        type: "ProjectInProgress",
+        type: "ProjectDelivered",
         timestamp: "2025-06",
+        endTimestamp: "2026-06",
         source: "Worldstream Netherlands",
         payload: {
           scope: {
-            en: "Building a deployer system that handles configuration deployment to datacenter switches, using Go, Kubernetes, gRPC, and React",
-            sv: "Bygger ett deployer-system som hanterar konfigurationsdeployment till datacenter-switchar, med Go, Kubernetes, gRPC och React",
+            en: "Built a deployer system that handles configuration deployment to datacenter switches, using Go, Kubernetes, gRPC, and React",
+            sv: "Byggde ett deployer-system som hanterar konfigurationsdeployment till datacenter-switchar, med Go, Kubernetes, gRPC och React",
           },
         },
       },

@@ -123,7 +123,9 @@
     "linkedinProfile": "LinkedIn-profil",
     "at": "vid",
     "consultingVia": "via {company}",
-    "present": "Nu"
+    "present": "Nu",
+    "contact": "Kontakt",
+    "atAGlance": "Karriär i överblick"
   },
   "meta": {
     "home": {

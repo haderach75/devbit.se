@@ -123,7 +123,9 @@
     "linkedinProfile": "LinkedIn Profile",
     "at": "at",
     "consultingVia": "via {company}",
-    "present": "Present"
+    "present": "Present",
+    "contact": "Contact",
+    "atAGlance": "Career at a glance"
   },
   "meta": {
     "home": {
