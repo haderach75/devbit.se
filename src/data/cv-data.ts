@@ -42,6 +42,7 @@ export interface CvContact {
 export interface CvData {
   name: string;
   title: string;
+  summary: string;
   photo: string;
   contact: CvContact;
   linkedin: string;
@@ -106,11 +107,16 @@ export function buildCvData(locale: Locale): CvData {
     en: "Senior System Architect / Developer",
     sv: "Senior systemarkitekt / utvecklare",
   };
+  const summaries = {
+    en: "Senior system architect and developer with 20+ years in the industry. Hands-on in both Go and C#/.NET, specialized in distributed systems, DDD, CQRS and Event Sourcing on Kubernetes, AWS and Azure. Works extensively with AI-assisted development — context engineering and building AI into the everyday development process, from design to code review.",
+    sv: "Senior systemarkitekt och utvecklare med 20+ år i branschen. Hands-on i både Go och C#/.NET, specialiserad på distribuerade system, DDD, CQRS och Event Sourcing på Kubernetes, AWS och Azure. Arbetar omfattande med AI-assisterad utveckling — context engineering och att bygga in AI i det dagliga utvecklingsflödet, från design till kodgranskning.",
+  };
   const roleFallback = { en: "Consultant", sv: "Konsult" };
 
   return {
     name: "Michael Hultman",
     title: titles[locale],
+    summary: summaries[locale],
     photo: "https://devbit.se/michael.jpg",
     contact: {
       email: contactInfo.email,

@@ -43,7 +43,7 @@
   },
   "about": {
     "paragraphs": [
-      "Med över 20 år i mjukvarubranschen är jag specialiserad på distribuerade system, molninfrastruktur och ren arkitektur. Min expertis ligger i .NET-plattformen, framför allt C#, med djup erfarenhet av DDD, CQRS och Event Sourcing.",
+      "Med över 20 år i mjukvarubranschen är jag specialiserad på distribuerade system, molninfrastruktur och ren arkitektur. Jag arbetar hands-on i både Go och C#/.NET, med djup erfarenhet av DDD, CQRS och Event Sourcing.",
       "Jag håller mig uppdaterad med de senaste trenderna i branschen och har de senaste två och ett halvt åren arbetat hands-on med AI-assisterad utveckling, med fokus på context engineering — att strukturera sessioner och prompts för att få ut mesta möjliga av AI-verktyg.",
       "Jag driver Devbit Consulting AB från Vänersborg."
     ],
@@ -130,11 +130,11 @@
   "meta": {
     "home": {
       "title": "Devbit Consulting | Michael Hultman — Systemarkitekt & Senior Utvecklare",
-      "description": "Systemarkitekt och senior utvecklare specialiserad på distribuerade system, C#/.NET, molninfrastruktur och ren arkitektur. Tillgänglig för konsultuppdrag."
+      "description": "Systemarkitekt och senior utvecklare specialiserad på distribuerade system, Go, C#/.NET, molninfrastruktur och AI-assisterad utveckling. Tillgänglig för konsultuppdrag."
     },
     "services": {
       "title": "Tjänster — Devbit Consulting | Michael Hultman",
-      "description": "Systemarkitektur, backend-utveckling och molnkonsultation. C#/.NET, Go, Azure, AWS, Kubernetes, DDD, CQRS, Event Sourcing. Tillgänglig för frilansuppdrag."
+      "description": "Systemarkitektur, backend-utveckling, AI-assisterad utveckling och molnkonsultation. Go, C#/.NET, Azure, AWS, Kubernetes, DDD, CQRS, Event Sourcing. Tillgänglig för frilansuppdrag."
     },
     "career": {
       "title": "Karriärström — Devbit Consulting | Michael Hultman",
@@ -146,11 +146,11 @@
     },
     "about": {
       "title": "Om mig — Devbit Consulting | Michael Hultman",
-      "description": "Michael Hultman — Frilansande systemarkitekt och senior utvecklare. 20+ år av erfarenhet inom distribuerade system, C#/.NET, Go och molninfrastruktur. Baserad i Vänersborg."
+      "description": "Michael Hultman — Frilansande systemarkitekt och senior utvecklare. 20+ år av erfarenhet inom distribuerade system, Go, C#/.NET, molninfrastruktur och AI-assisterad utveckling. Baserad i Vänersborg."
     },
     "contact": {
       "title": "Kontakt — Devbit Consulting | Michael Hultman",
-      "description": "Anlita en frilansande systemarkitekt och senior utvecklare. Kontakta Michael Hultman på Devbit Consulting för konsultation inom distribuerade system, C#, Go och moln."
+      "description": "Anlita en frilansande systemarkitekt och senior utvecklare. Kontakta Michael Hultman på Devbit Consulting för konsultation inom distribuerade system, Go, C# och moln."
     }
   }
 }

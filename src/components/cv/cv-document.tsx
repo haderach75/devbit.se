@@ -148,6 +148,12 @@ const s = StyleSheet.create({
     marginTop: 6,
     marginBottom: 10,
   },
+  summary: {
+    fontSize: 8.5,
+    color: c.body,
+    lineHeight: 1.45,
+    marginBottom: 10,
+  },
   // Skills
   pills: {
     flexDirection: "row",
@@ -500,6 +506,8 @@ export function CvDocument({ data, labels, omitContact = false }: CvDocumentProp
           <Text style={s.name}>{data.name}</Text>
           <Text style={s.title}>{data.title}</Text>
           <View style={s.rule} />
+
+          <Text style={s.summary}>{data.summary}</Text>
 
           {/* Career at a glance */}
           {glance.bars.length > 0 && (

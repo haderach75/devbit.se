@@ -1,1 +1,1 @@
-export const skills = ["C#", ".NET", "Go", "Azure", "AWS", "Kubernetes", "DDD", "CQRS", "Event Sourcing", "gRPC", "GraphQL", "Orleans", "MQTT", "Docker", "ASP.NET Core", "AI-Assisted Development", "Context Engineering"];
+export const skills = ["Go", "C#", ".NET", "Kubernetes", "AWS", "Azure", "DDD", "CQRS", "Event Sourcing", "gRPC", "GraphQL", "Orleans", "MQTT", "Docker", "ASP.NET Core", "AI-Assisted Development", "Context Engineering"];
