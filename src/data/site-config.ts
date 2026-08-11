@@ -33,10 +33,10 @@ export const siteLinks: SiteLink[] = [
     icon: "Mail",
   },
   {
-    label: { en: "Cinematic", sv: "Cinematic" },
-    href: "/cinematic",
-    description: { en: "Scroll-driven showcase", sv: "Scrolldriven showcase" },
-    icon: "Film",
+    label: { en: "Event Storming", sv: "Event Storming" },
+    href: "/board",
+    description: { en: "The interactive board", sv: "Den interaktiva tavlan" },
+    icon: "StickyNote",
   },
 ];
 
