@@ -8,7 +8,7 @@ import { CareerEvent } from "./career-event";
 export function EventStream() {
   const locale = useLocale() as Locale;
   const t = useTranslations("career");
-  let firstExpandableFound = false;
+  const firstExpandableId = careerEvents.find((e) => e.children && e.children.length > 0)?.id;
 
   return (
     <div className="rounded-xl border border-border bg-bg p-3 md:p-6 font-mono overflow-x-hidden">
@@ -17,11 +17,9 @@ export function EventStream() {
         <span className="text-xs md:text-sm text-text-dim">{t("streamHeader", { count: careerEvents.length })}</span>
       </div>
       <div className="space-y-2">
-        {careerEvents.map((event) => {
-          const isFirstExpandable = !firstExpandableFound && event.children && event.children.length > 0;
-          if (isFirstExpandable) firstExpandableFound = true;
-          return <CareerEvent key={event.id} event={event} locale={locale} defaultExpanded={isFirstExpandable} />;
-        })}
+        {careerEvents.map((event) => (
+          <CareerEvent key={event.id} event={event} locale={locale} defaultExpanded={event.id === firstExpandableId} />
+        ))}
       </div>
     </div>
   );

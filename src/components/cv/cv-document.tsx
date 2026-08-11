@@ -331,6 +331,7 @@ export function CvDocument({ data, labels, omitContact = false }: CvDocumentProp
 
         {/* Sidebar */}
         <View style={s.sidebar}>
+          {/* eslint-disable-next-line jsx-a11y/alt-text -- react-pdf Image, not HTML img; no alt prop */}
           <Image style={s.photo} src={data.photo} />
 
           <View style={s.sideBlock}>

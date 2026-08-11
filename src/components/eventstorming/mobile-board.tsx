@@ -25,7 +25,7 @@ const colorMap: Record<NoteColor, { bg: string; text: string }> = {
   lilac:  { bg: "bg-[#C9A9E8]", text: "text-[#2a1a42]" },
 };
 
-function StickyNote({ step, index }: { step: StoryStep; index: number }) {
+function StickyNote({ step }: { step: StoryStep }) {
   const router = useRouter();
   const colors = colorMap[step.color];
   const isClickable = !!step.href;
@@ -104,7 +104,7 @@ export function MobileEventStormingBoard() {
         {story.map((step, i) => (
           <div key={step.id} className="flex flex-col items-center">
             <div className={i % 2 === 0 ? "self-start ml-4" : "self-end mr-4"}>
-              <StickyNote step={step} index={i} />
+              <StickyNote step={step} />
             </div>
             {/* Connecting dashes */}
             {i < story.length - 1 && (

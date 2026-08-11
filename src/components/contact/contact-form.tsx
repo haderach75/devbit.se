@@ -23,7 +23,7 @@ export function ContactForm() {
   function onSubmit(data: FormData) {
     const subject = encodeURIComponent(data.subject || t("defaultSubject"));
     const body = encodeURIComponent(`From: ${data.name} (${data.email})\n\n${data.message}`);
-    window.location.href = `mailto:michael@devbit.se?subject=${subject}&body=${body}`;
+    window.location.assign(`mailto:michael@devbit.se?subject=${subject}&body=${body}`);
   }
 
   const inputClass = "w-full rounded-lg border border-border bg-bg px-4 py-3 text-base text-text-body placeholder:text-text-dim focus:border-crimson focus:outline-none transition-colors";
