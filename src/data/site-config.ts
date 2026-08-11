@@ -32,6 +32,12 @@ export const siteLinks: SiteLink[] = [
     description: { en: "Get in touch", sv: "Hör av dig" },
     icon: "Mail",
   },
+  {
+    label: { en: "Cinematic", sv: "Cinematic" },
+    href: "/cinematic",
+    description: { en: "Scroll-driven showcase", sv: "Scrolldriven showcase" },
+    icon: "Film",
+  },
 ];
 
 export const contactInfo = {
