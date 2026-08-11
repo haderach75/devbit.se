@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale, getTranslations } from "next-intl/server";
-import { inter, jetbrainsMono, dmSerifDisplay } from "@/lib/fonts";
+import { inter, jetbrainsMono, dmSerifDisplay, anton } from "@/lib/fonts";
 import { Header } from "@/components/layout/header";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/lib/i18n";
@@ -53,7 +53,7 @@ export default async function LocaleLayout({
   const typedLocale = locale as Locale;
 
   return (
-    <html lang={typedLocale} className={`${inter.variable} ${jetbrainsMono.variable} ${dmSerifDisplay.variable}`}>
+    <html lang={typedLocale} className={`${inter.variable} ${jetbrainsMono.variable} ${dmSerifDisplay.variable} ${anton.variable}`}>
       <head>
         <script
           type="application/ld+json"

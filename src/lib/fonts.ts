@@ -1,4 +1,11 @@
-import { Inter, JetBrains_Mono, DM_Serif_Display } from "next/font/google";
+import { Inter, JetBrains_Mono, DM_Serif_Display, Anton } from "next/font/google";
+
+export const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const inter = Inter({
   subsets: ["latin"],
