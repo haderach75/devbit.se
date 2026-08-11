@@ -32,12 +32,6 @@ export const siteLinks: SiteLink[] = [
     description: { en: "Get in touch", sv: "Hör av dig" },
     icon: "Mail",
   },
-  {
-    label: { en: "Event Storming", sv: "Event Storming" },
-    href: "/board",
-    description: { en: "The interactive board", sv: "Den interaktiva tavlan" },
-    icon: "StickyNote",
-  },
 ];
 
 export const contactInfo = {
