@@ -31,10 +31,10 @@ export function HeroSequence({ name, reduced }: { name: string; reduced: boolean
   const titleOpacity = useTransform(scrollYProgress, [0, 0.55, 0.8], [1, 1, 0]);
   const titleY = useTransform(scrollYProgress, [0.55, 0.8], [0, -60]);
 
-  // Preload the sequence — desktop with motion only. Phones and
-  // reduced-motion users get the poster and never download a frame.
+  // Preload the sequence. Reduced-motion users get the poster and
+  // never download a frame.
   useEffect(() => {
-    if (reduced || window.matchMedia("(max-width: 767px)").matches) {
+    if (reduced) {
       setMode("poster");
       return;
     }
