@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { services } from "@/data/services";
 import { loc, type Locale } from "@/lib/i18n";
@@ -19,24 +18,21 @@ function PillarNote({
   index,
   title,
   description,
-  progress,
   reduced,
 }: {
   index: number;
   title: string;
   description: string;
-  progress: MotionValue<number>;
   reduced: boolean;
 }) {
-  // Each note lands in its own third of the pinned scroll.
-  const start = 0.15 + index * 0.22;
-  const opacity = useTransform(progress, [start, start + 0.1], [0, 1]);
-  const y = useTransform(progress, [start, start + 0.1], [60, 0]);
   const note = NOTE[index];
 
   return (
     <motion.div
-      style={reduced ? undefined : { opacity, y }}
+      initial={reduced ? false : { opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ delay: index * 0.15, duration: 0.5, ease: "easeOut" }}
       className={`${note.bg} ${note.text} ${note.rotate} w-full max-w-sm p-6 shadow-xl md:p-8`}
     >
       <h3 className="text-2xl md:text-3xl" style={{ fontFamily: "var(--font-display)" }}>
@@ -50,15 +46,13 @@ function PillarNote({
 export function Pillars({ reduced }: { reduced: boolean }) {
   const t = useTranslations("cinematic");
   const locale = useLocale() as Locale;
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const pillars = PILLAR_IDS.map((id) => services.find((s) => s.id === id)!);
 
   return (
-    <section ref={ref} className="relative h-[300vh]">
+    <section className="relative h-[300vh]">
       <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden px-6">
         <VideoBackdrop src="/media/storm.mp4" hidden={reduced} />
-        <p className="relative z-10 mb-10 font-mono text-xs uppercase tracking-widest text-[#a31f2e]">
+        <p className="relative z-10 mb-10 font-mono text-xs uppercase tracking-widest text-[#d94a58]">
           {t("pillarsLabel")}
         </p>
         <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-6 md:flex-row md:items-stretch md:justify-center">
@@ -68,7 +62,6 @@ export function Pillars({ reduced }: { reduced: boolean }) {
               index={i}
               title={loc(service.title, locale)}
               description={loc(service.description, locale)}
-              progress={scrollYProgress}
               reduced={reduced}
             />
           ))}

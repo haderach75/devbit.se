@@ -154,7 +154,7 @@ export function HeroSequence({ name, reduced }: { name: string; reduced: boolean
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.8, duration: 0.8 }}
-            className="mt-4 font-mono text-xs text-[#a31f2e] md:text-sm"
+            className="mt-4 font-mono text-xs text-[#d94a58] md:text-sm"
           >
             {t("tag")}
           </motion.p>
