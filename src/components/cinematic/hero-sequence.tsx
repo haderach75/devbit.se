@@ -75,15 +75,19 @@ export function HeroSequence({ name, reduced }: { name: string; reduced: boolean
       const img = framesRef.current[frameIndexRef.current];
       if (img?.naturalWidth) drawCover(ctx, img);
     };
+    // Size the backing store to the canvas element's own box, not the
+    // window — mobile URL-bar collapse changes innerHeight mid-scroll
+    // while the 100vh box stays put, which stretched the drawing.
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
+      canvas.width = canvas.clientWidth * dpr;
+      canvas.height = canvas.clientHeight * dpr;
       render();
     };
     resize();
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    return () => ro.disconnect();
   }, [mode]);
 
   useMotionValueEvent(frame, "change", (v) => {
