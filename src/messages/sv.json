@@ -127,6 +127,7 @@
     "contact": "Kontakt"
   },
   "meta": {
+    "cinematic": { "title": "Michael Hultman — Cinematic", "description": "Senior systemarkitekt och utvecklare. Distribuerade system i Go och C#, från design till produktion." },
     "home": {
       "title": "Devbit Consulting | Michael Hultman, systemarkitekt & senior utvecklare",
       "description": "Systemarkitekt och senior utvecklare specialiserad på distribuerade system, Go, C#/.NET, molninfrastruktur och AI-assisterad utveckling. Tillgänglig för konsultuppdrag."
@@ -151,5 +152,17 @@
       "title": "Kontakt | Michael Hultman, Devbit Consulting",
       "description": "Anlita en frilansande systemarkitekt och senior utvecklare. Kontakta Michael Hultman på Devbit Consulting för konsultation inom distribuerade system, Go, C# och moln."
     }
+  },
+  "cinematic": {
+    "subtitle": "Senior systemarkitekt och utvecklare. Distribuerade system i Go och C#, från design till produktion.",
+    "tag": "Devbit Consulting AB — Vänersborg. Tillgänglig för uppdrag.",
+    "scroll": "Scrolla",
+    "loading": "Laddar sekvens",
+    "stats": { "years": "år i branschen", "systems": "levererade system", "clients": "kunder", "founded": "Devbit grundat" },
+    "pillarsLabel": "Vad jag gör",
+    "workLabel": "Utvalda projekt",
+    "viewAll": "Alla fallstudier",
+    "finaleTitle": "Låt oss bygga något som håller.",
+    "bookCall": "Boka ett samtal"
   }
 }
