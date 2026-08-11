@@ -44,6 +44,17 @@ export function CinematicPage({
 }) {
   const reduced = useReducedMotion();
 
+  // Page is dark-only — force dark site chrome (header) while mounted,
+  // restore the visitor's theme on leave.
+  useEffect(() => {
+    const root = document.documentElement;
+    const wasDark = root.classList.contains("dark");
+    root.classList.add("dark");
+    return () => {
+      if (!wasDark) root.classList.remove("dark");
+    };
+  }, []);
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const lenis = new Lenis({ lerp: 0.1 });
