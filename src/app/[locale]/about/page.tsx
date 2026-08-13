@@ -8,6 +8,7 @@ import { SkillTags } from "@/components/about/skill-tags";
 import { ExperienceItem } from "@/components/about/experience-item";
 import { DownloadCvButton } from "@/components/cv/download-cv-button";
 import { languages } from "@/data/languages";
+import { experienceYears } from "@/lib/experience";
 import { loc, localizedHref, type Locale } from "@/lib/i18n";
 
 interface ExperienceEntry {
@@ -24,7 +25,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta.about" });
   return {
     title: t("title"),
-    description: t("description"),
+    description: t("description", { years: experienceYears() }),
     alternates: {
       canonical: `https://devbit.se/${locale}/about`,
       languages: { en: "/en/about", sv: "/sv/about" },
@@ -41,7 +42,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const tPage = await getTranslations({ locale, namespace: "pages.about" });
 
   // Paragraphs are a string array under the `about` namespace.
-  const paragraphs = t.raw("paragraphs") as string[];
+  // `raw()` skips ICU, so substitute {years} by hand.
+  const paragraphs = (t.raw("paragraphs") as string[]).map((p) =>
+    p.replace("{years}", String(experienceYears()))
+  );
 
   // Experience/education are top-level string-object arrays in the message bundle.
   // `getTranslations({ namespace: "experience" }).raw("")` isn't reliable across next-intl versions

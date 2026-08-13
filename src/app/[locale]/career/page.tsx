@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { EventStream } from "@/components/career/event-stream";
+import { experienceYears } from "@/lib/experience";
 
 export async function generateMetadata({
   params,
@@ -11,7 +12,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta.career" });
   return {
     title: t("title"),
-    description: t("description"),
+    description: t("description", { years: experienceYears() }),
     alternates: {
       canonical: `https://devbit.se/${locale}/career`,
       languages: { en: "/en/career", sv: "/sv/career" },
@@ -26,7 +27,7 @@ export default async function CareerPage({ params }: { params: Promise<{ locale:
 
   return (
     <PageContainer>
-      <SectionHeading label={t("label")} title={t("title")} description={t("description")} />
+      <SectionHeading label={t("label")} title={t("title")} description={t("description", { years: experienceYears() })} />
       <EventStream />
     </PageContainer>
   );

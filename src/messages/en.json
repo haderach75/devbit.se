@@ -13,7 +13,7 @@
   },
   "pages": {
     "services": { "label": "Services", "title": "What Devbit Brings", "description": "System architecture, hands-on development, cloud infrastructure, and strategic consulting." },
-    "career":   { "label": "Career Stream", "title": "Career.EventStore.replay()", "description": "20+ years of software engineering, replayed as an event stream. Click roles to expand project details." },
+    "career":   { "label": "Career Stream", "title": "Career.EventStore.replay()", "description": "{years}+ years of software engineering, replayed as an event stream. Click roles to expand project details." },
     "projects": { "label": "Projects", "title": "Case Studies", "description": "Featured projects across EV charging, banking, shipping, and datacenter infrastructure." },
     "about":    { "label": "About", "title": "Michael Hultman", "description": "System Architect & Senior Developer" },
     "contact":  { "label": "Contact", "title": "Get In Touch", "description": "Have a project in mind? Let's talk." }
@@ -43,7 +43,7 @@
   },
   "about": {
     "paragraphs": [
-      "With over 20 years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. I work hands-on in both Go and C#/.NET, with deep experience in DDD, CQRS, and Event Sourcing.",
+      "With {years}+ years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. I work hands-on in both Go and C#/.NET, with deep experience in DDD, CQRS, and Event Sourcing.",
       "For the past two and a half years I have worked hands-on with AI-assisted development, mostly with context engineering: structuring sessions and prompts so the tools produce code worth keeping.",
       "I run Devbit Consulting AB from Vänersborg, Sweden."
     ],
@@ -138,7 +138,7 @@
     },
     "career": {
       "title": "Career Stream | Michael Hultman, Devbit Consulting",
-      "description": "Career timeline of Michael Hultman: 20+ years in software development, from automotive diagnostics to fintech and cloud infrastructure consulting."
+      "description": "Career timeline of Michael Hultman: {years}+ years in software development, from automotive diagnostics to fintech and cloud infrastructure consulting."
     },
     "projects": {
       "title": "Projects | Michael Hultman, Devbit Consulting",
@@ -146,7 +146,7 @@
     },
     "about": {
       "title": "About | Michael Hultman, Devbit Consulting",
-      "description": "Michael Hultman, freelance system architect and senior developer. 20+ years in distributed systems, Go, C#/.NET, cloud infrastructure, and AI-assisted development. Based in Vänersborg, Sweden."
+      "description": "Michael Hultman, freelance system architect and senior developer. {years}+ years in distributed systems, Go, C#/.NET, cloud infrastructure, and AI-assisted development. Based in Vänersborg, Sweden."
     },
     "contact": {
       "title": "Contact | Michael Hultman, Devbit Consulting",

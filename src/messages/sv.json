@@ -13,7 +13,7 @@
   },
   "pages": {
     "services": { "label": "Tjänster", "title": "Det Devbit erbjuder", "description": "Systemarkitektur, hands-on-utveckling, molninfrastruktur och strategisk rådgivning." },
-    "career":   { "label": "Career Stream", "title": "Career.EventStore.replay()", "description": "20+ års mjukvaruutveckling, uppspelat som en event stream. Klicka på rollerna för att expandera projekten." },
+    "career":   { "label": "Career Stream", "title": "Career.EventStore.replay()", "description": "{years}+ års mjukvaruutveckling, uppspelat som en event stream. Klicka på rollerna för att expandera projekten." },
     "projects": { "label": "Projekt", "title": "Fallstudier", "description": "Utvalda projekt inom EV-laddning, bank, sjöfart och datacenter-infrastruktur." },
     "about":    { "label": "Om mig", "title": "Michael Hultman", "description": "Systemarkitekt & Senior Utvecklare" },
     "contact":  { "label": "Kontakt", "title": "Hör av dig", "description": "Har du ett projekt i åtanke? Vi tar ett snack." }
@@ -43,7 +43,7 @@
   },
   "about": {
     "paragraphs": [
-      "Med över 20 år i mjukvarubranschen är jag specialiserad på distribuerade system, molninfrastruktur och clean architecture. Jag arbetar hands-on i både Go och C#/.NET, med djup erfarenhet av DDD, CQRS och Event Sourcing.",
+      "Med {years}+ år i mjukvarubranschen är jag specialiserad på distribuerade system, molninfrastruktur och clean architecture. Jag arbetar hands-on i både Go och C#/.NET, med djup erfarenhet av DDD, CQRS och Event Sourcing.",
       "De senaste två och ett halvt åren har jag arbetat hands-on med AI-assisterad utveckling, mest med context engineering: att strukturera sessioner och prompts så att verktygen producerar kod som håller.",
       "Jag driver Devbit Consulting AB från Vänersborg."
     ],
@@ -138,7 +138,7 @@
     },
     "career": {
       "title": "Karriär | Michael Hultman, Devbit Consulting",
-      "description": "Karriärtidslinje för Michael Hultman: 20+ år inom mjukvaruutveckling, från fordonsdiagnostik till fintech och molninfrastruktur."
+      "description": "Karriärtidslinje för Michael Hultman: {years}+ år inom mjukvaruutveckling, från fordonsdiagnostik till fintech och molninfrastruktur."
     },
     "projects": {
       "title": "Projekt | Michael Hultman, Devbit Consulting",
@@ -146,7 +146,7 @@
     },
     "about": {
       "title": "Om mig | Michael Hultman, Devbit Consulting",
-      "description": "Michael Hultman, frilansande systemarkitekt och senior utvecklare. 20+ års erfarenhet av distribuerade system, Go, C#/.NET, molninfrastruktur och AI-assisterad utveckling. Utgår från Vänersborg."
+      "description": "Michael Hultman, frilansande systemarkitekt och senior utvecklare. {years}+ års erfarenhet av distribuerade system, Go, C#/.NET, molninfrastruktur och AI-assisterad utveckling. Utgår från Vänersborg."
     },
     "contact": {
       "title": "Kontakt | Michael Hultman, Devbit Consulting",
