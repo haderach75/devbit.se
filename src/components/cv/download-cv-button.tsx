@@ -28,6 +28,8 @@ export function DownloadCvButton({ variant = "full" }: DownloadCvButtonProps) {
         experience: tCv("experience"),
         education: tCv("education"),
         skills: tCv("skills"),
+        databases: tCv("databases"),
+        messaging: tCv("messaging"),
         languages: tCv("languages"),
         employed: tCv("employed"),
         ownCompany: tCv("ownCompany"),

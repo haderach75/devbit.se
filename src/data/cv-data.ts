@@ -1,6 +1,6 @@
 import { careerEvents } from "@/data/career-events";
 import { contactInfo } from "@/data/site-config";
-import { skills } from "@/data/skills";
+import { skills, databases, messaging } from "@/data/skills";
 import { languages } from "@/data/languages";
 import { experienceYears } from "@/lib/experience";
 import { loc, type Locale } from "@/lib/i18n";
@@ -60,6 +60,8 @@ export interface CvData {
   contact: CvContact;
   linkedin: string;
   skills: string[];
+  databases: string[];
+  messaging: string[];
   languages: CvLanguage[];
   timeline: TimelineEntry[];
   education: CvEducation[];
@@ -140,6 +142,8 @@ export function buildCvData(locale: Locale): CvData {
     },
     linkedin: "https://www.linkedin.com/in/michael-hultman-28545741/",
     skills,
+    databases,
+    messaging,
     languages: languages.map((l) => ({
       name: loc(l.name, locale),
       level: loc(l.level, locale),

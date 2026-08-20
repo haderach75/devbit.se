@@ -14,6 +14,8 @@ export interface CvLabels {
   experience: string;
   education: string;
   skills: string;
+  databases: string;
+  messaging: string;
   languages: string;
   employed: string;
   ownCompany: string;
@@ -163,6 +165,11 @@ const s = StyleSheet.create({
     paddingVertical: 1.5,
     fontSize: 7,
     color: c.body,
+  },
+  groupText: {
+    fontSize: 7.5,
+    color: c.body,
+    lineHeight: 1.45,
   },
   // Experience
   entry: {
@@ -362,6 +369,16 @@ export function CvDocument({ data, labels, omitContact = false }: CvDocumentProp
                 </View>
               ))}
             </View>
+          </View>
+
+          <View style={s.sideBlock}>
+            <Text style={s.sideTitle}>{labels.databases}</Text>
+            <Text style={s.groupText}>{data.databases.join(", ")}</Text>
+          </View>
+
+          <View style={s.sideBlock}>
+            <Text style={s.sideTitle}>{labels.messaging}</Text>
+            <Text style={s.groupText}>{data.messaging.join(", ")}</Text>
           </View>
 
           <View style={s.sideBlock}>
