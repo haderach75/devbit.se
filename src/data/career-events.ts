@@ -10,7 +10,7 @@ export const careerEvents: CareerEvent[] = [
     payload: {
       role: { en: "Freelance System Architect / Developer", sv: "Frilansande systemarkitekt / utvecklare" },
       domain: { en: "Consulting", sv: "Konsultuppdrag" },
-      tech: ["Go", "C#", "Orleans", "AWS", "Azure", "Kubernetes", "gRPC", "GraphQL"],
+      tech: ["Go", "C#", "Orleans", "AWS", "Azure", "Kubernetes", "gRPC", "GraphQL", "Azure DevOps", "Terraform", "GitLab CI", "OpenShift"],
     },
     children: [
       {
@@ -21,8 +21,8 @@ export const careerEvents: CareerEvent[] = [
         source: "Worldstream Netherlands",
         payload: {
           scope: {
-            en: "Built a deployer system that handles configuration deployment to datacenter switches, using Go, Kubernetes, gRPC, and React",
-            sv: "Byggde ett deployer-system som hanterar konfigurationsdeployment till datacenter-switchar, med Go, Kubernetes, gRPC och React",
+            en: "Built a deployer system that handles configuration deployment to datacenter switches, using Go, Kubernetes, gRPC, and React, with GitLab CI pipelines",
+            sv: "Byggde ett deployer-system som hanterar konfigurationsdeployment till datacenter-switchar, med Go, Kubernetes, gRPC och React, med GitLab CI-pipelines",
           },
         },
       },
@@ -34,8 +34,8 @@ export const careerEvents: CareerEvent[] = [
         source: "Volvo Energy",
         payload: {
           scope: {
-            en: "Built a cloud backend for wallboxes and other energy devices using MQTT, OCPP, Orleans, AWS, gRPC, and GraphQL",
-            sv: "Byggde en molnbaserad backend för wallboxar och andra energienheter med MQTT, OCPP, Orleans, AWS, gRPC och GraphQL",
+            en: "Built a cloud backend for wallboxes and other energy devices using MQTT, OCPP, Orleans, AWS, gRPC, and GraphQL, and owned the DevOps side with Azure DevOps pipelines and Terraform",
+            sv: "Byggde en molnbaserad backend för wallboxar och andra energienheter med MQTT, OCPP, Orleans, AWS, gRPC och GraphQL, och ansvarade för DevOps med Azure DevOps-pipelines och Terraform",
           },
         },
       },
@@ -47,8 +47,8 @@ export const careerEvents: CareerEvent[] = [
         source: "Stena Line",
         payload: {
           scope: {
-            en: "Helped establish distributed architecture patterns and started the migration of the booking system from monolith to separate services using C# and ASP.NET Core",
-            sv: "Hjälpte till att etablera mönster för distribuerad arkitektur och inledde migreringen av bokningssystemet från monolit till separata tjänster med C# och ASP.NET Core",
+            en: "Helped establish distributed architecture patterns and started the migration of the booking system from monolith to separate services using C# and ASP.NET Core, deployed to OpenShift via Azure DevOps",
+            sv: "Hjälpte till att etablera mönster för distribuerad arkitektur och inledde migreringen av bokningssystemet från monolit till separata tjänster med C# och ASP.NET Core, deployade till OpenShift via Azure DevOps",
           },
         },
       },
@@ -83,7 +83,7 @@ export const careerEvents: CareerEvent[] = [
     payload: {
       role: { en: "Consultant Architect / Developer", sv: "Konsultarkitekt / utvecklare" },
       domain: { en: "Consulting", sv: "Konsultuppdrag" },
-      tech: ["Go", "C#", "Azure", "Kubernetes", "DDD", "CQRS", "Event Sourcing"],
+      tech: ["Go", "C#", "Azure", "Kubernetes", "DDD", "CQRS", "Event Sourcing", "Azure DevOps"],
     },
     children: [
       {
@@ -107,8 +107,8 @@ export const careerEvents: CareerEvent[] = [
         source: "Cuviva",
         payload: {
           scope: {
-            en: "Moved an existing system from Azure to a hybrid cloud setup running on Kubernetes",
-            sv: "Flyttade ett befintligt system från Azure till en hybridmolnlösning på Kubernetes",
+            en: "Moved an existing system from Azure to a hybrid cloud setup running on Kubernetes, with Azure DevOps pipelines",
+            sv: "Flyttade ett befintligt system från Azure till en hybridmolnlösning på Kubernetes, med Azure DevOps-pipelines",
           },
         },
       },
@@ -123,7 +123,7 @@ export const careerEvents: CareerEvent[] = [
     payload: {
       role: { en: "Architect", sv: "Arkitekt" },
       domain: { en: "Banking / FinTech", sv: "Bank / FinTech" },
-      tech: ["C#", "Azure", "Kubernetes", "CQRS", "Event Sourcing"],
+      tech: ["C#", "Azure", "Kubernetes", "CQRS", "Event Sourcing", "Azure DevOps", "Terraform", "ArgoCD"],
     },
     children: [
       {
@@ -145,6 +145,10 @@ export const careerEvents: CareerEvent[] = [
       {
         id: "collector-aml", type: "ProjectDelivered", timestamp: "2020-01", source: "Collector Bank",
         payload: { scope: { en: "Integrated anti-money laundering (AML) checks into the core banking platform", sv: "Integrerade kontroller mot penningtvätt (AML) i den centrala bankplattformen" } },
+      },
+      {
+        id: "collector-devops", type: "ProjectDelivered", timestamp: "2020-06", source: "Collector Bank",
+        payload: { scope: { en: "Ran the DevOps side of the platform: Azure DevOps pipelines, Terraform, and GitOps delivery to Kubernetes with ArgoCD", sv: "Ansvarade för DevOps i plattformen: Azure DevOps-pipelines, Terraform och GitOps-leverans till Kubernetes med ArgoCD" } },
       },
     ],
   },
