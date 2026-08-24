@@ -34,8 +34,8 @@ export const careerEvents: CareerEvent[] = [
         source: "Volvo Energy",
         payload: {
           scope: {
-            en: "Built a cloud backend for wallboxes and other energy devices using MQTT, OCPP, Orleans, AWS, gRPC, and GraphQL, and owned the DevOps side with Azure DevOps pipelines and Terraform",
-            sv: "Byggde en molnbaserad backend för wallboxar och andra energienheter med MQTT, OCPP, Orleans, AWS, gRPC och GraphQL, och ansvarade för DevOps med Azure DevOps-pipelines och Terraform",
+            en: "Built a cloud backend for wallboxes and other energy devices using MQTT, OCPP, Orleans, AWS, gRPC, and GraphQL, with Azure DevOps pipelines and Terraform for build and infrastructure",
+            sv: "Byggde en molnbaserad backend för wallboxar och andra energienheter med MQTT, OCPP, Orleans, AWS, gRPC och GraphQL, med Azure DevOps-pipelines och Terraform för bygge och infrastruktur",
           },
         },
       },
@@ -148,7 +148,7 @@ export const careerEvents: CareerEvent[] = [
       },
       {
         id: "collector-devops", type: "ProjectDelivered", timestamp: "2020-06", source: "Collector Bank",
-        payload: { scope: { en: "Ran the DevOps side of the platform: Azure DevOps pipelines, Terraform, and GitOps delivery to Kubernetes with ArgoCD", sv: "Ansvarade för DevOps i plattformen: Azure DevOps-pipelines, Terraform och GitOps-leverans till Kubernetes med ArgoCD" } },
+        payload: { scope: { en: "Worked with DevOps in the team: Azure DevOps pipelines, Terraform, and GitOps delivery to Kubernetes with ArgoCD", sv: "Arbetade med DevOps i teamet: Azure DevOps-pipelines, Terraform och GitOps-leverans till Kubernetes med ArgoCD" } },
       },
     ],
   },
