@@ -11,8 +11,8 @@ export const projects: Project[] = [
       sv: "Datacentret använde en licensierad tredjepartsprodukt för konfigurationsdeployment till switchar och ville ersätta den med en egen lösning, bättre anpassad till deras behov och leverantörsoberoende.",
     },
     approach: {
-      en: "Built a deployer app in Go running on Kubernetes, with gRPC for the backend and a React frontend for operators.",
-      sv: "Byggde en deployer-app i Go som körs på Kubernetes, med gRPC i backend och ett React-gränssnitt för operatörer.",
+      en: "Built a deployer app in Go running on Kubernetes, with gRPC for the backend and a React frontend for operators. Built with an AI-assisted workflow from design through implementation and code review.",
+      sv: "Byggde en deployer-app i Go som körs på Kubernetes, med gRPC i backend och ett React-gränssnitt för operatörer. Byggd med ett AI-assisterat arbetsflöde från design till implementation och kodgranskning.",
     },
     result: {
       en: "Automated configuration deployment to datacenter switches.",
@@ -30,14 +30,14 @@ export const projects: Project[] = [
       sv: "Behövde en molnbaserad backend för att kommunicera med wallboxar och andra energienheter i realtid via MQTT och OCPP.",
     },
     approach: {
-      en: "Used Microsoft Orleans on AWS for an actor-based setup, with gRPC between services and GraphQL for the client API.",
-      sv: "Använde Microsoft Orleans på AWS för en aktörsbaserad lösning, med gRPC mellan tjänster och GraphQL för klient-API:et.",
+      en: "Used Microsoft Orleans on AWS for an actor-based setup, with gRPC between services and GraphQL for the client API. Tried AI-assisted development in different parts of the work to see where it helped, with the clearest gains on the Blazor frontend.",
+      sv: "Använde Microsoft Orleans på AWS för en aktörsbaserad lösning, med gRPC mellan tjänster och GraphQL för klient-API:et. Provade AI-assisterad utveckling i olika delar av arbetet för att se var den gjorde nytta, med tydligast effekt på Blazor-frontenden.",
     },
     result: {
       en: "A cloud platform in production that manages IoT energy devices with real-time monitoring and control.",
       sv: "En molnplattform i drift som hanterar IoT-energienheter med realtidsövervakning och styrning.",
     },
-    tech: ["C#", "Orleans", "AWS", "MQTT", "OCPP", "gRPC", "GraphQL"],
+    tech: ["C#", "Orleans", "AWS", "MQTT", "OCPP", "gRPC", "GraphQL", "Blazor"],
   },
   {
     id: "collector-bank",
@@ -68,8 +68,8 @@ export const projects: Project[] = [
       sv: "Ett stort monolitiskt bokningssystem behövde brytas upp för att bli enklare att arbeta med och skala.",
     },
     approach: {
-      en: "Defined distributed architecture patterns and service boundaries using C# and ASP.NET Core. Started the migration from monolith to separate services.",
-      sv: "Definierade mönster för distribuerad arkitektur och tjänstegränser med C# och ASP.NET Core. Inledde migreringen från monolit till separata tjänster.",
+      en: "Defined distributed architecture patterns and service boundaries using C# and ASP.NET Core. Started the migration from monolith to separate services. Also ran a side track with agentic frameworks on OpenAI models, to see how much of the legacy ASP.NET-to-C# refactoring could be handled by an agent rather than by hand.",
+      sv: "Definierade mönster för distribuerad arkitektur och tjänstegränser med C# och ASP.NET Core. Inledde migreringen från monolit till separata tjänster. Drev även ett sidospår med agentiska ramverk på OpenAI-modeller, för att se hur stor del av refaktoreringen från äldre ASP.NET till C# som en agent kunde hantera i stället för handpåläggning.",
     },
     result: {
       en: "Established the architectural foundation and patterns for the ongoing transformation of the booking system.",
