@@ -5,8 +5,8 @@ export const services: Service[] = [
     id: "architecture",
     title: { en: "System Architecture", sv: "Systemarkitektur" },
     description: {
-      en: "Distributed systems design, DDD, CQRS, event sourcing. From monolith decomposition to greenfield design.",
-      sv: "Design av distribuerade system, DDD, CQRS, event sourcing. Från uppdelning av monoliter till greenfield-design.",
+      en: "Distributed systems design, DDD, CQRS, event sourcing.",
+      sv: "Design av distribuerade system, DDD, CQRS, event sourcing.",
     },
     icon: "Cpu",
   },
@@ -14,8 +14,8 @@ export const services: Service[] = [
     id: "development",
     title: { en: "Senior Development", sv: "Senior utveckling" },
     description: {
-      en: "Hands-on backend development in Go and C#/.NET. Clean code, test-driven, production-ready systems.",
-      sv: "Hands-on backend-utveckling i Go och C#/.NET. Ren kod, test-driven och produktionsredo.",
+      en: "Hands-on backend development in Go and C#/.NET, test-driven.",
+      sv: "Hands-on backend-utveckling i Go och C#/.NET, testdriven.",
     },
     icon: "Code",
   },
@@ -23,8 +23,8 @@ export const services: Service[] = [
     id: "ai",
     title: { en: "AI-Assisted Development", sv: "AI-assisterad utveckling" },
     description: {
-      en: "Building AI into the development process itself: context engineering, prompt and session design, agent workflows, and getting consistent results from AI tools across a team.",
-      sv: "Att bygga in AI i själva utvecklingsprocessen: context engineering, prompt- och sessionsdesign, agentflöden och att få konsekventa resultat från AI-verktyg i ett helt team.",
+      en: "Building AI into the development process: context engineering, prompt and session design, agent workflows, and getting consistent results from AI tools across a team.",
+      sv: "Att bygga in AI i utvecklingsprocessen: context engineering, prompt- och sessionsdesign, agentflöden och att få konsekventa resultat från AI-verktyg i ett helt team.",
     },
     icon: "Sparkles",
   },

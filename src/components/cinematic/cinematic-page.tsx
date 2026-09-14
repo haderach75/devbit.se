@@ -10,7 +10,7 @@ import { Finale } from "./finale";
 
 export interface CinematicStats {
   years: number;
-  systems: number;
+  projects: number;
   clients: number;
   founded: number;
 }

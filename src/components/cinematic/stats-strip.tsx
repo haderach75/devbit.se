@@ -36,7 +36,7 @@ export function StatsStrip({ stats, reduced }: { stats: CinematicStats; reduced:
 
   const items = [
     { value: stats.years, suffix: "+", label: t("years") },
-    { value: stats.systems, suffix: "", label: t("systems") },
+    { value: stats.projects, suffix: "", label: t("projects") },
     { value: stats.clients, suffix: "", label: t("clients") },
     { value: stats.founded, suffix: "", label: t("founded") },
   ];

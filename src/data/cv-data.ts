@@ -6,7 +6,7 @@ import { experienceYears } from "@/lib/experience";
 import { loc, type Locale } from "@/lib/i18n";
 import type { CareerEvent } from "@/lib/types";
 
-const consultingRoleIds = ["devbit-freelance", "evolve-afry"];
+export const consultingRoleIds = ["devbit-freelance", "evolve-afry"];
 /** Freelance through my own AB, as opposed to being employed by a consultancy. */
 const ownCompanyRoleIds = ["devbit-freelance"];
 
@@ -119,13 +119,13 @@ function buildEducation(locale: Locale): CvEducation[] {
 
 export function buildCvData(locale: Locale): CvData {
   const titles = {
-    en: "Senior System Architect / Developer",
-    sv: "Senior systemarkitekt / utvecklare",
+    en: "System Architect & Senior Developer",
+    sv: "Systemarkitekt & senior utvecklare",
   };
   const years = experienceYears();
   const summaries = {
-    en: `Senior system architect and developer with ${years}+ years in the industry. Hands-on in both Go and C#/.NET, specialized in distributed systems, DDD, CQRS and Event Sourcing on Kubernetes, AWS and Azure. Works daily with AI-assisted development: context engineering and building AI into the development process, from design to code review.`,
-    sv: `Senior systemarkitekt och utvecklare med ${years}+ år i branschen. Hands-on i både Go och C#/.NET, specialiserad på distribuerade system, DDD, CQRS och Event Sourcing på Kubernetes, AWS och Azure. Arbetar dagligen med AI-assisterad utveckling: context engineering och att bygga in AI i utvecklingsflödet, från design till kodgranskning.`,
+    en: `System architect and senior developer with ${years}+ years in the industry. Hands-on in both Go and C#/.NET, specialized in distributed systems, DDD, CQRS and Event Sourcing on Kubernetes, AWS and Azure. Works daily with AI-assisted development: context engineering and building AI into the development process.`,
+    sv: `Systemarkitekt och senior utvecklare med ${years}+ år i branschen. Hands-on i både Go och C#/.NET, specialiserad på distribuerade system, DDD, CQRS och Event Sourcing på Kubernetes, AWS och Azure. Arbetar dagligen med AI-assisterad utveckling: context engineering och att bygga in AI i utvecklingsflödet.`,
   };
   const roleFallback = { en: "Consultant", sv: "Konsult" };
 

@@ -21,8 +21,8 @@ export const careerEvents: CareerEvent[] = [
         source: "Worldstream Netherlands",
         payload: {
           scope: {
-            en: "Built a deployer system that handles configuration deployment to datacenter switches, using Go, Kubernetes, gRPC, and React, with GitLab CI pipelines. AI-assisted development throughout: agentic coding tools for implementation, tests and review, with architecture and context set by me",
-            sv: "Byggde ett deployer-system som hanterar konfigurationsdeployment till datacenter-switchar, med Go, Kubernetes, gRPC och React, med GitLab CI-pipelines. AI-assisterad utveckling genom hela uppdraget: agentiska kodverktyg för implementation, tester och granskning, med arkitektur och kontext satt av mig",
+            en: "Built a system that deploys configuration to datacenter switches, using Go, Kubernetes, gRPC, React, and GitLab CI pipelines. AI-assisted development throughout: agentic coding tools for implementation, tests and review, with architecture and context set by me",
+            sv: "Byggde ett system som deployar konfiguration till datacenter-switchar, med Go, Kubernetes, gRPC, React och GitLab CI-pipelines. AI-assisterad utveckling genom hela uppdraget: agentiska kodverktyg för implementation, tester och granskning, med arkitektur och kontext satt av mig",
           },
         },
       },
@@ -34,8 +34,8 @@ export const careerEvents: CareerEvent[] = [
         source: "Volvo Energy",
         payload: {
           scope: {
-            en: "Built a cloud backend for wallboxes and other energy devices using MQTT, OCPP, Orleans, AWS, gRPC, and GraphQL, with Azure DevOps pipelines and Terraform for build and infrastructure. Explored where AI-assisted development actually paid off in the team; most of the value landed on the Blazor frontend — components, UI state and tests",
-            sv: "Byggde en molnbaserad backend för wallboxar och andra energienheter med MQTT, OCPP, Orleans, AWS, gRPC och GraphQL, med Azure DevOps-pipelines och Terraform för bygge och infrastruktur. Utforskade var AI-assisterad utveckling faktiskt gav effekt i teamet; störst nytta blev det på Blazor-frontenden — komponenter, UI-state och tester",
+            en: "Built a cloud backend for wallboxes and other energy devices using MQTT, OCPP, Orleans, AWS, gRPC, and GraphQL, with Azure DevOps pipelines and Terraform for build and infrastructure. Explored where AI-assisted development actually paid off in the team; most of the value landed on the Blazor frontend (components, UI state and tests)",
+            sv: "Byggde en molnbaserad backend för wallboxar och andra energienheter med MQTT, OCPP, Orleans, AWS, gRPC och GraphQL, med Azure DevOps-pipelines och Terraform för bygge och infrastruktur. Utforskade var AI-assisterad utveckling faktiskt gav effekt i teamet; störst nytta blev det på Blazor-frontenden (komponenter, UI-state och tester)",
           },
         },
       },
@@ -136,7 +136,7 @@ export const careerEvents: CareerEvent[] = [
       },
       {
         id: "collector-antifraud", type: "ProjectDelivered", timestamp: "2019-01", source: "Collector Bank",
-        payload: { scope: { en: "Updated and improved the anti-fraud detection system", sv: "Uppdaterade och förbättrade bedrägeridetekteringssystemet" } },
+        payload: { scope: { en: "Integrated CM1, a new supplier for anti-fraud detection", sv: "Integrerade CM1, en ny leverantör för bedrägeridetektering" } },
       },
       {
         id: "collector-gdpr", type: "ProjectDelivered", timestamp: "2019-06", source: "Collector Bank",
