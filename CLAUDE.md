@@ -17,7 +17,9 @@ This is the **Devbit Consulting** personal/portfolio website for Michael Hultman
 
 ### Key Concepts
 
-**Event Storming homepage**: The landing page (`src/app/page.tsx`) is a custom Event Storming board built with Framer Motion — colored sticky notes (domain events, commands, aggregates, policies) representing a customer journey. Yellow "aggregate" notes are clickable and navigate to site pages. There is a separate mobile layout (`mobile-board.tsx`). This is not a standard component library — it's bespoke.
+**Cinematic homepage**: The landing page (`src/app/[locale]/page.tsx`) renders `CinematicPage` (`src/components/cinematic/`): a scroll-driven hero image sequence, stats strip, service pillars, selected work, and a contact finale, built with Framer Motion.
+
+**Event Storming board**: `/board` (`src/app/[locale]/board/page.tsx`) is a custom Event Storming board built with Framer Motion. Colored sticky notes (domain events, commands, aggregates, policies) represent a customer journey. Yellow "aggregate" notes are clickable and navigate to site pages. There is a separate mobile layout (`mobile-board.tsx`). This is not a standard component library; it's bespoke.
 
 **Career Event Stream**: Career history is modeled as domain events (`CareerEvent` type in `src/lib/types.ts`) with `RoleStarted`, `ProjectDelivered`, `EducationCompleted`, etc. Events have parent-child relationships (roles contain project children). Data lives in `src/data/career-events.ts`.
 
