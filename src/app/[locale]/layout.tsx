@@ -64,7 +64,7 @@ export default async function LocaleLayout({
                 {
                   "@type": "Person",
                   name: "Michael Hultman",
-                  jobTitle: typedLocale === "sv" ? "Systemarkitekt & Senior Utvecklare" : "System Architect & Senior Developer",
+                  jobTitle: typedLocale === "sv" ? "Systemarkitekt & senior utvecklare" : "System Architect & Senior Developer",
                   url: `https://devbit.se/${typedLocale}`,
                   email: "michael@devbit.se",
                   telephone: "+46737120558",

@@ -12,11 +12,11 @@
     "comment": "// event storming: the customer journey"
   },
   "pages": {
-    "services": { "label": "Services", "title": "What Devbit Brings", "description": "System architecture, hands-on development, cloud infrastructure, and strategic consulting." },
+    "services": { "label": "Services", "title": "Consulting Services", "description": "System architecture, backend development in Go and C#, AI-assisted development, cloud and DevOps, and architecture reviews." },
     "career":   { "label": "Career Stream", "title": "Career.EventStore.replay()", "description": "{years}+ years of software engineering, replayed as an event stream. Click roles to expand project details." },
     "projects": { "label": "Projects", "title": "Case Studies", "description": "Featured projects across EV charging, banking, shipping, and datacenter infrastructure." },
     "about":    { "label": "About", "title": "Michael Hultman", "description": "System Architect & Senior Developer" },
-    "contact":  { "label": "Contact", "title": "Get In Touch", "description": "Have a project in mind? Let's talk." }
+    "contact":  { "label": "Contact", "title": "Get In Touch", "description": "Use the form, or email or call me directly." }
   },
   "sticky": {
     "services": "Services",
@@ -43,8 +43,8 @@
   },
   "about": {
     "paragraphs": [
-      "With {years}+ years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. I work hands-on in both Go and C#/.NET, with deep experience in DDD, CQRS, and Event Sourcing.",
-      "For the past two and a half years I have worked hands-on with AI-assisted development, mostly with context engineering: structuring sessions and prompts so the tools produce code worth keeping.",
+      "With {years}+ years in the software industry, I specialize in distributed systems, cloud infrastructure, and clean architecture. I work hands-on in both Go and C#/.NET, with experience in DDD, CQRS, and Event Sourcing.",
+      "Since 2023 I have worked with AI-assisted development, mostly with context engineering: structuring sessions and prompts so the tools produce code worth keeping.",
       "I run Devbit Consulting AB from Vänersborg, Sweden."
     ],
     "expertise": "Expertise",
@@ -57,7 +57,7 @@
     "languagesHeading": "Languages"
   },
   "experience": [
-    { "title": "Freelance System Architect / Developer", "company": "Devbit Consulting AB", "dates": "Aug 2022–Present", "description": "Freelance consulting. Clients: Worldstream (datacenter deployer), Volvo Energy (IoT cloud backend), Stena Line (booking system modernization)." },
+    { "title": "Freelance System Architect / Developer", "company": "Devbit Consulting AB", "dates": "Aug 2022–Present", "description": "Clients:Worldstream (datacenter deployer), Volvo Energy (IoT cloud backend), Stena Line (booking system modernization)." },
     { "title": "Consultant Architect / Developer", "company": "Evolve / Afry", "dates": "Mar 2021–Aug 2022", "description": "Consulting assignments: Worldstream (Go/DDD/CQRS systems), Cuviva (Azure to Kubernetes migration for medtech)." },
     { "title": "Architect", "company": "Collector Bank", "dates": "Feb 2017–Mar 2021", "description": "Credit evaluation, anti-fraud, GDPR compliance, and AML on Azure/Kubernetes." },
     { "title": "Software Developer", "company": "Autocom Diagnostic Partner", "dates": "Aug 2007–Feb 2017", "description": "Vehicle diagnostic tools, licensing systems, and test rigs for devices before shipping." }
@@ -129,7 +129,6 @@
     "contact": "Contact"
   },
   "meta": {
-    "cinematic": { "title": "Michael Hultman — Cinematic", "description": "Senior system architect and developer. Distributed systems in Go and C#, from design to production." },
     "home": {
       "title": "Devbit Consulting | Michael Hultman, System Architect & Senior Developer",
       "description": "System Architect and Senior Developer specializing in distributed systems, Go, C#/.NET, cloud infrastructure, and AI-assisted development. Available for consulting."
@@ -156,15 +155,15 @@
     }
   },
   "cinematic": {
-    "subtitle": "Senior system architect and developer. Distributed systems in Go and C#, from design to production.",
-    "tag": "Devbit Consulting AB — Vänersborg, Sweden. Available for contracts.",
+    "subtitle": "System architect and senior developer. Distributed systems in Go and C#, from design to production.",
+    "tag": "Devbit Consulting AB, Vänersborg, Sweden. Available for contracts.",
     "scroll": "Scroll",
     "loading": "Loading sequence",
-    "stats": { "years": "years in the industry", "systems": "systems delivered", "clients": "clients", "founded": "Devbit founded" },
+    "stats": { "years": "years in the industry", "projects": "projects delivered", "clients": "clients", "founded": "Devbit founded" },
     "pillarsLabel": "What I do",
     "workLabel": "Selected work",
     "viewAll": "All case studies",
-    "finaleTitle": "Let's build something that lasts.",
-    "bookCall": "Book a call"
+    "finaleTitle": "Open for contracts in Sweden and remote internationally.",
+    "emailMe": "Email me"
   }
 }

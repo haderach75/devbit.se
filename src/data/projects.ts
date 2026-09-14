@@ -7,16 +7,16 @@ export const projects: Project[] = [
     client: "Worldstream Netherlands",
     domain: { en: "Infrastructure", sv: "Infrastruktur" },
     challenge: {
-      en: "The datacenter was using a licensed third-party product for switch configuration deployment and wanted to replace it with their own software, better tailored to their needs and vendor agnostic.",
-      sv: "Datacentret använde en licensierad tredjepartsprodukt för konfigurationsdeployment till switchar och ville ersätta den med en egen lösning, bättre anpassad till deras behov och leverantörsoberoende.",
+      en: "The datacenter was using a licensed third-party product for switch configuration deployment and wanted to replace it with their own vendor-agnostic software.",
+      sv: "Datacentret använde en licensierad tredjepartsprodukt för konfigurationsdeployment till switchar och ville ersätta den med en egen leverantörsoberoende lösning.",
     },
     approach: {
-      en: "Built a deployer app in Go running on Kubernetes, with gRPC for the backend and a React frontend for operators. Built with an AI-assisted workflow from design through implementation and code review.",
-      sv: "Byggde en deployer-app i Go som körs på Kubernetes, med gRPC i backend och ett React-gränssnitt för operatörer. Byggd med ett AI-assisterat arbetsflöde från design till implementation och kodgranskning.",
+      en: "Built a deployer app in Go running on Kubernetes, with gRPC for the backend and a React frontend for operators. Used an AI-assisted workflow for design, implementation, and code review.",
+      sv: "Byggde en deployer-app i Go som körs på Kubernetes, med gRPC i backend och ett React-gränssnitt för operatörer. Använde ett AI-assisterat arbetsflöde för design, implementation och kodgranskning.",
     },
     result: {
-      en: "Automated configuration deployment to datacenter switches.",
-      sv: "Automatiserad konfigurationsdeployment till datacenter-switchar.",
+      en: "Replaced the licensed product. The deployer is in full production and runs stably.",
+      sv: "Ersatte den licensierade produkten. Deployern är i full drift och går stabilt.",
     },
     tech: ["Go", "Kubernetes", "gRPC", "React"],
   },
@@ -34,8 +34,8 @@ export const projects: Project[] = [
       sv: "Använde Microsoft Orleans på AWS för en aktörsbaserad lösning, med gRPC mellan tjänster och GraphQL för klient-API:et. Provade AI-assisterad utveckling i olika delar av arbetet för att se var den gjorde nytta, med tydligast effekt på Blazor-frontenden.",
     },
     result: {
-      en: "A cloud platform in production that manages IoT energy devices with real-time monitoring and control.",
-      sv: "En molnplattform i drift som hanterar IoT-energienheter med realtidsövervakning och styrning.",
+      en: "A cloud platform in production with real-time monitoring and control of energy devices. It backs the Volvo wallbox, which went on sale in 31 European markets in March 2025.",
+      sv: "En molnplattform i drift med realtidsövervakning och styrning av energienheter. Den ligger bakom Volvos wallbox, som började säljas på 31 europeiska marknader i mars 2025.",
     },
     tech: ["C#", "Orleans", "AWS", "MQTT", "OCPP", "gRPC", "GraphQL", "Blazor"],
   },
@@ -49,8 +49,8 @@ export const projects: Project[] = [
       sv: "Flera centrala banksystem behövde byggas eller moderniseras: kreditvärdering, sparkonton, bedrägeridetektering och regelefterlevnad.",
     },
     approach: {
-      en: "Built microservices on Azure and Kubernetes using C#, CQRS, and Event Sourcing for each system.",
-      sv: "Byggde mikrotjänster på Azure och Kubernetes i C# med CQRS och Event Sourcing för varje system.",
+      en: "Built microservices on Azure and Kubernetes using C#, CQRS, and Event Sourcing.",
+      sv: "Byggde mikrotjänster på Azure och Kubernetes i C# med CQRS och Event Sourcing.",
     },
     result: {
       en: "Delivered five systems: credit evaluation, savings accounts, anti-fraud, GDPR data cleanup, and anti-money laundering integration.",
@@ -68,12 +68,12 @@ export const projects: Project[] = [
       sv: "Ett stort monolitiskt bokningssystem behövde brytas upp för att bli enklare att arbeta med och skala.",
     },
     approach: {
-      en: "Defined distributed architecture patterns and service boundaries using C# and ASP.NET Core. Started the migration from monolith to separate services. Also ran a side track with agentic frameworks on OpenAI models, to see how much of the legacy ASP.NET-to-C# refactoring could be handled by an agent rather than by hand.",
-      sv: "Definierade mönster för distribuerad arkitektur och tjänstegränser med C# och ASP.NET Core. Inledde migreringen från monolit till separata tjänster. Drev även ett sidospår med agentiska ramverk på OpenAI-modeller, för att se hur stor del av refaktoreringen från äldre ASP.NET till C# som en agent kunde hantera i stället för handpåläggning.",
+      en: "Defined distributed architecture patterns and service boundaries using C# and ASP.NET Core. Started the migration from monolith to separate services. Also ran a side track with agentic frameworks on OpenAI models. The goal was to see how much of the refactoring from legacy ASP.NET code into the new C# services an agent could handle.",
+      sv: "Definierade mönster för distribuerad arkitektur och tjänstegränser med C# och ASP.NET Core. Inledde migreringen från monolit till separata tjänster. Drev även ett sidospår med agentiska ramverk på OpenAI-modeller. Målet var att se hur stor del av refaktoreringen från äldre ASP.NET-kod till de nya C#-tjänsterna som en agent kunde hantera.",
     },
     result: {
-      en: "Established the architectural foundation and patterns for the ongoing transformation of the booking system.",
-      sv: "Lade grunden för arkitekturen och mönstren i den pågående omvandlingen av bokningssystemet.",
+      en: "Handed over defined service boundaries, architecture patterns, and a monolith migration already under way.",
+      sv: "Lämnade över definierade tjänstegränser, arkitekturmönster och en påbörjad migrering från monoliten.",
     },
     tech: ["C#", "ASP.NET Core", "Distributed Systems"],
   },
@@ -83,16 +83,16 @@ export const projects: Project[] = [
     client: "Worldstream Netherlands",
     domain: { en: "Infrastructure", sv: "Infrastruktur" },
     challenge: {
-      en: "Setting up VXLAN/EVPN networks at the datacenter was done manually, which took time and led to mistakes.",
-      sv: "VXLAN/EVPN-nätverken i datacentret sattes upp manuellt, vilket tog tid och ledde till fel.",
+      en: "Setting up VXLAN/EVPN networks at the datacenter was done manually. The configuration is complex, so how long it took and how many mistakes crept in depended on the engineer doing it.",
+      sv: "VXLAN/EVPN-nätverken i datacentret sattes upp manuellt. Konfigurationen är komplex, så hur lång tid det tog och hur många fel som uppstod berodde på vilken ingenjör som gjorde den.",
     },
     approach: {
       en: "Built the system from scratch in Go using DDD, CQRS, and Event Sourcing.",
       sv: "Byggde systemet från grunden i Go med DDD, CQRS och Event Sourcing.",
     },
     result: {
-      en: "Automated the VXLAN/EVPN setup process, cutting down setup time and removing manual errors.",
-      sv: "Automatiserade uppsättningen av VXLAN/EVPN, vilket kapade uppsättningstiden och eliminerade manuella fel.",
+      en: "Automated the VXLAN/EVPN setup, so the outcome no longer depends on which engineer does the configuration.",
+      sv: "Automatiserade uppsättningen av VXLAN/EVPN, så att resultatet inte längre beror på vilken ingenjör som gör konfigurationen.",
     },
     tech: ["Go", "DDD", "CQRS", "Event Sourcing"],
   },
